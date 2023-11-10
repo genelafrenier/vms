@@ -27,6 +27,9 @@ public class Event {
         this.eventLocation = eventLocation;
     }
 
+    public Event() {
+    }
+
     public void setOrganizerId(int organizerId) {
         this.organizerId = organizerId;
     }
