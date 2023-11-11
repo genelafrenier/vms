@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SMS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar_container">
+      <img src="Logo.png" alt="SMS" class="logo">
+      <h1> Swarm Management System</h1>
+      <div class="dropdown">
+        <button class="dropbtn"></button>
+        <div class="dropdown-content">
+          <a href="#">Events</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Help</a>
+          <a href="#">Login</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </nav>
+  <div class ="outer-frame">
+  <div class ="event-frame" id ="event-frame"></div>
+  <div class ="contact-window" id="contact-window">
+    <div class="contact-inner-frame">
+        <button type="button" class ="apply-button">Apply</button>
+        <div class="contact-title">Have a Question?
+        <p class = "contact-text"> Ask any questions about the event.</p>
+    </div>
+    </div>
+    
+    
+
+  </div>
+
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    const getUrl = 'http://localhost:8080/event?id=' + id;
+
+    async function getEvent(getUrl) {
+      fetch(getUrl, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+        .then(response => response.json())
+        .then(data =>{
+        console.log(data);
+        populateEvent(data);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }
+
+    getEvent(getUrl);
+    
+    function populateEvent(data){
+        let tab = "";
+        tab +=
+        `<div class="title-frame">
+            <h1 class="event-title-dtl">${data.eventName}</h1>
+        </div>
+        <div class="description-frame">
+            <div class="description">${data.eventDescription}</div>
+        </div>
+        <div class="date-time-frame">
+            <div class="date">${data.eventDate}</div>
+            <div class="time">${data.eventTime}</div>
+            <div class="location">${data.eventLocation}</div>
+        </div>`
+        document.getElementById("event-frame").innerHTML = tab;
+    }
+    
+
+
+  </script>
+  
+
+</body>
+</html>
