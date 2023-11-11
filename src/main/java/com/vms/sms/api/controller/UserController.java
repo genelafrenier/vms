@@ -28,7 +28,7 @@ class UserController{
         return userRepository.findAll();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/user")
     public @ResponseBody User getUser(@RequestParam("id") int id){
         return userRepository.findById(id).get();
     }
@@ -39,13 +39,13 @@ class UserController{
         return "User saved";
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/user")
     public @ResponseBody String deleteUser(@RequestParam("id") int id){
         userRepository.deleteById(id);
         return "User deleted";
     }
 
-    @PutMapping("/user/{id}")
+    @PutMapping("/user")
     public @ResponseBody String updateUser(@RequestBody User user, @RequestParam("id") int id){
         userRepository.save(user);
         return "User updated";

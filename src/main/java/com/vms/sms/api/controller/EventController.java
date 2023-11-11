@@ -26,7 +26,7 @@ public class EventController {
         return eventRepository.findAll();
     }
 
-    @GetMapping("/event/{id}")
+    @GetMapping("/event")
     public @ResponseBody Event getEvent(@RequestParam("id") int id){
         return eventRepository.findById(id).get();
     }
@@ -37,13 +37,13 @@ public class EventController {
         return "Event saved";
     }
 
-    @DeleteMapping("/event/{id}")
+    @DeleteMapping("/event")
     public @ResponseBody String deleteEvent(@RequestParam("id") int id){
         eventRepository.deleteById(id);
         return "Event deleted";
     }
 
-    @PutMapping("/event/{id}")
+    @PutMapping("/event")
     public @ResponseBody String updateEvent(@RequestBody Event event, @RequestParam("id") int id){
         eventRepository.save(event);
         return "Event updated";
