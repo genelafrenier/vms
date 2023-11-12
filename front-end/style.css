@@ -213,17 +213,47 @@
 
 .login-frame{
     display:flex;
+    flex-direction: column;
     width: 45%;
     height:auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin:auto;
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
     justify-content: center;
 }
 
+.login-frame > div{
+    margin: 30px;
+    padding: auto;
+    justify-content: center;
+}
+
+.login-frame >div >form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-frame > div > form > input{
+    width: 60%;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    border:1px solid gray;
+    margin-bottom: 20px;
+}
+
+
+.login-frame > div > a{
+    text-decoration: none;
+    color: #043927;
+    font-size: 14px;
+    font-style:italic;
+}
 .login-button{
+
     background-color:#C4B581;
     width: 60%;
     height: 50px;
