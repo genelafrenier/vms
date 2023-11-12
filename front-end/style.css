@@ -97,11 +97,15 @@
     border-bottom: 1px solid gray;
     border-top: 1px solid gray;
     list-style:none;
+    display:grid;
+    grid-template-areas:
+    '. title title dtm dtm'
+    'desc desc desc loc loc'
+    'desc desc desc . .';
 }
 
 .event-description{
-    text-align:left;
-    justify-content: left;
+    grid-area:desc;
     font-size: 14px;
 }
 
@@ -109,24 +113,17 @@
     font-size: 24px;
     font-weight: bold;
     color: #043927;
-    margin: 0;
-    padding-left:50px;
-    text-align: left;
-
+    grid-area:title;
 }
 
 .event-date-time{
-    float:right;
-    justify-content: right;
+    grid-area:dtm;
     font-size: 14px;
-    margin-left: 78%;
 }
 
 .event-location{
-    float:right;
-    justify-content: right;
+    grid-area: loc;
     font-size: 14px;
-    margin-left: 78%;
 }
 
 .event-outer-frame{
@@ -212,6 +209,35 @@
 
 .description-frame{
     grid-area: desc;
+}
+
+.login-frame{
+    display:flex;
+    width: 45%;
+    height:auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.login-button{
+    background-color:#C4B581;
+    width: 60%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    border:none;
+
+}
+
+.login-button:hover{
+    color: #FFFFFF;
+    background-color: #043927;
+    transition: 0.3s ease-out;
 }
 
 
