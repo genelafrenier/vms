@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SMS Login Page</title>
+  <link href="Login_style.css" rel="stylesheet" type="text/css" />
+</head>
+
+  
+<body>
+<main>
+  <div class="LoginPage">
+    <!-- Start Of Login Form  -->
+    <form class="ImbededBox" name="userLogin" onsubmit="return LoginValidation()">
+      <div class="ID">
+        <label for= "UserId"> Student or Employee ID: </label>
+      </div>
+
+      <!-- UserId Input  -->
+      <div class="IdField">
+        <input type = "text" id= "userID" name= "userId">
+      </div>
+
+      <p class="Error" id="idInputError"></p>
+      <br>
+
+      <div class="Password">
+        <label for= "UserPassword"> Password: </label>
+      </div>
+
+      <!-- User Password Input  -->
+       <div class="PasswordField">
+        <input type = "password" id= "userPasswordId" name= "userPassword">
+       </div>
+
+      <p class="Error" id="passwordInputError"></p>
+      <br>
+
+      <!-- LOGIN Button Triggers Form Validation - Submits If Successful Validation  -->
+      <div class="LoginButton">
+        <button type="submit" class="LoginBtn">LOGIN</button>
+      </div>
+
+      <br>
+
+      <!--Directs User To Create Account Page  -->
+      <div class="CreateAccountButton">
+        <a href="https://validation-testing.nathankovak.repl.co/">
+        <button type="button" class="CreateAccountBtn">Create an account</button>
+        </a>
+      </div>
+
+    </form>
+  </div>
+</main>
+
+  <script>
+  function LoginValidation()
+  {
+    //User ID Input Error Checking
+    if (document.userLogin.userId.value=="")
+    {
+      document.getElementById("idInputError").innerHTML="Please Enter Your ID Number";
+      return false;
+    }
+    else if(isNaN(document.userLogin.userId.value))
+    {
+      document.getElementById("idInputError").innerHTML="ID Must Only Contain Numbers";
+      return false;
+    }
+    else if(document.userLogin.userId.value.length<9)
+    {
+      document.getElementById("idInputError").innerHTML="ID Number Must Be 9 Digits";
+      return false;
+    }
+    else if(document.userLogin.userId.value.length>9)
+    {
+      document.getElementById("idInputError").innerHTML="ID Number Must Be 9 Digits";
+      return false;
+    }
+
+    //User Password Input Error Checking
+    else if(document.userLogin.userPassword.value=="")
+    {
+      document.getElementById("passwordInputError").innerHTML="Please Enter A Password";
+      return false;
+    }
+    else if(document.userLogin.userPassword.value.length<8)
+    {
+      document.getElementById("passwordInputError").innerHTML="Password Can't Be Less Than 8 Characters";
+      return false;
+    }
+    else if(document.userLogin.userPassword.value.length>20)
+    {
+      document.getElementById("passwordInputError").innerHTML="Password Can't Be Over 20 Characters";
+      return false;
+    }
+  }
+  
+  </script>
+    
+
+</body>
+
+</html>
