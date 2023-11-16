@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8"> <!--defines the character set to UTF-8-->
+<meta name = "viewport" content = "width=device-width, initial-scale=1"> <!--makes website work on all devices-->
+
+<html>
+<head> <!--head contains information on webpage-->
+    <title>Frequently Asked Questions</title>
+    <link rel="stylesheet" type="text/css" href="help.css"> <!--links the stylesheet css file styles to the index-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> <!--Donwloads the Inter font (from Figma)-->
+
+</head>
+<body>
+
+    <header>
+        <h1 style= "text-align:center;">Frequently Asked Questions</h1>
+        <p style="text-align:center;">Here you can find answers to your most common questions.</p>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="accordion">
+                <div class="accordion-item" id="question1"> <!--whenever you click on question 1, it'll go to whatever this matches to-->
+                    <a class="accordion-link" href="#question1">
+                        Where do I find the events I previously volunteered for?
+                       <ion-icon name="chevron-forward"></ion-icon>
+                       <ion-icon name="chevron-down"></ion-icon>
+                    </a>
+                    <div class="answer">
+                    <p>You will find this information under 'Event History' in the User Dashboard.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" id="question2"> <!--whenever you click on question 1, it'll go to whatever this matches to-->
+                    <a class="accordion-link" href="#question2">
+                        As an organizer, how do I create an event posting?
+                        <ion-icon name="chevron-forward"></ion-icon>
+                        <ion-icon name="chevron-down"></ion-icon>
+                    </a>
+                    <div class="answer">
+                    <p>On the 'Organizer Dashboard' there is a plus button to create an event.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" id="question3"> <!--whenever you click on question 1, it'll go to whatever this matches to-->
+                    <a class="accordion-link" href="#question3">
+                        How do I apply for an event?
+                        <ion-icon name="chevron-forward"></ion-icon>
+                       <ion-icon name="chevron-down"></ion-icon>
+                    </a>
+                    <div class="answer">
+                    <p>There is an apply button inside the event details when you click on the event.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" id="question4"> <!--whenever you click on question 1, it'll go to whatever this matches to-->
+                    <a class="accordion-link" href="#question4">
+                        How do I get organizer access to create an event posting?
+                        <ion-icon name="chevron-forward"></ion-icon>
+                       <ion-icon name="chevron-down"></ion-icon>
+                    </a>
+                    <div class="answer">
+                    <p>Contact your corresponding department to verify your account with the career center.</p>
+                    </div>
+                </div>
+                <div class="accordion-item" id="question5"> <!--whenever you click on question 1, it'll go to whatever this matches to-->
+                    <a class="accordion-link" href="#question5">
+                        If I have questions about an event, where can I ask them?
+                        <ion-icon name="chevron-forward"></ion-icon>
+                       <ion-icon name="chevron-down"></ion-icon>
+                    </a>
+                    <div class="answer">
+                    <p>On the event details page, there is a section for any questions and comments when you apply for the event.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" id="question6"> <!--whenever you click on question 1, it'll go to whatever this matches to-->
+                    <a class="accordion-link" href="#question6">
+                        How do I edit an event posting?
+                        <ion-icon name="chevron-forward"></ion-icon>
+                       <ion-icon name="chevron-down"></ion-icon>
+                    </a>
+                    <div class="answer">
+                    <p>Only organizers can edit events, which can be found on their dashboard under 'My Events.'</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    
+    <!--downloads ionic framework so that we can use their icons (>)-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
