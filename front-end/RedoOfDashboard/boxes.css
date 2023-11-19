@@ -1,0 +1,272 @@
+div.outline{
+    position: relative;
+    width: 1500px;
+    height: 800px;
+    border: 3px solid black;
+    margin: auto;
+    display: inline-block;
+
+}
+
+h1{
+    color: white;
+}
+
+p{
+    /* width: 100px; */
+    position: absolute;
+    right: 0px;
+    margin-top: 5px;
+}
+
+
+div.ratingWrapper{
+    /* border:  thin solid black; */
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+
+    color: grey;
+
+    /* display: flex; */
+
+    /* position: relative; */
+}
+
+.ratings{
+    display: flex;
+}
+
+.ratings span{
+    font-size: 50px;
+}
+
+.centerText{
+
+    font-size: 30px;
+    /* position: relative; */
+    /* bottom: 10px; */
+    justify-content: center;
+    text-align: center;
+}
+
+
+div.header1{
+    background-color: #008453;
+    width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 10px;
+
+    /* position: relative; */
+    position: absolute;
+    /* top: 50px; */
+    left: 90px;
+    
+    font-size: large;
+    /* font-display: white; */
+
+   
+    display: flex;
+    align-items: center;
+    /* align-content: center; */
+    justify-content: center;
+
+    /* margin: 50px; */
+
+    /* float: left; */
+    /* margin: 0 auto; */
+
+}
+
+div.header2{
+    background-color: #008453;
+    width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 10px;
+
+    position: absolute;
+    left: 590px;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    
+    font-size: large;
+    /* font-display: white; */
+
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* margin: 50px; */
+
+    /* float:right; */
+
+}
+
+
+div.header3{
+    background-color: #008453;
+    width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 10px;
+
+    position: absolute;
+    /* top: 50px; */
+    right: 90px;
+    
+    font-size: large;
+
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* margin: 50px; */
+
+    /* float:right; */
+
+}
+
+
+div.container1{
+    background-color: #C4B581;
+    width: 400px;
+    height: 600px;
+    margin: 50px;
+    border-radius: 50px;
+
+    position: absolute;
+    /* left: 0; */
+
+    /* float: left; */
+
+}
+
+div.container2{
+    background-color: #C4B581;
+    width: 400px;
+    height: 600px;
+    margin: 50px;
+    border-radius: 50px;
+
+    position: absolute;
+    left: 500px;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+
+    display: inline-block;
+
+}
+
+div.container3{
+    background-color: #C4B581;
+    width: 400px;
+    height: 600px;
+    margin: 50px;
+    border-radius: 50px;
+
+    position: absolute;
+    right: 0;
+
+}
+
+div.container_for_info{
+    background-color: #C4B581;
+    width: 400px;
+    height: 500px;
+    margin: 25px;
+    /* margin-top: 25px; */
+    /* margin-left: 25px; */
+
+    position: relative;
+
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+
+}
+
+div#info{
+    background-color: white;
+    width: 350px;
+    height: 30px;
+    border-radius: 50px;
+    /* margin: 10px; */
+
+    position: relative;
+    /* top: 10px; */
+    /* left: 15px; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#form button {
+    /* color: white; */
+    background-color: #008453;
+    /* border: none; */
+    border-radius: 4px;
+}
+
+
+
+div.inputControl input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+}
+
+div.inputControl input:focus {
+    outline: 0;
+}
+
+div.inputControl.success input {
+    border-color: #09c372;
+}
+
+div.inputControl.error input {
+    border-color: #ff3860;
+}
+
+.inputControl .error {
+    color: #ff3860;
+    position: absolute;
+    top: 33px;
+    /* font-size: 16px; */
+    /* height: 13px; */
+}
+
+
+
+div#textbox{
+    background-color: white;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    /* margin: 10px; */
+
+    position: relative;
+    top: 10px;
+    left: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* @media (min-width: 550px) {
+    .container1{
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */
+
+@media screen and (max-width: 500px) {
+
+}
+
