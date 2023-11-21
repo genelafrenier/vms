@@ -54,8 +54,8 @@ const validEmail = email => {
 }
 
 const validPhoneNum = phoneNum => {
-    const checkPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/;
-    return re.test(String(phoneNum).toLowerCase());
+    const checkPhoneNum = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/;
+    return checkPhoneNum.test(String(phoneNum).toLowerCase());
 }
 
 const validateInputs = () => {
