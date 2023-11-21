@@ -54,8 +54,8 @@ const validEmail = email => {
 }
 
 const validPhoneNum = phoneNum => {
-    const checkPhone = /^(([0-9]{3}-[0-9]{3}-[0-9]{4}))$/;
-    return checkPhone.test(phoneNum);
+    const checkPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/;
+    return re.test(String(phoneNum).toLowerCase());
 }
 
 const validateInputs = () => {
@@ -87,7 +87,7 @@ const validateInputs = () => {
 
     if(phoneNumValue === '') {
         setError(phoneNum, 'Phone number is required');
-    } else if(!validPhoneNum) {
+    } else if(!validPhoneNum(phoneNumValue)) {
         setError(phoneNum, 'Provide a valid phone number');
     } else {
         setSuccess(phoneNum);
