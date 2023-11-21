@@ -1,6 +1,5 @@
 
 
-
 // Delete later, will be used to see if data is coming in correctly
 function collectFname() {
 
@@ -9,6 +8,74 @@ function collectFname() {
     console.log(firstName);
 
 }
+
+
+var count = document.getElementById("userSkills");
+var result = document.getElementById("result");
+var limit = 250;
+result.textContent = 0 + "/" + limit;
+
+function countText() {
+    count.addEventListener("input", function(){
+        var textLength = count.value.length;
+
+        // Uncomment to see console on chrome to verify it works
+        // console.log(textLength);
+
+        result.textContent = textLength + "/" + limit;
+
+        if(textLength > limit) {
+
+            count.style.borderColor = "#ff3860";
+            result.style.color = "#ff3860";
+
+        } else {
+            count.style.borderColor = "#000000";
+            result.style.color = "#000000";
+
+            let newUserSkills = document.getElementById("userSkills").value;
+            document.getElementById("userSkills").value = newUserSkills;
+            console.log(newUserSkills);
+        }
+
+        // console.log("Hello can you see this " + result.textContent)
+    });
+}
+
+
+var count2 = document.getElementById("userAboutMe");
+var result2 = document.getElementById("result2");
+result2.textContent = 0 + "/" + limit;
+
+function countText2() {
+    count2.addEventListener("input", function(){
+        var textLength2 = count2.value.length;
+
+        // Uncomment to see console on chrome to verify it works
+        // console.log(textLength);
+
+        result2.textContent = textLength2 + "/" + limit;
+
+
+        if(textLength2 > limit) {
+
+            count2.style.borderColor = "#ff3860";
+            result2.style.color = "#ff3860";
+
+        } else {
+            count2.style.borderColor = "#000000";
+            result2.style.color = "#000000";
+
+            let newUserAboutMe = document.getElementById("userAboutMe").value;
+            document.getElementById("userAboutMe").value = newUserAboutMe;
+            console.log(newUserAboutMe);
+        }
+
+        // console.log("Hello can you see this 2 " + result2.textContent)
+    });
+}
+
+
 
 const form = document.getElementById('form');
 const fname = document.getElementById('fname');
@@ -108,31 +175,13 @@ const validateInputs = () => {
         document.getElementById("email").value = newEmail;
         console.log(newEmail);
     }
+
 }
 
 
 function saveChanges() {
-    // let newFname = document.getElementById("fname").value;
-    // document.getElementById("fname").value = newFname;
-    // console.log(newFname);
 
-    // let newLname = document.getElementById("lname").value;
-    // document.getElementById("lname").value = newLname;
-    // console.log(newLname);
+    countText();
 
-    // let newPhoneNum = document.getElementById("phoneNum").value;
-    // document.getElementById("phoneNum").value = newPhoneNum;
-    // console.log(newPhoneNum);
-
-    // let newEmail = document.getElementById("email").value;
-    // document.getElementById("email").value = newEmail;
-    // console.log(newEmail);
-
-    let newUserSkills = document.getElementById("userSkills").value;
-    document.getElementById("userSkills").value = newUserSkills;
-    console.log(newUserSkills);
-
-    let newUserAboutMe = document.getElementById("userAboutMe").value;
-    document.getElementById("userAboutMe").value = newUserAboutMe;
-    console.log(newUserAboutMe);
+    countText2();
 }
