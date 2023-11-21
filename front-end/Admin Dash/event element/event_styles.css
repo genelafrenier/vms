@@ -1,6 +1,6 @@
 .event_container {
     background-color: #c4b581;
-    width: 50%;
+    width: 90%;
     padding: 10px;
     height: 60px;
     border-radius: 25px;
@@ -16,6 +16,7 @@
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 .btn_volunteers {
@@ -53,6 +54,110 @@ button {
     border: none;
     cursor: pointer;
 }
+
+/* pending volunteers popup */
+.pending_popup {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 25px;
+    height: 75vh;
+    width: 75vw;
+    background-color: rgb(226, 226, 226);
+    transition: top 0ms ease-in-out 200ms;
+}
+
+.spacer {
+    height: 30%;
+}
+
+.header_container {
+    background-color: white;
+    height: 10%;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.header {
+    font-size: 30px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    margin-left: 10%;
+}
+
+.header_bottom {
+    background-color: white;
+    height: 15px;
+    border-bottom: 2px solid;
+    border-color: #000000;
+}
+
+.volunteers_container {
+    background-color: transparent;
+    height: 90%;
+}
+
+.volunteers_head_container {
+    background-color: transparent;
+    height: 10%;
+    font-size: 30px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    margin-left: 10%;
+}
+
+.name_head {
+    background-color: transparent;
+}
+
+.avg_rate_head {
+    background-color: transparent;
+}
+
+.profile_head {
+    background-color: transparent;
+}
+
+.operation_head {
+    background-color: transparent;
+}
+
+/* volunteer comments popup */
+.comments_popup {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 25px;
+    height: 75vh;
+    width: 75vw;
+    background-color: rgb(226, 226, 226);
+    transition: top 0ms ease-in-out 200ms;
+}
+
+/* rate volunteer popup */
+.rate_popup {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.25);
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 25px;
+    height: 75vh;
+    width: 75vw;
+    background-color: rgb(226, 226, 226);
+    transition: top 0ms ease-in-out 200ms;
+}
+
 /* edit event popup */
 .edit_popup {
     position: absolute;
@@ -75,14 +180,14 @@ button {
     transition: top 0ms ease-in-out 200ms;
 }
 
-.edit_popup .close_btn {
+.close_btn {
     position: absolute;
     top: 10px;
     right: 10px;
     width: 10px;
     height: 15px;
     cursor: pointer;
-    font-size: 36px;
+    font-size: 50px;
     margin-right: 20px;
 } 
 
