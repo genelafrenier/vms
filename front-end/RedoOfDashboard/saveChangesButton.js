@@ -10,6 +10,34 @@ function collectFname() {
 }
 
 
+
+function enableEdit() {
+    document.getElementById('fname').disabled = false;
+    document.getElementById('lname').disabled = false;
+    document.getElementById('email').disabled = false;
+    document.getElementById('phoneNum').disabled = false;
+
+    // Enable the Save changes button
+    document.querySelector('.saveChangesBtn').disabled = false;
+
+}
+
+// function saveChanges() {
+
+//     // Disable the text boxes after saving changes
+//     document.getElementById('fname').disabled = false;
+//     document.getElementById('lname').disabled = false;
+//     document.getElementById('email').disabled = false;
+//     document.getElementById('phoneNum').disabled = false;
+
+//     // Disable the Save changes button
+//     document.querySelector('.saveChangesBtn').disabled = true;
+// }
+
+
+
+
+
 var count = document.getElementById("userSkills");
 var result = document.getElementById("result");
 var limit = 250;
@@ -84,15 +112,67 @@ const email = document.getElementById('email');
 const phoneNum = document.getElementById('phoneNum');
 
 
+function submitValidation() {
+    
+    var isTrue;
 
-// Makes it so that the user does not make changes by hitting enter key, so they have to click save changes button
-form.addEventListener('submit', e => {
-    e.preventDefault();
+    // Makes it so that the user does not make changes by hitting enter key, so they have to click save changes button
+    form.addEventListener('submit', e => {
+        e.preventDefault();
 
-    // console.log("hello");
+        
+        // isTrue = validateInputs();
 
-    validateInputs();
-})
+        // console.log("Is true value " + isTrue)
+        
+    })
+
+    isTrue = validateInputs();
+
+    console.log("Is true value 222 " + isTrue)
+
+    // Returns a boolean value if the user info is valid or not, depending if user meets validation they will be able to save their changes
+    // return !document.querySelector('.error');
+    return isTrue;
+}
+
+
+function saveChanges() {
+
+    countText();
+
+    countText2();
+
+
+    if(submitValidation()) {
+
+        console.log("hello");
+
+        // Disable the text boxes after saving changes
+        document.getElementById('fname').disabled = true;
+        document.getElementById('lname').disabled = true;
+        document.getElementById('email').disabled = true;
+        document.getElementById('phoneNum').disabled = true;
+
+        // Disable the Save changes button
+        document.querySelector('.saveChangesBtn').disabled = true;
+
+    } else {
+
+        console.log("world");
+
+        document.getElementById('fname').disabled = false;
+        document.getElementById('lname').disabled = false;
+        document.getElementById('email').disabled = false;
+        document.getElementById('phoneNum').disabled = false;
+
+        // Enable the Save changes button
+        document.querySelector('.saveChangesBtn').disabled = false;
+    }
+
+}
+
+
 
 const setError = (element, message) => {
 
@@ -131,11 +211,17 @@ const validateInputs = () => {
     const emailValue = email.value.trim();
     const phoneNumValue = phoneNum.value.trim();
 
+    var flip1 = false;
+    var flip2 = false;
+    var flip3 = false;
+    var flip4 = false;
+
 
     if(fnameValue === '') {
         setError(fname, 'First Name is required');
     } else {
         setSuccess(fname);
+        flip1 = true;
         
         let newFname = document.getElementById("fname").value;
         document.getElementById("fname").value = newFname;
@@ -146,6 +232,7 @@ const validateInputs = () => {
         setError(lname, 'Last Name is required');
     } else {
         setSuccess(lname);
+        flip2 = true;
         
         let newLname = document.getElementById("lname").value;
         document.getElementById("lname").value = newLname;
@@ -158,6 +245,7 @@ const validateInputs = () => {
         setError(phoneNum, 'Provide a valid phone number');
     } else {
         setSuccess(phoneNum);
+        flip3 = true;
 
         let newPhoneNum = document.getElementById("phoneNum").value;
         document.getElementById("phoneNum").value = newPhoneNum;
@@ -170,18 +258,18 @@ const validateInputs = () => {
         setError(email, 'Provide a valid email address');
     } else {
         setSuccess(email);
+        flip4 = true;
         
         let newEmail = document.getElementById("email").value;
         document.getElementById("email").value = newEmail;
         console.log(newEmail);
     }
 
-}
+    if(flip1 == false || flip2 == false || flip3 == false || flip4 == false) {
+        return false;
+    }
+    else {
+        return true;
+    }
 
-
-function saveChanges() {
-
-    countText();
-
-    countText2();
-}
+} 

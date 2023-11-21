@@ -19,6 +19,31 @@ p{
     margin-top: 5px;
 }
 
+.editBtn {
+    background-color: #008453;
+    /* width: 20px; */
+    /* height: 20px; */
+
+    position: absolute;
+    right: 40px;
+    top: 5px;
+
+    display: flex;
+    padding: 7px;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+.saveChangesBtn {
+    margin-top: 10px; 
+    position: absolute; 
+    right: 150px; 
+    bottom: 10px; 
+    padding: 5px;
+    cursor: pointer;
+}
+
 
 div.ratingWrapper{
     /* border:  thin solid black; */
@@ -135,7 +160,7 @@ div.header3{
 div.container1{
     background-color: #C4B581;
     width: 400px;
-    height: 600px;
+    height: 630px;
     margin: 50px;
     border-radius: 50px;
 
@@ -149,7 +174,7 @@ div.container1{
 div.container2{
     background-color: #C4B581;
     width: 400px;
-    height: 600px;
+    height: 630px;
     margin: 50px;
     border-radius: 50px;
 
@@ -165,7 +190,7 @@ div.container2{
 div.container3{
     background-color: #C4B581;
     width: 400px;
-    height: 600px;
+    height: 630px;
     margin: 50px;
     border-radius: 50px;
 
@@ -208,7 +233,7 @@ div#info{
 }
 
 #form button {
-    /* color: white; */
+    color: white;
     background-color: #008453;
     /* border: none; */
     border-radius: 4px;
@@ -242,8 +267,7 @@ div.inputControl.error input {
 }
 
 
-
-div#textbox{
+div#textbox {
     background-color: white;
     width: 300px;
     height: 100px;
