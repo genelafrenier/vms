@@ -1,4 +1,4 @@
-async function loadDashboard() {
+async function loadNavbar() {
     const userRole = await getRole();
     let html = `
     <div class="navbar">
