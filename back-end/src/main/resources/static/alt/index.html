@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SMS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar_container">
+      <img src="Logo.png" alt="SMS" class="logo">
+      <h1> Swarm Management System</h1>
+      <div class="dropdown">
+        <button class="dropbtn" title="menu"></button>
+        <div class="dropdown-content">
+          <a href="#">Events</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Help</a>
+          <a href="login.html">Login</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="welcome" id="welcome"></div>
+
+<ul class="events-frame" id="events"></ul>
+
+<script>
+
+  //URL For Get Request
+  const getUrl = 'http://localhost:8080/events';
+  const getUserUrl = 'http://localhost:8080/current-user';
+  //Use fetch() get get event data`
+
+  async function getUser(getUserUrl) {
+      fetch(getUserUrl, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      populateUser(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+
+  getUser(getUserUrl);
+
+  function populateUser(data){
+    let tab = "";
+    if(data != ""){
+      tab += 
+    `<div class="welcome">
+      <h1>Welcome ${data}</h1>
+    </div>`;
+    } 
+    document.getElementById("welcome").innerHTML = tab;
+  }
+
+  async function getEvents(getUrl) {
+      fetch(getUrl, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+        //If response received, convert to json and send to console and populate table
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      populateEvents(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+  
+
+  getEvents(getUrl);
+
+
+  function populateEvents(data){
+
+    let tab = "";
+  
+
+    for (let r of data) {
+          tab += 
+        `<li class="event">
+          <div class="event-outer-frame">
+          <div class="event-title"><a href="/eventDetail.html?id=${r.id}" id="eventDtl">${r.eventName}</a></div>
+          <div class="event-date-time">${r.eventDate}   ${r.eventTime}</div>
+          <div class="event-location">${r.eventLocation}</div>
+          <p class="event-description"> ${r.eventDescription} </p>
+          </div> 
+        </li>`;
+
+    }
+  // Setting innerHTML as tab variable
+  document.getElementById("events").innerHTML = tab;
+
+  }
+</script>
+
+
+</body>
+</html>

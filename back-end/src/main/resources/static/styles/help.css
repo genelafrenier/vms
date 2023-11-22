@@ -1,0 +1,104 @@
+/* Reset margins, paddings and box-sizing */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+/* Base HTML styles */
+html {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-size: 30px; /* Adjust the size as needed */
+    text-align: center;
+    margin-top: 20px;
+}
+
+header p {
+    font-size: 15px; /* Adjust the size as needed */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 55px;
+}
+
+
+/* Section styling for centering content */
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto; /* Adjusts height to fit the content */
+
+}
+
+/* Container styling for responsive width and centering */
+.container {
+    width: 100%;
+    max-width: 80rem;
+    padding: 0 1.5rem; /* Padding on left and right */
+}
+
+/* Accordion item styling */
+.accordion-item {
+    background-color: #ffffff; /* White background for each item */
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+    padding: 1rem; /* Padding inside each item */
+    box-shadow: .5rem 2px .5rem rgba(0,0,0,.1);
+}
+
+/* Accordion link styling */
+.accordion-link, .answer p {
+    font-size: 1.6rem;
+    color: #000000; /* Black text for accordion links and answers */
+    text-decoration: none; /* No underline for links */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out items */
+    padding: 1rem 0; /* Padding above and below */
+}
+
+/* Styling for icons in accordion links */
+.accordion-link ion-icon {
+    padding: .5rem;
+    color: #000000; /* Black color for icons */
+}
+
+/* Initial state of icons */
+.accordion-link ion-icon[name="chevron-forward"] {
+    display: block; /* Show forward icon by default */
+}
+
+.accordion-link ion-icon[name="chevron-down"] {
+    display: none; /* Hide down icon by default */
+}
+
+/* Answer section styling */
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    transition: max-height 650ms; /* Creates the transition */
+    background-color: #eae7e7; /* Adjust this as needed */
+}
+
+/* Styling changes when an accordion item is targeted (clicked) */
+.accordion-item:target .answer {
+    max-height: 20rem; /* Expand the answer section */
+}
+
+.accordion-item:target .accordion-link ion-icon[name="chevron-forward"] {
+    display: none; /* Hide forward icon when item is targeted */
+}
+
+.accordion-item:target .accordion-link ion-icon[name="chevron-down"] {
+    display: block; /* Show down icon when item is targeted */
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SMS Create Account Page</title>
+  <link href="styles/register.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <script src="js/dashboard.js"></script>
+</head>
+
+<body>
+  <div class="navbar-container" id="navbar"></div>
+  <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+          loadDashboard();
+      });
+  </script>
+  <main>
+    <div class="createAccount">
+      <!-- Start Of Create Account Form  -->
+      <form class="imbededFields" id="formId" name="CreateAccount" onsubmit="return ValidationTesting()">
+        <div class="userFirstName">
+          <label for= "firstName"> First Name: </label> <br>
+          <div class="userLastName">
+            <label for= "lastName"> Last Name: </label>
+          </div>
+        </div>
+
+        <!-- First Name Imput  -->
+        <div class="nameFields">
+          <input type="text" id="firstName" name="first" placeholder="First Name">
+        </div>
+
+        <!-- Last Name Input  -->
+        <div class="nameFields">
+          <input type="text" id="lastName" name="last" placeholder="Last Name">
+        </div>
+
+        <br>
+          <p class="Error" id="nameInputError"></p> 
+        <br>
+
+        <dv class="userId">
+          <label for= "userId"> Student or Employee ID: </label>
+        </dv>
+
+        <!-- UserId Input  -->
+        <div class="userIdField">
+          <input type= "text" inputmode="numeric" id="userId" name= "userId" placeholder="Student/Employee ID">
+        </div>
+
+        <p class="Error" id="idInputError"></p>
+        <br>
+
+        <div class="userEmail">
+          <label for= "email"> CSUS Email: </label>
+        </div>
+
+        <!-- User Email Input  -->
+        <div class="userEmailField">
+          <input type="email" id="email" size="30" name="userEmail" placeholder="CSUS Email">
+        </div>
+
+        <p class="Error" id="emailInputError"></p>
+        <br>
+
+        <div class="userPhoneNumber">
+          <label for= "phoneNumber"> Phone Number: </label>
+        </div>
+
+        <!-- User Phone Number Input  -->
+        <div class="userPhoneNumberField">
+          <input type="tel" id="phoneNumber" name="userPhoneNumber" placeholder="Phone Number">
+        </div>
+
+        <p class="Error" id="phoneInputError"></p>
+        <br>
+
+        <div class="Password">
+          <label for= "password"> Password: </label>
+        </div>
+
+        <!-- User Password Input  -->
+         <div class="PasswordField">
+          <input type = "password" id= "password" name="userPassword" placeholder="Password">
+         </div>
+
+        <p class="Error" id="passwordInputError"></p>
+        <br>
+
+        <div class="createAccountButton">
+          <!-- CREATE ACCOUNT Button Triggers Form Validation - Send To Database Once Validated -->
+          <button data-showSuccessMessage type="button" class="createAccountBtn" onclick="ValidationTesting()">CREATE ACCOUNT</button>
+            <!-- Success Modal  -->
+            <dialog data-popupContent class="successPopUp" id="accountSuccess">
+            <h1>Account Successfully Created!</h1>
+              <!-- USER DASHBOARD - Then Directs User To User Dashboard  -->
+              <a href="index.html">
+              <button data-closeSuccessMessage type="button" id="submits" class="popupBtn" onclick="SubmitForm()">USER DASHBOARD</button>
+              </a>
+            </dialog>
+        </div>
+
+        <br>
+      </form>
+      <!-- END of Create Account Form  -->
+    </div>
+  </main>
+
+  <!-- Start of JavaScript  -->
+  <script>
+    const openPopup = document.querySelector("[data-showSuccessMessage]");
+    const closePopup = document.querySelector("[data-closeSuccessMessage]");
+    const contentOfPopup = document.querySelector("[data-popupContent]");
+
+    function register() {
+        var username = document.getElementById("userId").value;
+        var password = document.getElementById("password").value;
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var email = document.getElementById("email").value;
+        var phoneNumber = document.getElementById("phoneNumber").value;
+
+        var data = {
+            username: username,
+            password: password,
+            role: "USER",
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phone: phoneNumber
+        };
+        console.log(JSON.stringify(data));
+        // Make an AJAX request to the login endpoint
+        fetch('http://localhost:8080/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+          if (!response.ok){
+            throw new Error(response.status);
+          }
+          if(response.ok){
+            window.location.href = 'index.html';
+          }
+          return response.text();
+        })
+        .then(result => {
+            alert(result); // Display the result (you might want to handle it differently)
+            console.log(result);
+            window.location.href = 'index.html';
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    //Closes Modal and Submits Form
+    function SubmitForm()
+    {
+      //Modal Close
+      closePopup.addEventListener("click", () => {
+      contentOfPopup.close();
+      })    
+
+      //Submit Form
+      document.getElementById("formId").submit();
+    }
+
+    function ValidationTesting()
+    {
+      //Name Input Error Checking
+      if(document.CreateAccount.first.value=="")
+      {
+        document.getElementById("nameInputError").innerHTML="Please Enter Your First Name";
+        return false;
+      }
+      else if(document.CreateAccount.first.value.length> 20)
+      {
+        document.getElementById("nameInputError").innerHTML="First Name Can't Be More Than 20 Charcters";
+        return false;
+      }
+      else if(document.CreateAccount.last.value=="")
+      {
+        document.getElementById("nameInputError").innerHTML="Please Enter Your Last Name";
+        return false;
+      }
+      else if(document.CreateAccount.last.value.length> 20)
+      {
+        document.getElementById("nameInputError").innerHTML="Last Name Can't Be More Than 20 Charcters";
+        return false;
+      }
+        
+      //User ID Input Error Checking
+      else if(document.CreateAccount.userId.value=="")
+      {
+        document.getElementById("idInputError").innerHTML="Please Enter Your ID Number";
+        return false;
+      }
+      else if(isNaN(document.CreateAccount.userId.value))
+      {
+        document.getElementById("idInputError").innerHTML="ID Must Only Contain Numbers";
+        return false;
+      }
+      else if(document.CreateAccount.userId.value.length<9)
+      {
+        document.getElementById("idInputError").innerHTML="ID Number Must Be 9 Digits";
+        return false;
+      }
+      else if(document.CreateAccount.userId.value.length>9)
+      {
+        document.getElementById("idInputError").innerHTML="ID Number Must Be 9 Digits";
+        return false;
+      }
+
+      //User Email Input Error Checking
+      else if(document.CreateAccount.userEmail.value=="")
+      {
+        document.getElementById("emailInputError").innerHTML="Please Enter Your CSUS Email";
+        return false;
+      }
+      else if(document.CreateAccount.userEmail.value.indexOf('@csus.edu')== -1)
+      {
+        document.getElementById("emailInputError").innerHTML="Email Must Be Your CSUS Email";
+        return false;
+      }
+
+      //User Phone Number Input Error Checking
+      else if(document.CreateAccount.userPhoneNumber.value=="")
+      {
+        document.getElementById("phoneInputError").innerHTML="Please Enter Your Phone Number";
+        return false;
+      }
+      else if(isNaN(document.CreateAccount.userPhoneNumber.value))
+      {
+        document.getElementById("phoneInputError").innerHTML="Phone Number Must Only Contain Digits";
+        return false;
+      }
+      else if(document.CreateAccount.userPhoneNumber.value.length<10)
+      {
+        document.getElementById("phoneInputError").innerHTML="Phone Number Must Be 10 Digits";
+        return false;
+      }
+      else if(document.CreateAccount.userPhoneNumber.value.length>10)
+      {
+        document.getElementById("phoneInputError").innerHTML="Phone Number Must Be 10 Digits";
+        return false;
+      }
+
+      //User Password Input Error Checking
+      else if(document.CreateAccount.userPassword.value=="")
+      {
+        document.getElementById("passwordInputError").innerHTML="Please Enter A Password";
+        return false;
+      }
+      else if(document.CreateAccount.userPassword.value.length<8)
+      {
+        document.getElementById("passwordInputError").innerHTML="Password Can't Be Less Than 8 Characters";
+        return false;
+      }
+      else if(document.CreateAccount.userPassword.value.length>20)
+      {
+        document.getElementById("passwordInputError").innerHTML="Password Can't Be Over 20 Characters";
+        return false;
+      }
+
+      //Display Success Message --> call SubmitForm
+      else
+      {
+        var clicking = "click";
+        openPopup.addEventListener(clicking, () => {
+          contentOfPopup.showModal();
+
+          //Pull Validated Data Into DATABASE
+          // **** Printing To Console To Check Data Is Going Through **** //
+          document.getElementById("firstName");
+          console.log(firstName.value);
+
+          document.getElementById("lastName");
+          console.log(lastName.value);
+
+          document.getElementById("userId");
+          console.log(userId.value);
+
+          document.getElementById("email");
+          console.log(email.value);
+
+          document.getElementById("phoneNumber");
+          console.log(phoneNumber.value);
+
+          document.getElementById("password");
+          console.log(password.value);
+          register();
+        })
+
+        //Prevents User From Exiting Success Message When Pressing "ESC" Key
+        document.addEventListener("keydown", () => { 
+        if(event.code == "Escape")
+        {
+          event.preventDefault();
+        }
+        })
+        return false;
+      } 
+
+      
+    }
+
+  </script>
+
+
+</body>
+
+</html>
