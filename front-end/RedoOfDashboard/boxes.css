@@ -19,6 +19,22 @@ p{
     margin-top: 5px;
 }
 
+label {
+    width: 120px;
+    display: inline-block;
+    /* text-align: right; */
+    /* text-align: center; */
+}
+
+input {
+    width: 210px;
+    /* display: ; */
+    position: relative;
+    align-content: center;
+    /* text-align: left; */
+
+}
+
 .editBtn {
     background-color: #008453;
     /* width: 20px; */
@@ -199,7 +215,7 @@ div.container3{
 
 }
 
-div.container_for_info{
+.container_for_info{
     background-color: #C4B581;
     width: 400px;
     height: 500px;
