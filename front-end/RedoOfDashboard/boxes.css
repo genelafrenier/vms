@@ -250,6 +250,8 @@ div.inputControl input:focus {
     outline: 0;
 }
 
+
+/* The success and error both control border color that indicates whether or not the meet the validation */
 div.inputControl.success input {
     border-color: #09c372;
 }
@@ -258,12 +260,19 @@ div.inputControl.error input {
     border-color: #ff3860;
 }
 
+/* This controls the error message that pops up when a user fails user validation */
 .inputControl .error {
     color: #ff3860;
     position: absolute;
     top: 33px;
     /* font-size: 16px; */
     /* height: 13px; */
+}
+
+
+/* Gets rid of the border colors after a user clicks on save changes */
+.inputControl.default input {
+    border-color: none;
 }
 
 
