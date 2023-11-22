@@ -75,8 +75,8 @@
             password: password
         };
         console.log("Login Triggered");
-        // Make an AJAX request to the login endpoint
-        fetch('http://localhost:8080/login', {
+
+        fetch('/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -93,7 +93,7 @@
           return response.text();
         })
         .then(result => {
-            alert(result); // Display the result (you might want to handle it differently)
+            alert(result);
             console.log(result);
             window.location.href = 'index.html';
         })
