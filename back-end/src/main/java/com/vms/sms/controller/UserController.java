@@ -53,6 +53,17 @@ public class UserController {
         }
     }
 
+    @GetMapping("/role")
+    public ResponseEntity<String> roleEndpoint(HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("");
+        }
+        else{
+            return ResponseEntity.ok(user.getRole());
+        }
+    }
+
     @GetMapping("/admin")
     public ResponseEntity<String> adminEndpoint(HttpSession session) {
         User user = (User) session.getAttribute("user");

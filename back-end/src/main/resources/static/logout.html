@@ -1,0 +1,31 @@
+<!DOCTYPE html>  <!--defines the page as an HTML5 document-->
+<meta charset="UTF-8"> <!--defines the character set to UTF-8-->
+<meta name = "viewport" content = "width=device-width, initial-scale=1"> <!--makes website work on all devices-->
+
+<html lang="en">
+<head> <!--head contains information on webpage-->
+    <title>Logged Out</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> <!--Donwloads the Inter font (from Figma)-->
+    <link rel="stylesheet" href="styles/navbar.css">
+    <script src="js/navbar.js"></script>
+</head>
+<body> <!--Puts stuff on website-->
+    <div class="navbar-container" id="navbar"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadDashboard();
+        });
+
+        fetch('http://localhost:8080/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+        })
+    </script>
+
+    <h1> You have been logged out! </h1>
+
+    </body>
+</html>

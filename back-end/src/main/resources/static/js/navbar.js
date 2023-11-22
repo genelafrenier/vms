@@ -1,4 +1,5 @@
-function loadDashboard() {
+async function loadDashboard() {
+    const userRole = await getRole();
     let html = `
     <div class="navbar">
         <img src="images/Logo.png" alt = "Logo" class="logo">
@@ -13,19 +14,19 @@ function loadDashboard() {
                     <li><b><a href="contact.html">Contact</a></b></li>
     `
 
-    if (localStorage.getItem("user") === null) {
+    if (userRole === "USER") {
         html += `
-                    <li><b><a href="login.html">Login</a></b></li>
+                <li><b><a href="user.html">Dashboard</a></b></li>
+                <li><b><a href="logout.html">Logout</a></b></li>
         `
-    } else if (admin() === true) {
+    } else if (userRole === "ADMIN") {
         html += `
-                    <li><b><a href="admin.html">Dashboard</a></b></li>
-                    <li><b><a href="logout.html">Logout</a></b></li>
+                <li><b><a href="admin.html">Dashboard</a></b></li>
+                <li><b><a href="logout.html">Logout</a></b></li>
         `
     } else {
         html += `
-                    <li><b><a href="user.html">Dashboard</a></b></li>
-                    <li><b><a href="logout.html">Logout</a></b></li>
+                <li><b><a href="login.html">Login</a></b></li>
         `
     }
 
@@ -38,28 +39,26 @@ function loadDashboard() {
 }
 
 
-async function admin() {
+async function getRole() {
 
-    let isAdmin = false;
-    fetch('/admin', {
-      method: 'GET',
-      credentials: 'include',
-      })
-  .then(response => {
-    if (response.ok) {
-        return response.text();
-        isAdmin = true;
-    } else {
-        isAdmin = false;
-        throw new Error('Not an administrator');
+    let role = "";
+    try {
+        const response = await fetch('/role', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+                    },
+        })
+        if (response.ok) {
+            role = await response.text();
+            console.log(role);
+        } else {
+            throw new Error('Not an administrator');
+        }
+    } catch (error) {
+        console.error('Error:', error);
     }
-  })
-  .then(data =>{
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
 
-  return isAdmin;
-}
+  return role;
+}   

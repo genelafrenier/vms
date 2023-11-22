@@ -21,7 +21,7 @@
 <main>
   <div class="LoginPage">
     <!-- Start Of Login Form  -->
-    <form class="ImbededBox" name="userLogin">
+    <form class="ImbededBox" name="userLogin" id="loginForm">
       <div class="ID">
         <label for= "loginUsername"> Student or Employee ID: </label>
       </div>
@@ -48,8 +48,17 @@
 
       <!-- LOGIN Button Triggers Form Validation - Submits If Successful Validation  -->
       <div class="LoginButton">
-        <button type="submit" class="LoginBtn" onclick="login()">LOGIN</button>
+        <button type="submit" class="LoginBtn">LOGIN</button>
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                console.log('Form submitted');
+                login();
+            });
+        });
+    </script>
 
       <br>
 
@@ -76,11 +85,12 @@
         };
         console.log("Login Triggered");
 
-        fetch('/login', {
+        fetch('http://localhost:8080/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify(data)
         })
         .then(response => {
