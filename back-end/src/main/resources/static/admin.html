@@ -93,7 +93,7 @@
                         <div class="form_element">
                             <label for="event_title">Event Title</label>
                             <span class="error" id="title_error"></span>
-                            <input type="text" id="event_title" placeholder="Enter event title" name="event_title" required>
+                            <input type="text" id="event_title" placeholder="Enter event title" name="event_title">
                         </div>
                         
                     </div>
@@ -101,7 +101,7 @@
                         <div class="form_element">
                             <label for="event_date">Date</label>
                             <span class="error" id="date_error"></span>
-                            <input type="date" id="event_date" name="event_date" required>
+                            <input type="date" id="event_date" name="event_date">
                         </div>
                     </div>
                 </div>
@@ -110,14 +110,14 @@
                         <div class="form_element">
                             <label for="event_location">Location</label>
                             <span class="error" id="location_error"></span>
-                            <input type="text" id="event_location" placeholder="Enter location of event" name="event_location" required>
+                            <input type="text" id="event_location" placeholder="Enter location of event" name="event_location">
                         </div>
                     </div>
                     <div class="column">
                         <div class="form_element">
                             <label for="event_time">Time</label>
                             <span class="error" id="time_error"></span>
-                            <input type="time" id="event_time" name="event_time" required>
+                            <input type="time" id="event_time" name="event_time">
                         </div>
                     </div>
                 </div>
@@ -126,13 +126,13 @@
                         <div class="form_element">
                             <label for="event_description">Description</label>
                             <span class="error" id="description_error"></span>
-                            <textarea name="event_description" id="event_description" cols="30" rows="10" placeholder="Enter a description of the event" required></textarea>
+                            <textarea name="event_description" id="event_description" cols="30" rows="10" placeholder="Enter a description of the event"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="btn_submit">
-                        <button type="submit">Submit</button>
+                        <button type="button" class="submit_btn" onclick="validation_testing()">Submit</button>
                     </div>
                 </div>
             </form>
