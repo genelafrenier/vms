@@ -8,6 +8,7 @@ To Setup Spring Server:
     Version 8.0.35 should work
     a. Setup a new user
     b. From CLI, login and type: CREATE DATABASE vms;
+        Alternatively, create new schema titled VMS from MySQL Workbench
     c. Use SHOW DATABASES to verify it's created, or check in MySQL Workbench
 3. If using VSCode, download extensions: 
     Spring Boot Dashboard, Spring Boot Tools, and Maven for Java
@@ -24,18 +25,27 @@ To Setup Spring Server:
             "organizerId": 0,
             "eventName": "Blazing Bonfire",
             "eventDescription": "A bonfire to remember",
-            "eventDate": "12/14/2023",
+            "eventDate": "2023-12-14",
             "eventTime": "1:32 AM",
             "eventLocation": "Riverside Hall, 1013"
         }
-    b. Query the MySQL database using something like SELECT * FROM EVENT;
+    b. "Event saved" message should display in server log (make sure terminal is open in VSCode)
+    c. Query the MySQL database using something like SELECT * FROM EVENT;
         This should display the row you sent with the POST request
 
-Testing with front-end application:
+Testing:
 
-Example index.html has been uploading showing the Events page, and link to an Events Detail page
+1. Run Server from Springboot Dashboard
+2. Navigate to http://localhost:8080 in your browser
+    a. Event created using Postman should display on events page
+3. Use the navbar to navigate to login page
+4. Click the Create Account button
+5. Create an account 
+6. Login with Account
+7. Navbar should now display "Dashboard" and "Logout" instead of "Login"
+8. If testing admin side, update user to admin role using the following SQL statement in MySQL workbench:
+    UPDATE USER
+    SET role = "ADMIN"
+    WHERE username = "234234234";
 
-1. Download Live Server extension in VSCode
-2. Right click on HTML page and click "Open with Live Server"
-3. Page will launch in your default browser
-4. If the events you loaded in with Postman are not showing, press CTRL+SHIFT+J to examine console log in browser
+

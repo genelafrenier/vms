@@ -1,0 +1,52 @@
+body {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.main-title {
+    font-size: 48px; /* Adjust the size as needed */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Aligns items to the top */
+    flex-wrap: wrap; /* Allows items to wrap if the screen is too small */
+    max-width: 100%; /* Ensures the container doesn't exceed the width of the viewport */
+    margin: 20px;
+}
+
+.section {
+    flex: 1; /* Allows the sections to grow and fill the space */
+    margin: 10px; /* Spacing between the sections */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally within each section */
+    max-width: 50%; /* Maximum width of each section */
+}
+
+.section img {
+    width: 400px; /* Fixed width for both images */
+    height: 400px; /* Fixed height for both images */
+    margin-bottom: 20px; /* Space below the image */
+}
+
+
+.section h2 {
+    font-size: 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.section p {
+    font-size: 24px;
+    margin: 5px 0;
+}

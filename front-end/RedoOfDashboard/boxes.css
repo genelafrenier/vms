@@ -19,6 +19,47 @@ p{
     margin-top: 5px;
 }
 
+label {
+    width: 120px;
+    display: inline-block;
+    /* text-align: right; */
+    /* text-align: center; */
+}
+
+input {
+    width: 210px;
+    /* display: ; */
+    position: relative;
+    align-content: center;
+    /* text-align: left; */
+
+}
+
+.editBtn {
+    background-color: #008453;
+    /* width: 20px; */
+    /* height: 20px; */
+
+    position: absolute;
+    right: 40px;
+    top: 5px;
+
+    display: flex;
+    padding: 7px;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+.saveChangesBtn {
+    margin-top: 10px; 
+    position: absolute; 
+    right: 150px; 
+    bottom: 10px; 
+    padding: 5px;
+    cursor: pointer;
+}
+
 
 div.ratingWrapper{
     /* border:  thin solid black; */
@@ -135,7 +176,7 @@ div.header3{
 div.container1{
     background-color: #C4B581;
     width: 400px;
-    height: 600px;
+    height: 630px;
     margin: 50px;
     border-radius: 50px;
 
@@ -149,7 +190,7 @@ div.container1{
 div.container2{
     background-color: #C4B581;
     width: 400px;
-    height: 600px;
+    height: 630px;
     margin: 50px;
     border-radius: 50px;
 
@@ -165,7 +206,7 @@ div.container2{
 div.container3{
     background-color: #C4B581;
     width: 400px;
-    height: 600px;
+    height: 630px;
     margin: 50px;
     border-radius: 50px;
 
@@ -174,7 +215,7 @@ div.container3{
 
 }
 
-div.container_for_info{
+.container_for_info{
     background-color: #C4B581;
     width: 400px;
     height: 500px;
@@ -208,7 +249,7 @@ div#info{
 }
 
 #form button {
-    /* color: white; */
+    color: white;
     background-color: #008453;
     /* border: none; */
     border-radius: 4px;
@@ -225,6 +266,8 @@ div.inputControl input:focus {
     outline: 0;
 }
 
+
+/* The success and error both control border color that indicates whether or not the meet the validation */
 div.inputControl.success input {
     border-color: #09c372;
 }
@@ -233,6 +276,7 @@ div.inputControl.error input {
     border-color: #ff3860;
 }
 
+/* This controls the error message that pops up when a user fails user validation */
 .inputControl .error {
     color: #ff3860;
     position: absolute;
@@ -242,8 +286,13 @@ div.inputControl.error input {
 }
 
 
+/* Gets rid of the border colors after a user clicks on save changes */
+.inputControl.default input {
+    border-color: none;
+}
 
-div#textbox{
+
+div#textbox {
     background-color: white;
     width: 300px;
     height: 100px;

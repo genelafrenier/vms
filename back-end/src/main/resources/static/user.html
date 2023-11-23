@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+<head>    
+    <title>Contacts Page</title>
+    <link rel="stylesheet" type="text/css" href="styles/boxes.css">
+    <script defer src="js/saveChangesButton.js"></script>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <script src="js/navbar.js"></script>
+</head>
+
+<style>
+    .textarea{
+        resize: none;
+        background-color: white;
+        padding: 1em;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        outline: none;
+        font-size: 14px;
+        line-height: 1.3;
+        width: 310px;
+        height: 100px;
+        /* margin: 10px; */
+
+        position: relative;
+        vertical-align: top;
+        
+        /* top: 50px; */
+
+
+    }
+
+    .textarea:focus{
+        cursor: text;
+        background-color: white;
+        border-color: black;
+    }
+</style>
+
+
+
+<body>
+
+    <div class="navbar-container" id="navbar"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadNavbar();
+        });
+    </script>
+
+    <!-- <label>Enter first name</label>
+    <input type="text" id="firstName">
+    <button type="button" id="myButton" onclick="collectFname()">submit</button>
+    <script src="index.js"></script> -->
+
+
+    <div class="outline">
+
+        <div class="centerText"> Your Rating:
+
+            <div class="ratingWrapper">
+
+                <div class="ratings">
+                    
+                    <span dataRating="5">&#9733;</span>
+            
+                    <span dataRating="4">&#9733;</span>
+            
+                    <span dataRating="3">&#9733;</span>
+            
+                    <span dataRating="2">&#9733;</span>
+            
+                    <span dataRating="1">&#9733;</span>
+
+                </div>
+        
+            </div>
+
+        </div>
+    
+        <!-- First Box -->
+        <div class="header1"><h1>Current Events</h1></div>
+
+        <!-- Second Box -->
+        <div class="header2"><h1>About Me</h1></div>
+
+        <!-- Third Box -->
+        <div class="header3"><h1>Past Events</h1></div>
+
+        <!-- <div class="header1">
+            <h1>Current Events</h1>
+            <h1>About Me</h1>
+            <h1>Past Events</h1>
+        </div> -->
+
+        <br>
+
+
+
+        <div class="container1"></div>
+
+        <div class="container2">
+
+            <!-- <div class="editBtn">Edit</div> -->
+            <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
+
+            <br>
+
+            <form id="form">
+
+                <div class="container_for_info" id="info">
+
+                    <div class="inputControl">
+
+                        <label for="fname">First Name:</label>
+                        <input type="text" class="input" id="fname" name="fname" value="" disabled>
+                        <div class="error"></div>
+                        
+                    </div>
+
+                </div>
+
+                <div class="container_for_info" id="info">
+
+                    <div class="inputControl">
+
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" name="lname" disabled>
+                        <div class="error"></div>
+
+                    </div>
+                    
+                </div>
+
+                <div class="container_for_info" id="info">
+
+                    <div class="inputControl">
+
+                        <label for="phoneNum">Phone Number:</label>
+                        <input type="tel" id="phoneNum" name="phoneNum" placeholder="123-456-7890     Required*" disabled>
+                        <div class="error"></div>
+
+                    </div>
+                    <!-- <div class="error"></div> -->
+                    
+                </div>
+
+                <div class="container_for_info" id="info">
+
+                    <div class="inputControl">
+
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email"  placeholder="School email      Required*" disabled>
+                            <div class="error"></div>
+
+                    </div>
+
+                </div>
+
+
+              <button type="submit" onclick="saveChanges()" class="saveChangesBtn" style="margin-top: 10px; position: absolute; right: 150px; bottom: 5px; padding: 5px;" disabled>Save Changes</button>
+
+            </form>
+
+            <div class="container_for_info" id="textbox">
+
+                <form>
+
+                    <label for="userSkills">Skills:</label>
+                    <textarea class="textarea" id="userSkills" placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled></textarea>
+                    <p id="result"></p>
+
+                </form>
+
+            </div>
+
+            <br>
+
+            <div class="container_for_info" id="textbox">
+
+                <form>
+
+                    <label for="userAboutMe">About Me:</label>
+                    <textarea class="textarea" id="userAboutMe" placeholder="What would you like the organizers to know about you?" id="personal_info" disabled></textarea>
+                    <p id="result2"></p>
+
+                </form>
+
+            </div>
+
+
+
+          <!-- <script>
+
+
+            let firstName;
+
+            document.getElementById("myButton").onclick = function() {
+
+                firstName = document.getElementById("firstName").value;
+                document.getElementById("fname").value = firstName;
+                console.log(firstName);
+
+            }
+           
+            function saveChanges() {
+                let newName = document.getElementById("fname").value;
+                document.getElementById("fname").value = newName;
+                console.log(newName);
+            }
+          </script> -->
+
+        </div>
+
+        <div class="container3"></div>
+
+    </div>
+
+</body>
+
+</html>
+
+
+
+

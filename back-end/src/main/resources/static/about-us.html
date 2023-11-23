@@ -1,0 +1,70 @@
+<!DOCTYPE html>  <!--defines the page as an HTML5 document-->
+<meta charset="UTF-8"> <!--defines the character set to UTF-8-->
+<meta name = "viewport" content = "width=device-width, initial-scale=1"> <!--makes website work on all devices-->
+
+<html lang="en">
+<head> <!--head contains information on webpage-->
+    <title>About Us</title>
+    <link rel="stylesheet" type="text/css" href="styles/about-us.css"> <!--links the stylesheet css file styles to the index-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> <!--Donwloads the Inter font (from Figma)-->
+    <link rel="stylesheet" href="styles/navbar.css">
+    <script src="js/navbar.js"></script>
+</head>
+<body> <!--Puts stuff on website-->
+    <div class="navbar-container" id="navbar"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadNavbar();
+        });
+    </script>
+    <div class ="about-section">
+        <h1>About Us</h1>
+        <p>Our group consists of six members who wanted to make volunteering a more streamlined process for both applicants and organizers.</p>
+    </div>
+
+    <div class="team-section">
+        <div class ="team-member">
+            <a href="https://www.linkedin.com/in/galileoaperez" target="_blank">
+            <img src="images/Jordan.png" alt="Group Member-Galileo"> <!--Need pic-->
+            </a>
+            <p>Galileo (Product Owner/Developer)</p>
+        </div>
+        
+        <div class ="team-member">
+            <a href ="https://linkedin.com" target="_blank"> <!--need LinkedIn link-->
+            <img src="images/Jordan.png" alt="Group Member-Calvin"> <!--Need pic-->
+            </a>
+            <p>Calvin (Developer)</p>
+        </div>
+
+        <div class ="team-member">
+            <a href ="https://linkedin.com" target="_blank"> <!--need LinkedIn link-->
+            <img src="images/Gene.png" alt="Group Member-Gene">
+            </a>
+            <p>Gene (Scrum Master/Developer)</p>
+        </div>
+
+        <div class ="team-member">
+            <a href ="https://linkedin.com" target="_blank"> <!--need LinkedIn link-->
+            <img src="images/Nathan.png" alt="Group Member-Calvin"> 
+            </a>
+            <p>Nathan (Developer)</p>
+        </div>
+
+        <div class ="team-member">
+            <a href="https://www.linkedin.com/in/alekzandre-vang-12062318z/" target="_blank">
+            <img src="images/Alekzandre.png" alt="Group Member-Alekzandre"> 
+            </a>
+            <p>Alekzandre (Developer)</p>
+        </div>
+
+        <div class ="team-member">
+            <a href ="https://www.linkedin.com/in/jordan-dawson-89967429b/" target="_blank">
+            <img src="images/Jordan.png" alt="Group Member-Jordan">
+            </a> 
+            <p>Jordan (Developer)</p>
+        </div>
+    
+    <script src="about-us.css"></script>
+</body>
+</html>

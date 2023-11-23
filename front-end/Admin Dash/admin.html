@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dash</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <script src="app.js"></script>
+    <style>
+    body {
+        font-family: 'Inter';
+    }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="main">
+        <div class="main_container">
+            <div class="profile_container">
+                <div class="row">
+                    <div class="column">
+                            <div class="profile_content">
+                                <div class = "profile_top">
+                                    <img src="images/default_profile.jpg" id="pfp">
+                                    
+                                    <p class="org_name_depart">
+                                        <span class="name">Organizer Name<br /></span>
+                                        <span class="depart">Organizer Department/Group</span>
+                                    </p>
+                                    
+                                </div>
+                                <div class="btn_pfp">
+                                    <label for="pfp_change">edit</label>
+                                    <input type="file" accept="image/jpeg, image/png, image/jpg" id="pfp_change">
+                                </div>
+                                <div class="profile_body">
+                                    <div class="contact_head">Contact Info</div>
+                                    <div class="email_head">Email:</div>
+                                    <div class="email">organizer@csus.edu</div>
+                                    <hr>
+                                
+                                    <div class="phone_head">Phone #:</div>
+                                    <div class="phone_optional">(optional)</div>
+                                    <div>
+                                    <div class="phone">(000) 000-0000</div>
+                                    <hr>
+                                    </div>
+                                    <div>
+                                    <div class="other_head">Other:</div>
+                                  <div class="other_optional">(optional)</div>
+                                  <div class="other">place holder</div>
+                                  <hr>
+                                </div>
+                                </div>
+                                
+                            </div>
+                    </div>
+                </div>
+            </div>
+           <div class="column">
+                    <div class="events_container">
+                        <div class="events_content">
+                            <div class="row">
+                                <div class="spacer"></div>
+                            </div>
+                            <div class="row">
+                                <div class="events_head">My Events</div>
+                                <div class="create_event">
+                                    <button id="btn_add" onclick="open_popup()">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup_content">
+            <button type="button" class="close_btn" onclick="close_popup()">&times;</button>
+        <div class="create_event">
+            <form class="imbedded_fields" id="form_id" name="create_event" onsubmit="return validation_testing()">
+                <div class="row">
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_title">Event Title</label>
+                            <span class="error" id="title_error"></span>
+                            <input type="text" id="event_title" placeholder="Enter event title" name="event_title" required>
+                        </div>
+                        
+                    </div>
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_date">Date</label>
+                            <span class="error" id="date_error"></span>
+                            <input type="date" id="event_date" name="event_date" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_location">Location</label>
+                            <span class="error" id="location_error"></span>
+                            <input type="text" id="event_location" placeholder="Enter location of event" name="event_location" required>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_time">Time</label>
+                            <span class="error" id="time_error"></span>
+                            <input type="time" id="event_time" name="event_time" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="event_description">
+                        <div class="form_element">
+                            <label for="event_description">Description</label>
+                            <span class="error" id="description_error"></span>
+                            <textarea name="event_description" id="event_description" cols="30" rows="10" placeholder="Enter a description of the event" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn_submit">
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+        </div>
+        
+    </div> 
+</body>
+</html>

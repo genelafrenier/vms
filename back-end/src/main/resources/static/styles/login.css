@@ -1,0 +1,145 @@
+html,
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  background: white;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+
+.LoginPage
+{
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  border: 3px solid #000000;
+}
+
+.LoginPage .ImbededBox
+{
+  margin: 2rem;
+}
+
+.ImbededBox
+{
+  margin: 2rem;
+  font-weight: bold;
+  font-size: 20pt;
+  align-items: center;
+  justify-content: center;
+}
+
+.IdField
+{
+  height: 39px;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  background: transparent;
+}
+
+.IdField input
+{
+  text-indent: 3%;
+  font-size: 20pt;
+  font-style: italic;
+  border: none;
+  outline: transparent;
+  background: transparent;
+}
+
+.PasswordField
+{
+  height: 39px;
+  border: 1px solid #000000;
+  border-radius: 15px;
+  background: transparent;
+}
+
+.PasswordField input
+{
+  text-indent: 3%;
+  font-size: 20pt;
+  border: none;
+  outline: transparent;
+  background: transparent;
+}
+
+.ImbededBox .LoginButton
+{
+  text-align: center;
+}
+
+.ImbededBox .CreateAccountButton
+{
+  text-align: center;
+}
+
+.LoginPage .LoginBtn
+{
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+}
+
+.LoginPage .CreateAccountBtn
+{
+
+  background-color: transparent;
+  border: transparent;
+  border-color: transparent;
+  border-radius: 20px;
+
+}
+
+.LoginBtn
+{
+  height: 50px;
+  width: 130px;
+  font-weight: bold;
+  background-color: rgba(196, 181, 129, 1);
+  color: black;
+  font-size: 20pt;
+
+}
+
+.CreateAccountBtn
+{
+  height: 50px;
+  width: 300px;
+  border: transparent;
+  font-size: 20pt;
+}
+
+.LoginBtn:hover,
+.LoginBtn:active
+{
+  background-color: rgba(4, 57, 39, 1);
+  color:white;
+}
+
+.CreateAccountBtn:hover,
+.CreateAccountBtn:active
+{
+  border: transparent;
+  background-color: white;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.Error
+{
+  font-size: 12pt;
+  font-weight: bold;
+  color: red;
+}
+
+input:-webkit-autofill  
+{
+  transition: background-color 5000s;
+}
