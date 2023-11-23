@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
  
@@ -18,6 +20,8 @@ import jakarta.persistence.Table;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private @Getter @Setter int id;
     private @Getter @Setter String username;
     private @Getter @Setter String password;
     private @Getter @Setter String role;

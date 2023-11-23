@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SMS Create Account Page</title>
   <link href="styles/register.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="styles/navbar.css">
@@ -11,13 +11,14 @@
 </head>
 
 <body>
-  <div class="navbar-container" id="navbar"></div>
-  <script>
-      document.addEventListener('DOMContentLoaded', (event) => {
-          loadNavbar();
-      });
-  </script>
   <main>
+    <div class="navbar" id="navbar"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadNavbar();
+        });
+    </script>
+
     <div class="createAccount">
       <!-- Start Of Create Account Form  -->
       <form class="imbededFields" id="formId" name="CreateAccount" onsubmit="return ValidationTesting()">
@@ -29,12 +30,12 @@
         </div>
 
         <!-- First Name Imput  -->
-        <div class="nameFields">
+        <div style="float: left;" class="nameFields">
           <input type="text" id="firstName" name="first" placeholder="First Name">
         </div>
 
         <!-- Last Name Input  -->
-        <div class="nameFields">
+        <div style="float: right;" class="nameFields">
           <input type="text" id="lastName" name="last" placeholder="Last Name">
         </div>
 
