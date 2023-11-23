@@ -298,6 +298,14 @@
     font-size: 36px;
 }
 
+.events_populate {
+    background-color: transparent;
+    height: 55vh;
+    width: 100%;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
 .popup {
     display: none;
     position: fixed;
