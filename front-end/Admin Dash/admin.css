@@ -251,24 +251,21 @@ input {
 }
 
 .popup {
-    position: absolute;
-    top: -150%;
-    left: 50%;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.25);
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 10%;
+    left: 25%;
     border: 2px solid;
     border-color: #000000;
     height: 75vh;
     width: 50vw;
     background-color: white;
-    transition: top 0ms ease-in-out 200ms;
+    
 }
 
-.popup.active {
-    top: 50%;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    transition: top 0ms ease-in-out 200ms;
+.popup_content {
+    background-color: white;
 }
 
 .popup .close_btn {
@@ -280,7 +277,13 @@ input {
     cursor: pointer;
     font-size: 36px;
     margin-right: 20px;
+    background: transparent;
+    border: none;
 } 
+
+.popup .create_event{
+    padding-left: 5%;
+}
 
 .form_element {
     margin: 15px 0px;
@@ -290,11 +293,21 @@ input {
     font-size: 16px;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
+    background-color: transparent
+}
+
+.form_element span {
+    font-size: 16px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: red;
+    margin-left: 20px;
 }
 
 .form_element input[type="text"],
 .form_element input[type="date"],
-.form_element input[type="time"] {
+.form_element input[type="time"],
+.form_element textarea {
     margin-top: 5px;
     display: block;
     width: 120%;
@@ -304,6 +317,8 @@ input {
     border: 1px solid black;
     background-color: #cecece;
     font-size: 16px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
 }
 
 .event_description {
@@ -311,9 +326,8 @@ input {
     height: 25vh;
 }
 
-.event_description .form_element input[type="text"]{
-    width: 97%;
-    height: 20vh;
+.form_element textarea {
+    width: 115%;
 }
 
 .btn_submit {
@@ -331,10 +345,12 @@ input {
 
 .popup .column {
     padding-right: 15%;
+    background-color: transparent;
 }
 
 .popup .row {
     padding-bottom: 5%;
+    background-color: transparent;
 }
 
 .column {

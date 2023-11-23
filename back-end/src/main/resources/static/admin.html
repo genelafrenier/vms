@@ -75,7 +75,7 @@
                             <div class="row">
                                 <div class="events_head">My Events</div>
                                 <div class="create_event">
-                                    <button id="btn_add">+</button>
+                                    <button id="btn_add" onclick="open_popup()">+</button>
                                 </div>
                             </div>
                         </div>
@@ -83,51 +83,63 @@
             </div>
         </div>
     </div>
-    <div class="popup">
-        <div class="close_btn">&times;</div>
+    <div class="popup" id="popup">
+        <div class="popup_content">
+            <button type="button" class="close_btn" onclick="close_popup()">&times;</button>
         <div class="create_event">
-            <div class="row">
-                <div class="column">
-                    <div class="form_element">
-                        <label for="event_title">Event Title</label>
-                        <input type="text" id="event_title" placeholder="Enter event title">
+            <form class="imbedded_fields" id="form_id" name="create_event" onsubmit="return validation_testing()">
+                <div class="row">
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_title">Event Title</label>
+                            <span class="error" id="title_error"></span>
+                            <input type="text" id="event_title" placeholder="Enter event title" name="event_title" required>
+                        </div>
+                        
+                    </div>
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_date">Date</label>
+                            <span class="error" id="date_error"></span>
+                            <input type="date" id="event_date" name="event_date" required>
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="form_element">
-                        <label for="event_date">Date</label>
-                        <input type="date" id="event_date">
+                <div class="row">
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_location">Location</label>
+                            <span class="error" id="location_error"></span>
+                            <input type="text" id="event_location" placeholder="Enter location of event" name="event_location" required>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_time">Time</label>
+                            <span class="error" id="time_error"></span>
+                            <input type="time" id="event_time" name="event_time" required>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="form_element">
-                        <label for="event_location">Location</label>
-                        <input type="text" id="event_location" placeholder="Enter location of event">
+                <div class="row">
+                    <div class="event_description">
+                        <div class="form_element">
+                            <label for="event_description">Description</label>
+                            <span class="error" id="description_error"></span>
+                            <textarea name="event_description" id="event_description" cols="30" rows="10" placeholder="Enter a description of the event" required></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="form_element">
-                        <label for="event_time">Time</label>
-                        <input type="time" id="event_time">
+                <div class="row">
+                    <div class="btn_submit">
+                        <button type="submit">Submit</button>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="event_description">
-                    <div class="form_element">
-                        <label for="event_description">Description</label>
-                        <input type="text" id="event_description" placeholder="Enter a description of the event">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="btn_submit">
-                    <button>Submit</button>
-                </div>
-            </div>
+            </form>
+            
         </div>
+        </div>
+        
     </div> 
 </body>
 </html>
