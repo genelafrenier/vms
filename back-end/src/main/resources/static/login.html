@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SMS Login Page</title>
   <link href="styles/login.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="styles/navbar.css">
@@ -12,13 +12,14 @@
 
   
 <body>
-  <div class="navbar-container" id="navbar"></div>
+  <main>
+  <div class="navbar" id="navbar"></div>
   <script>
       document.addEventListener('DOMContentLoaded', (event) => {
           loadNavbar();
       });
   </script>
-<main>
+
   <div class="LoginPage">
     <!-- Start Of Login Form  -->
     <form class="ImbededBox" name="userLogin" id="loginForm">
@@ -72,6 +73,8 @@
     </form>
   </div>
 </main>
+
+
 
   <script>
   

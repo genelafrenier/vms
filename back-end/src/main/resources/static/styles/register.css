@@ -1,13 +1,13 @@
 html,
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
-  align-items: center;
   justify-content: center;
-  display: flex;
   background: white;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -16,7 +16,11 @@ body {
 
 .createAccount
 {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 5%;
+  width: 40%;
   height: 100%;
   border-radius: 35px;
   border: 3px solid #000000;
@@ -24,7 +28,7 @@ body {
 
 .userLastName
 {
-  margin-right: 7.3rem;
+  margin-right: 8.5rem;
 }
 
 .userFirstName
@@ -54,6 +58,7 @@ body {
 
 .nameFields
 {
+  width: 250px;
   height: 32px;
   border: 1px solid #000000;
   border-radius: 15px;
@@ -62,6 +67,7 @@ body {
 
 .nameFields input
 {
+  width: 250px;
   text-indent: 3%;
   font-size: 16pt;
   font-style: italic;
@@ -177,9 +183,12 @@ body {
 
 .successPopUp
 {
-  border: 3px solid #000000;
+  position: absolute;
+  top: 40%;
+  left: 25.5%;
   width: 700px;
   height: 350px;
+  border: 3px solid #000000;
   border-radius: 30px;
   text-align: center;
   justify-content: center;
@@ -201,7 +210,7 @@ body {
   border: none;
   border-radius: 20px;
   height: 50px;
-  width: 350px;
+  width: 215px;
 }
 
 .successPopUp .popupBtn
@@ -221,6 +230,8 @@ body {
 
 .Error
 {
+  height: 10px;
+  padding-top: 10px;
   text-align: left;
   justify-content: center;
   font-size: 12pt;
