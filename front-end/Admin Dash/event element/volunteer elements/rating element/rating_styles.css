@@ -1,0 +1,62 @@
+.rating_container {
+    background-color: #c4b581;
+    width: 96%;
+    padding: 10px;
+    height: 60px;
+    border-radius: 50px;
+    display: flex;
+    margin-top: 20px;
+    border: 2px solid black;
+    margin-left: 1%;
+}
+
+.rating_container .volunteer_name {
+    height: 100%;
+    background-color: transparent;
+    width: 25%;
+    text-align: center;
+    font-size: 28px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.rating_container .rate_volunteer {
+    height: 100%;
+    width: 28%;
+    margin-top: 10px;
+}
+
+.rating_container .comments {
+    height: 100%;
+    width: 25%;
+    margin-top: 10px;
+}
+
+.rating_container textarea {
+    border: none;
+    background: none;
+    height: 55%;
+    width: 100%;
+    font-size: 28px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+}
+
+.rating_container .submit_rating {
+    height: 100%;
+    width: 15%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.rating_container button {
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 28px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: underline;
+}
