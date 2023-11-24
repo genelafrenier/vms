@@ -31,11 +31,11 @@ function close_rate(){
 
 // *** Edit event popup *** // needs script to populate current event info into form values and textarea innerHTML
 function open_popup(){
-    document.getElementById("popup").style.display = "block";
+    document.getElementById("edit_popup").style.display = "block";
 }
 
 function close_popup(){
-    document.getElementById("popup").style.display = "none";
+    document.getElementById("edit_popup").style.display = "none";
 }
 
 function validation_testing(){

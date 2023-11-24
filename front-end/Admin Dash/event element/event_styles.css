@@ -5,6 +5,8 @@
     height: 60px;
     border-radius: 25px;
     display: flex;
+    margin-top: 20px;
+    
 }
 
 .event_name {
@@ -164,7 +166,7 @@ button {
 }
 
 /* edit event popup */
-.popup {
+.edit_popup {
     display: none;
     position: fixed;
     z-index: 1;
@@ -194,7 +196,7 @@ button {
     border: none;
 } 
 
-.popup .create_event{
+.edit_popup .create_event{
     padding-left: 5%;
 }
 
@@ -258,12 +260,12 @@ button {
     font-weight: 700;
 }
 
-.popup .column {
+.edit_popup .column {
     padding-right: 15%;
     background-color: transparent;
 }
 
-.popup .row {
+.edit_popup .row {
     padding-bottom: 5%;
     background-color: transparent;
 }

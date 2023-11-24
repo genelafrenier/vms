@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Element</title>
     <link rel="stylesheet" href="event_styles.css">
+    <link rel="stylesheet" href="volunteer elements/pending element/pending_styles.css">
+    <link rel="stylesheet" href="volunteer elements/question element/question_styles.css">
+    <link rel="stylesheet" href="volunteer elements/rating element/rating_styles.css">
     <script src="event_script.js"></script>
 </head>
 <body>
@@ -32,6 +35,7 @@
             </button>
         </div>
     </div>
+
     <!-- popups -->
     <div class="pending_popup" id="pending_popup">
         <div class="header_container">
@@ -60,8 +64,8 @@
                 </div>
             </div>
             <div class="volunteers_element_container">
-                <!-- Where volunteer elements will populate -->
-
+                <!-- Where pending elements will populate -->
+                
             </div>
         </div>
         
@@ -93,8 +97,8 @@
                 </div>
             </div>
             <div class="volunteers_element_container">
-                <!-- Where volunteer elements will populate -->
-
+                <!-- Where comment/question elements will populate -->
+                
             </div>
         </div>
         
@@ -126,14 +130,14 @@
                 </div>
             </div>
             <div class="volunteers_element_container">
-                <!-- Where volunteer elements will populate -->
-
+                <!-- Where rating elements will populate -->
+                
             </div>
         </div>
         
     </div>
     <!-- needs editable input fields -->
-    <div class="popup" id="popup">
+    <div class="edit_popup" id="edit_popup">
         <div class="popup_content">
             <button type="button" class="close_btn" onclick="close_popup()">&times;</button>
         <div class="create_event">
