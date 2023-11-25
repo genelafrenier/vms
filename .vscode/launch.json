@@ -19,6 +19,16 @@
             "projectName": "sms",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TestApplication<test>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.vms.sms.TestApplication",
+            "projectName": "test",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
