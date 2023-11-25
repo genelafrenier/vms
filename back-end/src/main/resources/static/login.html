@@ -29,7 +29,7 @@
 
       <!-- UserId Input  -->
       <div class="IdField">
-        <input type = "text" id= "loginUsername" name= "userId" placeholder="Username">
+        <input type = "text" id= "loginUsername" name= "userId" oninput="LoginValidation()">
       </div>
 
       <p class="Error" id="idInputError"></p>
@@ -41,7 +41,7 @@
 
       <!-- User Password Input  -->
        <div class="PasswordField">
-        <input type = "password" id= "loginPassword" name= "userPassword" placeholder = "Password">
+        <input type = "password" id= "loginPassword" name= "userPassword" oninput="LoginValidation()">
        </div>
 
       <p class="Error" id="passwordInputError"></p>
@@ -114,6 +114,55 @@
     }
 
 
+  function LoginValidation()
+  {
+    // *** Setting Initial Error Message Fields To Be Empty Upon Calling Validation
+    // Function.  This Will Allow For The Messages To Be "Dynamically Removed/Updated" When
+    // The Error Is Fixed Upon LoginValidation() Being Called Again, Either Through 
+    // The "oninput" Function or When Validation Is Triggered Upon "LOGIN"
+    // Button Being Clicked By The User ***
+    document.getElementById("idInputError").innerHTML="";
+    document.getElementById("passwordInputError").innerHTML="";
+    
+    //User ID Input Error Checking
+    if (document.userLogin.userId.value=="")
+    {
+      document.getElementById("idInputError").innerHTML="Please Enter Your ID Number";
+      return false;
+    }
+    else if(isNaN(document.userLogin.userId.value))
+    {
+      document.getElementById("idInputError").innerHTML="ID Must Only Contain Numbers";
+      return false;
+    }
+    else if(document.userLogin.userId.value.length<9)
+    {
+      document.getElementById("idInputError").innerHTML="ID Number Must Be 9 Digits";
+      return false;
+    }
+    else if(document.userLogin.userId.value.length>9)
+    {
+      document.getElementById("idInputError").innerHTML="ID Number Must Be 9 Digits";
+      return false;
+    }
+
+    //User Password Input Error Checking
+    else if(document.userLogin.userPassword.value=="")
+    {
+      document.getElementById("passwordInputError").innerHTML="Please Enter A Password";
+      return false;
+    }
+    else if(document.userLogin.userPassword.value.length<8)
+    {
+      document.getElementById("passwordInputError").innerHTML="Password Can't Be Less Than 8 Characters";
+      return false;
+    }
+    else if(document.userLogin.userPassword.value.length>20)
+    {
+      document.getElementById("passwordInputError").innerHTML="Password Can't Be Over 20 Characters";
+      return false;
+    }
+  }
   </script>
     
 

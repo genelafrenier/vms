@@ -21,7 +21,7 @@
 
     <div class="createAccount">
       <!-- Start Of Create Account Form  -->
-      <form class="imbededFields" id="formId" name="CreateAccount" onsubmit="return ValidationTesting()">
+      <form class="imbededFields" id="formId" name="CreateAccount">
         <div class="userFirstName">
           <label for= "firstName"> First Name: </label> <br>
           <div class="userLastName">
@@ -29,14 +29,14 @@
           </div>
         </div>
 
-        <!-- First Name Imput  -->
+        <!-- First Name Input  -->
         <div style="float: left;" class="nameFields">
-          <input type="text" id="firstName" name="first" placeholder="First Name">
+          <input type="text" id="firstName" name="first" oninput="ValidationTesting()">
         </div>
 
         <!-- Last Name Input  -->
         <div style="float: right;" class="nameFields">
-          <input type="text" id="lastName" name="last" placeholder="Last Name">
+          <input type="text" id="lastName" name="last" oninput="ValidationTesting()">
         </div>
 
         <br>
@@ -49,7 +49,7 @@
 
         <!-- UserId Input  -->
         <div class="userIdField">
-          <input type= "text" inputmode="numeric" id="userId" name= "userId" placeholder="Student/Employee ID">
+          <input type= "text" inputmode="numeric" id="userId" name= "userId" oninput="ValidationTesting()">
         </div>
 
         <p class="Error" id="idInputError"></p>
@@ -61,7 +61,7 @@
 
         <!-- User Email Input  -->
         <div class="userEmailField">
-          <input type="email" id="email" size="30" name="userEmail" placeholder="CSUS Email">
+          <input type="email" id="email" size="30" name="userEmail" oninput="ValidationTesting()">
         </div>
 
         <p class="Error" id="emailInputError"></p>
@@ -73,7 +73,7 @@
 
         <!-- User Phone Number Input  -->
         <div class="userPhoneNumberField">
-          <input type="tel" id="phoneNumber" name="userPhoneNumber" placeholder="Phone Number">
+          <input type="tel" id="phoneNumber" name="userPhoneNumber" oninput="ValidationTesting()">
         </div>
 
         <p class="Error" id="phoneInputError"></p>
@@ -85,7 +85,7 @@
 
         <!-- User Password Input  -->
          <div class="PasswordField">
-          <input type = "password" id= "password" name="userPassword" placeholder="Password">
+          <input type = "password" id= "password" name="userPassword" oninput="ValidationTesting()">
          </div>
 
         <p class="Error" id="passwordInputError"></p>
@@ -97,9 +97,9 @@
             <!-- Success Modal  -->
             <dialog data-popupContent class="successPopUp" id="accountSuccess">
             <h1>Account Successfully Created!</h1>
-              <!-- USER DASHBOARD - Then Directs User To User Dashboard  -->
+              <!-- EVENTS PAGE Button - Directs User To Events Page  -->
               <a href="index.html">
-              <button data-closeSuccessMessage type="button" id="submits" class="popupBtn" onclick="SubmitForm()">USER DASHBOARD</button>
+              <button data-closeSuccessMessage type="button" id="submits" class="popupBtn" onclick="SubmitForm()">EVENTS PAGE</button>
               </a>
             </dialog>
         </div>
@@ -172,10 +172,26 @@
 
     function ValidationTesting()
     {
+      // *** Setting Initial Error Message Fields To Be Empty Upon Calling Validation
+      // Function.  This Will Allow For The Messages To Be "Dynamically Removed/Updated" When
+      // The Error Is Fixed Upon ValidationTesting() Being Called Again, Either Through 
+      // The "oninput" Function or When Validation Is Triggered Upon "CREATE ACCOUNT"
+      // Button Being Clicked By The User ***
+      document.getElementById("nameInputError").innerHTML="";
+      document.getElementById("idInputError").innerHTML="";
+      document.getElementById("emailInputError").innerHTML="";
+      document.getElementById("phoneInputError").innerHTML="";
+      document.getElementById("passwordInputError").innerHTML="";
+
       //Name Input Error Checking
       if(document.CreateAccount.first.value=="")
       {
         document.getElementById("nameInputError").innerHTML="Please Enter Your First Name";
+        return false;
+      }
+      else if(!(document.CreateAccount.first.value.match(/^[a-zA-Z]+$/)))
+      {
+        document.getElementById("nameInputError").innerHTML="First Name Must Only Contain Charcters";
         return false;
       }
       else if(document.CreateAccount.first.value.length> 20)
@@ -186,6 +202,11 @@
       else if(document.CreateAccount.last.value=="")
       {
         document.getElementById("nameInputError").innerHTML="Please Enter Your Last Name";
+        return false;
+      }
+      else if(!(document.CreateAccount.last.value.match(/^[a-zA-Z]+$/)))
+      {
+        document.getElementById("nameInputError").innerHTML="Last Name Must Only Contain Charcters";
         return false;
       }
       else if(document.CreateAccount.last.value.length> 20)
