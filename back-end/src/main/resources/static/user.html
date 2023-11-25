@@ -10,32 +10,38 @@
     <script src="js/navbar.js"></script>
 </head>
 
+
 <style>
     .textarea{
+
         resize: none;
         background-color: white;
-        padding: 1em;
+        /* padding: 1em; */
         border-radius: 10px;
         border: 2px solid transparent;
         outline: none;
         font-size: 14px;
         line-height: 1.3;
-        width: 310px;
-        height: 100px;
+        /* width: 310px; */
+        /* height: 100px; */
         /* margin: 10px; */
-
-        position: relative;
-        vertical-align: top;
-        
-        /* top: 50px; */
-
+        /* margin-top: 10px; */
+        /* margin: auto; */
+        /* height: 100%; */
+        height: 100px;
+        width: 95%;
+        padding: 5%;
+        /* margin-left: 5%; */
+        /* padding-left: 5%; */
 
     }
 
     .textarea:focus{
+        
         cursor: text;
         background-color: white;
         border-color: black;
+    
     }
 </style>
 
@@ -56,7 +62,7 @@
     <script src="index.js"></script> -->
 
 
-    <div class="outline">
+    <!-- <div class="outline"> -->
 
         <div class="centerText"> Your Rating:
 
@@ -80,144 +86,108 @@
 
         </div>
     
-        <!-- First Box -->
-        <div class="header1"><h1>Current Events</h1></div>
+    <div class="grid">
 
-        <!-- Second Box -->
-        <div class="header2"><h1>About Me</h1></div>
+        <div>
 
-        <!-- Third Box -->
-        <div class="header3"><h1>Past Events</h1></div>
+            <div class="header"><h1>Current Events</h1></div>
+            <div class="container"></div>
 
-        <!-- <div class="header1">
-            <h1>Current Events</h1>
-            <h1>About Me</h1>
-            <h1>Past Events</h1>
-        </div> -->
+        </div>
 
-        <br>
+        <div>
 
+            <div class="header"><h1>About Me</h1></div>
+            <div class="container">
 
+                <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
 
-        <div class="container1"></div>
+                <form id="form">
 
-        <div class="container2">
+                    <div class="container_for_info" id="info">
 
-            <!-- <div class="editBtn">Edit</div> -->
-            <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
+                        <div class="inputControl">
 
-            <br>
+                            <label for="fname">First Name:</label>
+                            <input type="text" class="input" id="fname" name="fname" value="" disabled>
+                            <div class="error"></div>
 
-            <form id="form">
+                        </div>
 
-                <div class="container_for_info" id="info">
+                    </div>
 
-                    <div class="inputControl">
+                    <div class="container_for_info" id="info">
 
-                        <label for="fname">First Name:</label>
-                        <input type="text" class="input" id="fname" name="fname" value="" disabled>
+                        <div class="inputControl">
+
+                            <label for="lname">Last Name:</label>
+                            <input type="text" id="lname" name="lname" disabled>
+                            <div class="error"></div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="container_for_info" id="info">
+
+                        <div class="inputControl">
+
+                            <label for="phoneNum">Phone Number:</label>
+                            <input type="tel" id="phoneNum" name="phoneNum" placeholder="123-456-7890     Required*" disabled>
+                            <div class="error"></div>
+
+                        </div>
                         <div class="error"></div>
                         
                     </div>
 
-                </div>
+                    <div class="container_for_info" id="info">
 
-                <div class="container_for_info" id="info">
-
-                    <div class="inputControl">
-
-                        <label for="lname">Last Name:</label>
-                        <input type="text" id="lname" name="lname" disabled>
-                        <div class="error"></div>
-
-                    </div>
-                    
-                </div>
-
-                <div class="container_for_info" id="info">
-
-                    <div class="inputControl">
-
-                        <label for="phoneNum">Phone Number:</label>
-                        <input type="tel" id="phoneNum" name="phoneNum" placeholder="123-456-7890     Required*" disabled>
-                        <div class="error"></div>
-
-                    </div>
-                    <!-- <div class="error"></div> -->
-                    
-                </div>
-
-                <div class="container_for_info" id="info">
-
-                    <div class="inputControl">
+                        <div class="inputControl">
 
                             <label for="email">Email:</label>
                             <input type="text" id="email" name="email"  placeholder="School email      Required*" disabled>
                             <div class="error"></div>
 
+                        </div>
+
+                    </div>
+                    
+                    <div id="textbox">
+            
+                        <label for="userSkills">Skills:</label>
+                        <textarea class="textarea" id="userSkills" placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled></textarea>
+                        <p class="adjustResult" id="result"></p>
+
                     </div>
 
-                </div>
+                    <br>
 
+                    <div id="textbox">
 
-              <button type="submit" onclick="saveChanges()" class="saveChangesBtn" style="margin-top: 10px; position: absolute; right: 150px; bottom: 5px; padding: 5px;" disabled>Save Changes</button>
+                        <label for="userAboutMe">About Me:</label>
+                        <textarea class="textarea" id="userAboutMe" placeholder="What would you like the organizers to know about you?" id="personal_info" disabled></textarea>
+                        <p id="result2"></p>
 
-            </form>
+                    </div>
 
-            <div class="container_for_info" id="textbox">
-
-                <form>
-
-                    <label for="userSkills">Skills:</label>
-                    <textarea class="textarea" id="userSkills" placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled></textarea>
-                    <p id="result"></p>
+                    <button type="submit" onclick="saveChanges()" class="saveChangesBtn" disabled>Save Changes</button>
 
                 </form>
 
             </div>
-
-            <br>
-
-            <div class="container_for_info" id="textbox">
-
-                <form>
-
-                    <label for="userAboutMe">About Me:</label>
-                    <textarea class="textarea" id="userAboutMe" placeholder="What would you like the organizers to know about you?" id="personal_info" disabled></textarea>
-                    <p id="result2"></p>
-
-                </form>
-
-            </div>
-
-
-
-          <!-- <script>
-
-
-            let firstName;
-
-            document.getElementById("myButton").onclick = function() {
-
-                firstName = document.getElementById("firstName").value;
-                document.getElementById("fname").value = firstName;
-                console.log(firstName);
-
-            }
-           
-            function saveChanges() {
-                let newName = document.getElementById("fname").value;
-                document.getElementById("fname").value = newName;
-                console.log(newName);
-            }
-          </script> -->
-
+            
         </div>
 
-        <div class="container3"></div>
+        <div>
+
+            <div class="header"><h1>Past Events</h1></div>
+            <div class="container"></div>
+            
+        </div>
 
     </div>
-
+    
 </body>
 
 </html>
