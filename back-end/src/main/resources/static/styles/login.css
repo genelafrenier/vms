@@ -20,7 +20,7 @@ body {
   margin: auto;
   margin-top: 5%;
   height: 100%;
-  width: 25%;
+  width: 30%;
   border-radius: 30px;
   border: 3px solid #000000;
 }
@@ -41,7 +41,7 @@ body {
 
 .IdField
 {
-  height: 39px;
+  height: 32px;
   border: 1px solid #000000;
   border-radius: 15px;
   background: transparent;
@@ -59,7 +59,7 @@ body {
 
 .PasswordField
 {
-  height: 39px;
+  height: 32px;
   border: 1px solid #000000;
   border-radius: 15px;
   background: transparent;
@@ -138,6 +138,10 @@ body {
 
 .Error
 {
+  height: 10px;
+  padding-top: 10px;
+  text-align: left;
+  justify-content: center;
   font-size: 12pt;
   font-weight: bold;
   color: red;

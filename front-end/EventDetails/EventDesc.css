@@ -5,46 +5,65 @@
 }
 .container{
     display: grid;
-    grid-template-areas: 'title title title date apply'
-                         'title title title location apply'
-                         'desc desc desc desc apply';
+    grid-template-areas: 'back . . .'
+                         'title date . apply'
+                         'desc desc . apply';
     width:90%;
     margin: 5%;
     text-align: center;
+    /*border-style: solid;*/
+}
 
+.back{
+    grid-area: back;
+    width:30%;
+    background-color: #C4B581;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 45px;
+}
+.back:hover{
+    background-color: #043927;
+    color:white;
 }
 .title{
     background-color: rgba(128,128,128,0.5);
     grid-area: title;
-    height:221px;
-    min-width:54%;
     width: 100%;
     border-style: solid;
     padding: 2%;
     font-size: 30px;
+    margin: 0;
 }
 .date{
     background-color: rgba(128,128,128,0.5);
     grid-area: date;
     width:100%;
-    min-width: 21%;
     justify-content: center;
-    padding-top: 15%;
+    padding:20px;
     border-top-style: solid;
     border-right-style: solid;
+    border-bottom-style: solid;
 }
 .location{
     background-color: rgba(128,128,128,0.5);
     grid-area: location;
     width:100%;
-    border-bottom-style: solid;
-    border-right-style: solid;
+    /*border-bottom-style: solid;*/
+    /*border-right-style: solid;*/
 
 }
 .desc{
     background-color: rgba(128,128,128,0.5);
     grid-area: desc;
-    height:447px;
+    height:80%;
+    min-height: 150px;
     border-bottom-style: solid;
     border-right-style: solid;
     border-left-style: solid;
@@ -54,15 +73,14 @@
 }
 .apply{                /*has inline font size*/
     grid-area: apply;
-    margin-left:45%;
-    margin-top:20%;
-    padding: 30px;
+    padding: 30px 5px;
     background-color: rgba(128,128,128,0.5);
     border-style: solid;
     border-radius: 50px;
     justify-content: center;
-    height: 469px;
-    min-width: 60% ;
+    height: 350px;
+    width: 100%;
+    max-width: 260px;
 }
 .button {
     background-color: #C4B581;
@@ -80,9 +98,6 @@
     background-color: #043927;
     color:white;
 }
-.container>div {
-}
-
 .form-container {
     display: none;
     position: absolute;
@@ -91,6 +106,7 @@
     width: 50%;
     border-style: solid;
     margin-left:10%;
+    margin-top: 2%;
     padding: 16px;
 }
 input[type=text]{
@@ -113,4 +129,40 @@ input[type=text]{
 .col-100 {flex: 100%;}
 .col-25, .col-50, .col-75, .col-100{
     padding:16px;
+}
+.test{
+    width:450px;
+    background-color: #555555;
+}
+/* DESKTOP VIEW until screen is px*/
+@media screen and (max-width: 600px) {
+    .container{
+        display: grid;
+        grid-template-areas: 'back'
+                         'title'
+                         'date'
+                         'location'
+                         'desc'
+                         'apply';
+        width:90%;
+        text-align: left;
+        /*border-style: solid;*/
+    }
+    .apply{
+        text-align: center;
+        width: 100%;
+        margin-top: 5%;
+        margin-left: 15%;
+    }
+    .title{
+        font-size: 20px;
+    }
+    .date{
+        border-top-style: none;
+        border-left-style: solid;
+        padding: 5px;
+    }
+    .location{
+        border-left-style: solid;
+    }
 }
