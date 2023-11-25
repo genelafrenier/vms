@@ -53,6 +53,12 @@
 
 }
 
+.pfp_container {
+    background-color: transparent;
+    width: 20%;
+    height: 100%;
+}
+
 .btn_pfp {
     height: 10%;
     padding-left: 1%;
@@ -71,31 +77,47 @@
     cursor: pointer;
 }
 
-input {
+.btn_pfp input {
     display: none;
 }
 
-.name {
-    position: relative;
+.name_dep_container {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    margin-left: 5px;
+    
+}
+
+.name_container {
+    display: flex;
+    background-color: transparent;
+}
+
+.name_container .input_control input {
+    background-color: transparent;
+    
+    position: flex;
     font-family: "Inter-Bold", Helvetica;
     font-size: 30px;
-    padding-left: 20px;
     font-weight: 700;
     font-size: 30px;
     letter-spacing: 0;
     line-height: normal;
-    
+    color: #000000;
+    width: 95%;
     
 }
 
-.depart {
-    position: relative;
+.dep_container input {
+    width: 100%;
     font-family: "Inter-Regular", Helvetica;
     color: #000000a6;
     font-size: 20px;
-    padding-left: 22px;
-    
+    background-color: transparent;
+    border: none;
 }
+
 
 
 
@@ -149,62 +171,87 @@ input {
     width: 36%;
 }
 
-.email {
+.profile_body {
+    width: 100%;
+}
+
+.profile_body input {
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
-    color: #000000;
     font-size: 24px;
     letter-spacing: 0;
     line-height: normal;
-    text-align: center;
+    margin-right: 25%;
+    margin-left: 6vw;
     
 }
 
-.phone {
+.btns_container {
+    background-color: transparent;
+    margin-top: 5%;
+    margin-left: 5vw;
+}
+
+.edit_btn {
+    background-color: #c4b581;
+    color: black;
+    border: none;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
-    color: #000000;
     font-size: 24px;
     letter-spacing: 0;
     line-height: normal;
-    text-align: center;
-    
+    cursor: pointer;
 }
 
-.other {
+.save_changes_btn {
+    background-color: #c4b581;
+    color: black;
+    border: none;
+    padding: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 50px;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
-    color: #000000;
     font-size: 24px;
     letter-spacing: 0;
     line-height: normal;
-    text-align: center;
-    
+    cursor: pointer;
 }
 
-.phone_optional {
-    font-family: "Inter-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #000000;
-    font-size: 24px;
-    letter-spacing: 0;
-    line-height: normal;
-    text-align: center;
-    
+.input_control input {
+    border: 1px solid transparent;
 }
 
-.other_optional {
-    font-family: "Inter-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #000000;
-    font-size: 24px;
-    letter-spacing: 0;
-    line-height: normal;
-    text-align: center;
-    
+.input_control.success input {
+    border-color: #09c372;
 }
 
+.input_control.error input {
+    border-color: #ff3860;
+}
 
+.input_control.default input {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.input_control .error {
+    color: #ff3860;
+    text-align: center;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 16px;
+}
 
 .events_container {
     
@@ -249,6 +296,14 @@ input {
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     font-size: 36px;
+}
+
+.events_populate {
+    background-color: transparent;
+    height: 55vh;
+    width: 100%;
+    overflow-y: auto;
+    margin-top: 10px;
 }
 
 .popup {
@@ -298,11 +353,11 @@ input {
 }
 
 .form_element span {
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: red;
-    margin-left: 20px;
+    margin-left: 20px; 
 }
 
 .form_element input[type="text"],

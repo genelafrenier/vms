@@ -26,45 +26,87 @@
     <div class="main">
         <div class="main_container">
             <div class="profile_container">
-                <div class="row">
-                    <div class="column">
-                            <div class="profile_content">
-                                <div class = "profile_top">
-                                    <img src="images/default_profile.jpg" id="pfp">
-                                    
-                                    <p class="org_name_depart">
-                                        <span class="name">Organizer Name<br /></span>
-                                        <span class="depart">Organizer Department/Group</span>
-                                    </p>
-                                    
-                                </div>
-                                <div class="btn_pfp">
-                                    <label for="pfp_change">edit</label>
-                                    <input type="file" accept="image/jpeg, image/png, image/jpg" id="pfp_change">
-                                </div>
-                                <div class="profile_body">
-                                    <div class="contact_head">Contact Info</div>
-                                    <div class="email_head">Email:</div>
-                                    <div class="email">organizer@csus.edu</div>
-                                    <hr>
-                                
-                                    <div class="phone_head">Phone #:</div>
-                                    <div class="phone_optional">(optional)</div>
-                                    <div>
-                                    <div class="phone">(000) 000-0000</div>
-                                    <hr>
+                <form id="form">
+                    <div class="row">
+                        <div class="column">
+                                <div class="profile_content">
+                                    <div class = "profile_top">
+                                        <div class="pfp_container">
+                                            <img src="images/default_profile.jpg" id="pfp">
+                                        </div>
+                                        <div class="name_dep_container">
+                                            <div class="name_container">
+                                                <div class="input_control">
+
+                                                    <input type="text" class="input" id="fname" name="fname" value="" placeholder="Organizer" disabled>
+                                                    <div class="error"></div>
+    
+                                                </div>
+                                                <div class="input_control">
+    
+                                                    <input type="text" class="input" id="lname" name="lname" value="" placeholder="Name" disabled>
+                                                    <div class="error"></div>
+    
+                                                </div>
+                                            </div>
+
+                                            <div class="dep_container">
+
+                                                <input type="text" class="input" id="dep" name="dep" value="" placeholder="Your Department/Group" disabled>
+
+                                            </div>
+                                            
+
+                                        </div>
+                                        
+                                        
                                     </div>
-                                    <div>
-                                    <div class="other_head">Other:</div>
-                                  <div class="other_optional">(optional)</div>
-                                  <div class="other">place holder</div>
-                                  <hr>
+                                    <div class="btn_pfp">
+                                        <label for="pfp_change">edit</label>
+                                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="pfp_change">
+                                    </div>
+                                    <div class="profile_body">
+                                        <div class="contact_head">Contact Info</div>
+                                        <div class="email_head">Email:</div>
+                                        <div class="input_control">
+
+                                            <input type="text" class="input" id="email" name="email" value="" placeholder="organizer@csus.edu" disabled>
+                                            <hr>
+                                            <div class="error"></div>
+
+                                        </div>
+                                        
+                                    
+                                        <div class="phone_head">Phone #:</div>
+                                        
+                                        <div>
+                                            <div class="input_control">
+
+                                                <input type="tel" class="input" id="phone" name="phone" value="" placeholder="123-456-7890" disabled>
+                                                <hr>
+                                                <div class="error"></div>
+    
+                                            </div>
+                                        
+                                        </div>
+                                        <div>
+                                        <div class="other_head">Other:</div>
+                                      
+                                      <input type="text" class="input" id="other" name="other" value="" placeholder="(optional)" disabled>
+                                      <hr>
+                                    </div>
+                                    </div>
+                                    
                                 </div>
-                                </div>
-                                
-                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="btns_container">
+                        <button type="button" class="edit_btn" onclick="enable_edit()">Edit</button>
+                    <button type="submit" onclick="save_changes()" class="save_changes_btn" disabled>Save Changes</button>
+                    </div>
+                    
+                </form>
+                
             </div>
            <div class="column">
                     <div class="events_container">
@@ -77,6 +119,11 @@
                                 <div class="create_event">
                                     <button id="btn_add" onclick="open_popup()">+</button>
                                 </div>
+                            </div>
+                            <div class="events_populate">
+                                <!-- Where Event Elements Will Populate -->
+
+                                
                             </div>
                         </div>
                     </div>
@@ -93,7 +140,7 @@
                         <div class="form_element">
                             <label for="event_title">Event Title</label>
                             <span class="error" id="title_error"></span>
-                            <input type="text" id="event_title" placeholder="Enter event title" name="event_title" required>
+                            <input type="text" id="event_title" placeholder="Enter event title" name="event_title">
                         </div>
                         
                     </div>
@@ -101,7 +148,7 @@
                         <div class="form_element">
                             <label for="event_date">Date</label>
                             <span class="error" id="date_error"></span>
-                            <input type="date" id="event_date" name="event_date" required>
+                            <input type="date" id="event_date" name="event_date">
                         </div>
                     </div>
                 </div>
@@ -110,14 +157,14 @@
                         <div class="form_element">
                             <label for="event_location">Location</label>
                             <span class="error" id="location_error"></span>
-                            <input type="text" id="event_location" placeholder="Enter location of event" name="event_location" required>
+                            <input type="text" id="event_location" placeholder="Enter location of event" name="event_location">
                         </div>
                     </div>
                     <div class="column">
                         <div class="form_element">
                             <label for="event_time">Time</label>
                             <span class="error" id="time_error"></span>
-                            <input type="time" id="event_time" name="event_time" required>
+                            <input type="time" id="event_time" name="event_time">
                         </div>
                     </div>
                 </div>
@@ -126,13 +173,13 @@
                         <div class="form_element">
                             <label for="event_description">Description</label>
                             <span class="error" id="description_error"></span>
-                            <textarea name="event_description" id="event_description" cols="30" rows="10" placeholder="Enter a description of the event" required></textarea>
+                            <textarea name="event_description" id="event_description" cols="30" rows="10" placeholder="Enter a description of the event"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="btn_submit">
-                        <button type="submit">Submit</button>
+                        <button type="button" class="submit_btn" onclick="validation_testing()">Submit</button>
                     </div>
                 </div>
             </form>

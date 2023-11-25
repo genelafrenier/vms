@@ -5,39 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Element</title>
     <link rel="stylesheet" href="event_styles.css">
+    <link rel="stylesheet" href="volunteer elements/pending element/pending_styles.css">
+    <link rel="stylesheet" href="volunteer elements/question element/question_styles.css">
+    <link rel="stylesheet" href="volunteer elements/rating element/rating_styles.css">
     <script src="event_script.js"></script>
 </head>
 <body>
     <div class="event_container">
-        <!-- Placeholder             vvv -->
-        <div class="event_name">Crazy Campfire</div> 
+        <!-- Placeholder         vvv -->
+        <div class="event_name">Event</div> 
         <div class="btn_volunteers">
-            <button id="btn_volunteers">
+            <button id="btn_volunteers" onclick="open_pending()">
                 <img src="images/Event_Volunteers.png">
             </button>
         </div>
         <div class="btn_comments">
-            <button id="btn_comments">
+            <button id="btn_comments" onclick="open_comments()">
                 <img src="images/Event_Comments.png">
             </button>
         </div>
         <div class="btn_ratings">
-            <button id="btn_ratings">
+            <button id="btn_ratings" onclick="open_rate()">
                 <img src="images/Event_Rate.png">
             </button>
         </div>
         <div class="btn_edit">
-            <button id="btn_edit">
+            <button id="btn_edit" onclick="open_popup()">
                 <img src="images/Event_Edit.png">
             </button>
         </div>
     </div>
+
     <!-- popups -->
-    <div class="pending_popup">
+    <div class="pending_popup" id="pending_popup">
         <div class="header_container">
             <div class="spacer"></div>
             <!--                         placeholder    vvv    -->
             <div class="header">Pending volunteers for Event</div>
+            <button type="button" class="close_btn" onclick="close_pending()">&times;</button>
             <div class="header_bottom"></div>
         </div>
         <div class="volunteers_container">
@@ -58,14 +63,19 @@
                     </div>
                 </div>
             </div>
+            <div class="volunteers_element_container">
+                <!-- Where pending elements will populate -->
+                
+            </div>
         </div>
-        <div class="close_btn">&times;</div>
+        
     </div>
-    <div class="comments_popup">
+    <div class="comments_popup" id="comments_popup">
         <div class="header_container">
             <div class="spacer"></div>
             <!--                         placeholder    vvv    -->
             <div class="header">Pending questions for Event</div>
+            <button type="button" class="close_btn" onclick="close_comments()">&times;</button>
             <div class="header_bottom"></div>
         </div>
         <div class="volunteers_container">
@@ -86,14 +96,19 @@
                     </div>
                 </div>
             </div>
+            <div class="volunteers_element_container">
+                <!-- Where comment/question elements will populate -->
+                
+            </div>
         </div>
-        <div class="close_btn">&times;</div>
+        
     </div>
-    <div class="rate_popup">
+    <div class="rate_popup" id="rate_popup">
         <div class="header_container">
             <div class="spacer"></div>
             <!--                      placeholder    vvv    -->
             <div class="header">Pending ratings for Event</div>
+            <button type="button" class="close_btn" onclick="close_rate()">&times;</button>
             <div class="header_bottom"></div>
         </div>
         <div class="volunteers_container">
@@ -114,55 +129,71 @@
                     </div>
                 </div>
             </div>
+            <div class="volunteers_element_container">
+                <!-- Where rating elements will populate -->
+                
+            </div>
         </div>
-        <div class="close_btn">&times;</div>
+        
     </div>
     <!-- needs editable input fields -->
-    <div class="edit_popup">
-        <div class="close_btn">&times;</div>
+    <div class="edit_popup" id="edit_popup">
+        <div class="popup_content">
+            <button type="button" class="close_btn" onclick="close_popup()">&times;</button>
         <div class="create_event">
-            <div class="row">
-                <div class="column">
-                    <div class="form_element">
-                        <label for="event_title">Event Title</label>
-                        <input type="text" id="event_title" placeholder="Enter event title">
+            <form class="imbedded_fields" id="form_id" name="create_event" onsubmit="return validation_testing()">
+                <div class="row">
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_title">Event Title</label>
+                            <span class="error" id="title_error"></span>
+                            <input type="text" id="event_title" placeholder="Enter event title" name="event_title" value="">
+                        </div>
+                        
+                    </div>
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_date">Date</label>
+                            <span class="error" id="date_error"></span>
+                            <input type="date" id="event_date" name="event_date" value="">
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="form_element">
-                        <label for="event_date">Date</label>
-                        <input type="date" id="event_date">
+                <div class="row">
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_location">Location</label>
+                            <span class="error" id="location_error"></span>
+                            <input type="text" id="event_location" placeholder="Enter location of event" name="event_location" value="">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="form_element">
+                            <label for="event_time">Time</label>
+                            <span class="error" id="time_error"></span>
+                            <input type="time" id="event_time" name="event_time" value="">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="column">
-                    <div class="form_element">
-                        <label for="event_location">Location</label>
-                        <input type="text" id="event_location" placeholder="Enter location of event">
+                <div class="row">
+                    <div class="event_description">
+                        <div class="form_element">
+                            <label for="event_description">Description</label>
+                            <span class="error" id="description_error"></span>
+                            <textarea name="event_description" id="event_description" cols="30" rows="10" placeholder="Enter a description of the event"></textarea>
+                        </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="form_element">
-                        <label for="event_time">Time</label>
-                        <input type="time" id="event_time">
+                <div class="row">
+                    <div class="btn_submit">
+                        <button type="button" class="submit_btn" onclick="validation_testing()">Submit</button>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="event_description">
-                    <div class="form_element">
-                        <label for="event_description">Description</label>
-                        <input type="text" id="event_description" placeholder="Enter a description of the event">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="btn_submit">
-                    <button>Submit</button>
-                </div>
-            </div>
+            </form>
+            
         </div>
-    </div>
+        </div>
+        
+    </div> 
 </body>
 </html>
