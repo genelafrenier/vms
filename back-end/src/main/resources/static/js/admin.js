@@ -295,16 +295,43 @@ function create_event(){
     var location = document.getElementById("event_location").value;
     var time = document.getElementById("event_time").value;
     var description = document.getElementById("event_description").value;
+    
+    fetch('http://localhost:8080/current-user', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      organizer_id = data;
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 
     var data = {
-        event_title: title,
-        event_date: date,
-        event_location: location,
-        event_time: time,
-        event_description: description
+        organizerId: organizer_id,
+        eventName: title,
+        eventDescription: description,
+        eventDate: date,
+        eventTime: time,
+        eventLocation: location,
     };
     console.log(JSON.stringify(data));
     //make an AJAX request to the event endpoint
+
+    //send fetch request to post data
+    fetch('http://localhost:8080/event', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+                    },
+        body: JSON.stringify(data)
+    })
+ 
 
     
 }
