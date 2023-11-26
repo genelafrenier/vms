@@ -7,17 +7,33 @@
 .grid {
     display: grid;
     /* grid-template-columns: auto auto auto; */
-    grid-template-columns: minmax(430px, 500px) minmax(430px, 500px) minmax(430px, 500px);
+    grid-template-columns: minmax(430px, 600px) minmax(430px, 600px) minmax(430px, 600px);
     grid-gap: 30px;
     width: 90%;
     margin: auto;
 
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
-.grid div {
-    /* background-color: red; */
+
+
+
+
+.current {
+    margin-bottom: 5%;
+    padding: 5%;
 }
+
+.current p {
+    margin: 1% 0;
+}
+
+
+
+
+
+
 
 
 .container{
@@ -92,7 +108,7 @@ div.ratingWrapper{
 }
 
 .space {
-    margin-top: 12px;
+    /* margin-top: 12px; */
 }
 
 div#info{
@@ -184,7 +200,7 @@ div.header{
     border-radius: 50px;
 
 
-    margin-top: 5%;
+    /* margin-top: 5%; */
     display: flex;
     /* align-items: center; */
     justify-content: center;
@@ -192,7 +208,7 @@ div.header{
 
 .saveChangesBtn {
 
-    margin-top: 10%;
+    /* margin-top: 100px; */
     width: 30%;
     height: 20%;
     border-radius: 50px;
@@ -248,6 +264,14 @@ div#textbox {
 
 }
 
+
+
+/* Makes autofill info white instead of blue */
+input:-webkit-autofill  
+{
+  transition: background-color 5000s;
+}
+
 @media screen and (max-width: 1000px) {
     .grid {
         display: grid;
@@ -266,11 +290,4 @@ div#textbox {
         margin: auto;
         margin-top: 10%;
     }    
-}
-
-
-/* Makes autofill info white instead of blue */
-input:-webkit-autofill  
-{
-  transition: background-color 5000s;
 }
