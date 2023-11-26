@@ -14,21 +14,23 @@
   <script src="Navbar.js"></script>
   <!--End of Nav-->
   <div class="container">
+    <button onclick="history.back()" class="back">Previous Page</button>
     <div class="title">
-      <h3>Random long title event name goes here</h3>
+      <h5>Random long title event name goes here</h5>
     </div>
 
     <div class="date">    <!-- May need to make time separate-->
       <p>October 99, 3456</p>
       <p>1:00 A.M - 4:00 A.M</p>
+      <div>
+        <h4>On Campus</h4>
+      </div>
     </div>
 
 
-    <div class="location">
-       <h4>On Campus</h4>
-    </div>
 
-    <div class="desc">d</div>
+
+    <div class="desc">Description of the event</div>
 
     <div class="apply">
       <button class="button" onclick="openForm()"><b>Apply</b></button>
@@ -43,74 +45,43 @@
       <p style="font-size: 12px">Organizer@csus.edu</p>
 
     </div>
-
-<!--      <div class="form-popup" id="applyForm">-->
-<!--        <form action="/action_page.php">-->
-
-
-<!--          <label for="Event">Event</label>-->
-<!--          <input type="text" name="event" id="Event" placeholder="Something" required>-->
-
-
-<!--              <label for="First">First</label>-->
-<!--              <input type="text" name="first" id="First" placeholder="Happy">-->
-<!--              <label for="Last">Last</label>-->
-<!--              <input type="text" name="last" id="Last" placeholder="Mufasa">-->
-
-
-<!--              <label for="Email">Email</label>-->
-<!--              <input type="text" name="Email" id="Email" placeholder="Organizer@csus.edu">-->
-<!--              <label for="ID">ID</label>-->
-<!--              <input type="text" name="ID" id="ID" placeholder="ID">-->
-
-<!--              <label for="Question">Question</label>-->
-<!--              <input type="text" name="Question" id="Question" placeholder="Question">-->
-
-
-
-
-
-
-
-
-<!--          <button type="button"  onclick="closeForm()">Close</button>-->
-<!--        </form>-->
-<!--      </div>-->
-    <div class="form-container" id="applyForm">
-      <form action="/action_page.php">
-        <div class= "row">
-          <div class="col-100">
-            <h1 style="text-align: center">Event name</h1>
+    <!--Apply Form-->
+      <div class="form-container" id="applyForm">
+        <form action="/action_page.php">
+          <div class= "row">
+            <div class="col-100">
+              <h1 style="text-align: center">Event name</h1>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-50">
+          <div class="row">
+            <div class="col-50">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Happy">
+              <label for="email"> Email</label>
+              <input type="text" id="email" name="email" placeholder="HappyMufasa@csus.edu">
+              <label for="phone">Phone</label>
+              <input type="text" id="phone" name="phone" placeholder="(123)456-7890">
+            </div>
 
-            <label for="fname">Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Happy">
-            <label for="email"> Email</label>
-            <input type="text" id="email" name="email" placeholder="HappyMufasa@csus.edu">
-            <label for="phone">Phone</label>
-            <input type="text" id="phone" name="phone" placeholder="(123)456-7890">
+            <div class="col-50">
+              <label for="Last">Last Name</label>
+              <input type="text" id="Last"placeholder="Mufasa">
+              <label for="ID">ID</label>
+              <input type="text" id="ID"placeholder="987654321">
+            </div>
           </div>
+          <div class= "row">
+            <div class="col-100">
+              <label for="Question">Question</label>
+              <input type="text" id="Question" placeholder="question goes here">
+            </div>
 
-          <div class="col-50">
-            <label for="Last">Last Name</label>
-            <input type="text" id="Last"placeholder="Mufasa">
-            <label for="ID">ID</label>
-            <input type="text" id="ID"placeholder="987654321">
           </div>
-        </div>
-        <div class= "row">
-          <div class="col-100">
-            <label for="Question">Question</label>
-            <input type="text" id="Question" placeholder="question goes here">
-          </div>
+          <button type="button"  onclick="closeForm()" class="button">Submit</button>
+          <button type="button"  onclick="closeForm()" class="button" style="float: right;">Close</button>
+        </form>
+      </div><!--End Apply Form-->
 
-        </div>
-        <button type="button"  onclick="closeForm()" class="button">Submit</button>
-      </form>
-    </div>
   </div> <!--End container-->
 </body>
 </html>

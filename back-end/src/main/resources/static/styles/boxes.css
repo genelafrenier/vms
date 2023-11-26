@@ -1,65 +1,67 @@
-div.outline{
-    position: relative;
-    width: 1500px;
-    height: 800px;
-    border: 3px solid black;
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.grid {
+    display: grid;
+    /* grid-template-columns: auto auto auto; */
+    grid-template-columns: minmax(430px, 500px) minmax(430px, 500px) minmax(430px, 500px);
+    grid-gap: 30px;
+    width: 90%;
     margin: auto;
-    display: inline-block;
+
+    margin-top: 5%;
+}
+
+.grid div {
+    /* background-color: red; */
+}
+
+
+.container{
+    background-color: #C4B581;
+    /* width: 80%; */
+    height: 630px;
+    /* margin: 50px; */
+    border-radius: 50px;
+}
+
+.container_for_info{
+
+    margin: 5.5%;
 
 }
+
 
 h1{
     color: white;
 }
 
 p{
-    /* width: 100px; */
-    position: absolute;
-    right: 0px;
-    margin-top: 5px;
+    
+    margin-left: 70%;
+    top: 5%;
+    
 }
 
 label {
     width: 120px;
+    /* width: 60%; */
+    /* width: 100%; */
     display: inline-block;
     /* text-align: right; */
     /* text-align: center; */
+    /* margin: auto; */
 }
 
 input {
+
     width: 210px;
-    /* display: ; */
-    position: relative;
-    align-content: center;
-    /* text-align: left; */
+    /* width: 80%; */
 
 }
-
-.editBtn {
-    background-color: #008453;
-    /* width: 20px; */
-    /* height: 20px; */
-
-    position: absolute;
-    right: 40px;
-    top: 5px;
-
-    display: flex;
-    padding: 7px;
-    border-radius: 50px;
-    color: white;
-    cursor: pointer;
-}
-
-.saveChangesBtn {
-    margin-top: 10px; 
-    position: absolute; 
-    right: 150px; 
-    bottom: 10px; 
-    padding: 5px;
-    cursor: pointer;
-}
-
 
 div.ratingWrapper{
     /* border:  thin solid black; */
@@ -70,9 +72,6 @@ div.ratingWrapper{
 
     color: grey;
 
-    /* display: flex; */
-
-    /* position: relative; */
 }
 
 .ratings{
@@ -92,143 +91,8 @@ div.ratingWrapper{
     text-align: center;
 }
 
-
-div.header1{
-    background-color: #008453;
-    width: 300px;
-    height: 50px;
-    border-radius: 50px;
-    margin: 10px;
-
-    /* position: relative; */
-    position: absolute;
-    /* top: 50px; */
-    left: 90px;
-    
-    font-size: large;
-    /* font-display: white; */
-
-   
-    display: flex;
-    align-items: center;
-    /* align-content: center; */
-    justify-content: center;
-
-    /* margin: 50px; */
-
-    /* float: left; */
-    /* margin: 0 auto; */
-
-}
-
-div.header2{
-    background-color: #008453;
-    width: 300px;
-    height: 50px;
-    border-radius: 50px;
-    margin: 10px;
-
-    position: absolute;
-    left: 590px;
-    /* left: 50%;
-    transform: translateX(-50%); */
-    
-    font-size: large;
-    /* font-display: white; */
-
-   
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* margin: 50px; */
-
-    /* float:right; */
-
-}
-
-
-div.header3{
-    background-color: #008453;
-    width: 300px;
-    height: 50px;
-    border-radius: 50px;
-    margin: 10px;
-
-    position: absolute;
-    /* top: 50px; */
-    right: 90px;
-    
-    font-size: large;
-
-   
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* margin: 50px; */
-
-    /* float:right; */
-
-}
-
-
-div.container1{
-    background-color: #C4B581;
-    width: 400px;
-    height: 630px;
-    margin: 50px;
-    border-radius: 50px;
-
-    position: absolute;
-    /* left: 0; */
-
-    /* float: left; */
-
-}
-
-div.container2{
-    background-color: #C4B581;
-    width: 400px;
-    height: 630px;
-    margin: 50px;
-    border-radius: 50px;
-
-    position: absolute;
-    left: 500px;
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-
-    display: inline-block;
-
-}
-
-div.container3{
-    background-color: #C4B581;
-    width: 400px;
-    height: 630px;
-    margin: 50px;
-    border-radius: 50px;
-
-    position: absolute;
-    right: 0;
-
-}
-
-.container_for_info{
-    background-color: #C4B581;
-    width: 400px;
-    height: 500px;
-    margin: 25px;
-    /* margin-top: 25px; */
-    /* margin-left: 25px; */
-
-    position: relative;
-
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-
+.space {
+    margin-top: 12px;
 }
 
 div#info{
@@ -247,14 +111,6 @@ div#info{
     justify-content: center;
 
 }
-
-#form button {
-    color: white;
-    background-color: #008453;
-    /* border: none; */
-    border-radius: 4px;
-}
-
 
 
 div.inputControl input {
@@ -281,8 +137,6 @@ div.inputControl.error input {
     color: #ff3860;
     position: absolute;
     top: 33px;
-    /* font-size: 16px; */
-    /* height: 13px; */
 }
 
 
@@ -291,17 +145,80 @@ div.inputControl.error input {
     border-color: none;
 }
 
+div.header{
+    background-color: #008453;
+    border-radius: 50px;
+    margin: auto;
+    margin-bottom: 10%;
+    text-align: center;
+    justify-content: center;
+    font-size: large;
 
-div#textbox {
+}
+
+.editBtn {
+    background-color: #008453;
+    width: 40px;
+    height: 40px;
+
+    /* position: absolute; */
+    /* right: 40px; */
+    /* top: 5px; */
+
+    margin-left: 80%;
+    /* float: right; */
+
+
+    /* display: flex; */
+    /* padding: 7px; */
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+/* This controls the save changes button info */
+#form button {
+    color: white;
+    background-color: #008453;
+    /* border: none; */
+    border-radius: 50px;
+
+
+    margin-top: 5%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.saveChangesBtn {
+
+    margin-top: 10%;
+    width: 30%;
+    height: 20%;
+    border-radius: 50px;
+
+    margin: auto;
+    /* align-items: center; */
+    /* padding: 5px; */
+    cursor: pointer;
+
+    /* display: flex; */
+    /* align-items: center;
+    justify-content: center; */
+}
+
+div#info{
     background-color: white;
-    width: 300px;
-    height: 100px;
-    border-radius: 10px;
+    /* width: 350px; */
+    width: 90%;
+    height: 30px;
+    /* height: 100%; */
+    border-radius: 50px;
     /* margin: 10px; */
 
-    position: relative;
-    top: 10px;
-    left: 25px;
+    /* position: relative; */
+    /* top: 10px; */
+    /* left: 15px; */
 
     display: flex;
     align-items: center;
@@ -309,13 +226,51 @@ div#textbox {
 
 }
 
-/* @media (min-width: 550px) {
-    .container1{
-        grid-template-columns: repeat(2, 1fr);
-    }
-} */
 
-@media screen and (max-width: 500px) {
+
+
+div#textbox {
+    /* background-color: white; */
+    /* width: 300px; */
+    /* width: 80%; */
+    /* height: 100px; */
+    border-radius: 10px;
+    /* margin: auto; */
+    margin-left: 5%;
+
+    /* position: relative; */
+    /* top: 15px; */
+    /* left: 25px; */
+
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
 
 }
 
+@media screen and (max-width: 1000px) {
+    .grid {
+        display: grid;
+        grid-template-columns: minmax(430px, 500px) minmax(430px, 500px);
+        width: 90%;
+        margin: auto;
+        margin-top: 10%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .grid {
+        display: grid;
+        grid-template-columns: minmax(430px, 500px);
+        width: 90%;
+        margin: auto;
+        margin-top: 10%;
+    }    
+}
+
+
+/* Makes autofill info white instead of blue */
+input:-webkit-autofill  
+{
+  transition: background-color 5000s;
+}
