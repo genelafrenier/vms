@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Volunteer Element</title>
+    <link rel="stylesheet" href="pending_styles.css">
+    <script src="pending_script.js"></script>
+</head>
+<body>
+    <div class="pending_container">
+        <!--            placeholder  vvv -->
+        <div class="volunteer_name">Volunteer Name</div>
+        <div class="avg_rating"></div>
+        <div class="view_profile">
+            <button id="btn_profile" onclick="view_profile()">View Profile</button>
+        </div>
+        <div class="approve_deny">
+            <button id="btn_approve" onclick="approve()">Approve</button>
+            <button id="btn_deny" onclick="deny()">Deny</button>
+        </div>
+    </div>
+
+    <!-- view profile popup -->
+    <div class="profile_popup" id="profile_popup">
+        <div class="row">
+            <div class="column">
+                <div class="profile_container">
+                    <div class="header">Profile</div>
+                    <div class="volunteer_name">Volunteer Name</div>
+                    <div class="volunteer_avg_rating"></div>
+                </div>
+                <div class="column">
+                    <div class="skills_container">
+                        <div class="header">Skills</div>
+                        <!--                                                 skills go here (placeholder in right now) vvvvv -->
+                        <textarea name="profile_skills" id="profile_skills" cols="30" rows="10" disabled>
++ chasier
++ supply management
++ tech savvy
+
+                        </textarea>
+                    </div>  
+                </div>
+            </div>
+            <div class="row">
+                <div class="event_history_container">
+                    <div class="header">Event History</div>
+                    <button type="button" class="close_btn" onclick="close_profile()">&times;</button>
+                    <div class="previous_events_container">
+                        <!-- where list of previous events go -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
