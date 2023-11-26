@@ -1,12 +1,4 @@
 
-//pfp changer (currently not functioning)
-let pfp = document.getElementById("pfp");
-let inputFile = document.getElementById("pfp_change");
-
-inputFile.onchange = function(){
-    pfp.src = URL.createObjectURL(inputFile.files[0]);
-
-}
 
 
 // *** editing profile info *** //

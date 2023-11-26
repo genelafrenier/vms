@@ -22,7 +22,7 @@ public class Requests {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private @Getter @Setter int id;
-    private @Getter @Setter int userId;
+    private @Getter @Setter int studentId;
     private @Getter @Setter int eventId;
     private @Getter @Setter String approvalStatus;
     

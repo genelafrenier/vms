@@ -20,8 +20,9 @@ import jakarta.persistence.GenerationType;
 public class Volunteer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private @Getter @Setter String studentId;
-    private @Getter @Setter String eventId;
+    private @Getter @Setter int id;
+    private @Getter @Setter int studentId;
+    private @Getter @Setter int eventId;
     @Column(nullable = true)
-    private @Getter @Setter String rating;
+    private @Getter @Setter int rating;
 }
