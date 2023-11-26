@@ -16,3 +16,4 @@ function gridview() {
     document.getElementById("buttonGrid").style.color="white";
 
 }
+
