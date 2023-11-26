@@ -74,6 +74,7 @@ button {
 
 .spacer {
     height: 30%;
+    background-color: transparent;
 }
 
 .header_container {
@@ -81,6 +82,7 @@ button {
     height: 10%;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
+    margin-bottom: 2%
 }
 
 .header {
@@ -92,9 +94,10 @@ button {
 
 .header_bottom {
     background-color: white;
-    height: 15px;
+    height: 20px;
     border-bottom: 2px solid;
     border-color: #000000;
+    margin-top: -5px;
 }
 
 .volunteers_container {
