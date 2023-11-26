@@ -182,11 +182,11 @@ button {
     background-color: white;
 }
 
-.popup_content {
-    background-color: white;
+.edit_popup .popup_content {
+    background-color: transparent;
 }
 
-.close_btn {
+.edit_popup .close_btn {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -203,18 +203,18 @@ button {
     padding-left: 5%;
 }
 
-.form_element {
+.edit_popup .form_element {
     margin: 15px 0px;
 }
 
-.form_element label {
+.edit_popup .form_element label {
     font-size: 16px;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     background-color: transparent
 }
 
-.form_element span {
+.edit_popup .form_element span {
     font-size: 14px;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
@@ -222,10 +222,10 @@ button {
     margin-left: 20px; 
 }
 
-.form_element input[type="text"],
-.form_element input[type="date"],
-.form_element input[type="time"],
-.form_element textarea {
+.edit_popup .form_element input[type="text"],
+.edit_popup .form_element input[type="date"],
+.edit_popup .form_element input[type="time"],
+.edit_popup .form_element textarea {
     margin-top: 5px;
     display: block;
     width: 120%;
@@ -239,26 +239,27 @@ button {
     font-weight: 400;
 }
 
-.event_description {
+.edit_popup .event_description {
     width: 38vw;
     height: 25vh;
 }
 
-.form_element textarea {
+.edit_popup .form_element textarea {
     width: 115%;
+    height: 10vh;
 }
 
-.btn_submit {
+.edit_popup .btn_submit {
     width: 100%;
     text-align: center;
 }
 
-.btn_submit button {
+.edit_popup .btn_submit button {
     width: 30%;
     background: #c4b581;
     border-radius: 50px;
     height: 60px;
-    font-size: 30px;
+    font-size: 1.5rem;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
 }
@@ -269,7 +270,7 @@ button {
 }
 
 .edit_popup .row {
-    padding-bottom: 5%;
+    padding-bottom: 0;
     background-color: transparent;
 }
 
