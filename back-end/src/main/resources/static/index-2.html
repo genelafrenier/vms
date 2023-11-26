@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="index-2.css">
+    <link rel="stylesheet" href="styles/index-2.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="Logo" href="Logo.png">
-    <script src="index-2.js"></script>
+    <script src="js/index-2.js"></script>
+    <link rel="stylesheet" href="styles/navbar.css">
+  <script src="js/navbar.js"></script>
     <title>Swarm Management System</title>
 </head>
 <body>
-    <div id="Navbar"></div>
-    <script src="Navbar.js"></script>
+    <div class="navbar" id="navbar"></div>
+  <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+          loadNavbar();
+      });
+  </script>
 
 
     <div>
@@ -44,21 +50,57 @@
          <p class="date">Date</p>
          <p class="desc">Example Description</p>
        </div>
-             <div>
-               <h2 class="title"><a href="EventDetail-2.html"> This is example Event Title</a></h2>
-               <p class="location">Random location</p>
-               <p class="date">Date</p>
-               <p class="desc">Example Description</p>
-             </div>
-       <div>
-       <h2 class="title">This is example Event Title</h2>
-       <p class="location">Random location</p>
-       <p class="date">Date</p>
-       <p class="desc">Example Description</p>
-       </div>
      </div> <!--End of Grid-->
     </div>
+    <!-- <script>  ******COPY PASTED FROM INDEX********
 
+        //URL For Get Request
+        const getUrl = 'http://localhost:8080/events';
+      
+        //Use fetch() get get event data
+        async function getEvents(getUrl) {
+            fetch(getUrl, {
+              method: 'GET',
+              headers: {
+              'Content-Type': 'application/json',
+                      },
+              })
+              //If response received, convert to json and send to console and populate table
+          .then(response => response.json())
+          .then(data =>{
+            console.log(data);
+            populateEvents(data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+        }
+        
+      
+        getEvents(getUrl);
+      
+      
+        function populateEvents(data){
+      
+          let tab = "";
+        
+          // create div for each event
+          for (let r of data) {
+                tab += 
+              `<div class="grid-item">
+              <h2 class="title">${r.eventName}</h2>
+              <p class="location">${r.eventLocation}</p>
+              <p class="date">${r.eventDate} ${r.eventTime}</p>
+              <p class="desc">${r.eventDescription}</p>
+              </div>`;
+          }
+        // add divs to grid
+        document.getElementById("grid").innerHTML = tab;
+        document.getElementById("list").innerHTML = tab;
+
+      
+        }
+      </script> -->
 
 
 
