@@ -331,7 +331,7 @@ function create_event(){
                     },
         body: JSON.stringify(data)
     })
- 
+    window.location.href = 'admin.html';
 
     
 }
