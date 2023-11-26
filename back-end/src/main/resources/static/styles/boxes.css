@@ -26,13 +26,32 @@
 }
 
 .current p {
-    margin: 1% 0;
+    margin: 1%;
 }
 
+.currentEvent {
+    background-color: white;
+    border-color: black;
+    border-radius: 50px;
+    width: 90%;
+    height: 15%;
+    margin: auto;
+    margin-bottom: 5%;
+    text-align: center;
+    padding: 1%;
+}
 
-
-
-
+.pastEvent {
+    background-color: white;
+    border-color: black;
+    border-radius: 50px;
+    width: 90%;
+    height: 20%;
+    margin: auto;
+    margin-bottom: 5%;
+    text-align: center;
+    padding: 2%;
+}
 
 
 
@@ -64,18 +83,17 @@ p{
 
 label {
     width: 120px;
-    /* width: 60%; */
-    /* width: 100%; */
     display: inline-block;
-    /* text-align: right; */
-    /* text-align: center; */
-    /* margin: auto; */
 }
 
 input {
-
     width: 210px;
     /* width: 80%; */
+}
+
+.pastRating {
+    margin: auto;
+    color: grey;
 
 }
 
@@ -85,9 +103,7 @@ div.ratingWrapper{
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 0 10px;
-
     color: grey;
-
 }
 
 .ratings{
@@ -99,10 +115,7 @@ div.ratingWrapper{
 }
 
 .centerText{
-
     font-size: 30px;
-    /* position: relative; */
-    /* bottom: 10px; */
     justify-content: center;
     text-align: center;
 }
