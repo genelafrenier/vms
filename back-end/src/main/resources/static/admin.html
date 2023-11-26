@@ -182,7 +182,57 @@
                                         </div>
                                         <div class="volunteers_element_container">
                                             <!-- Where pending elements will populate -->
-                                            
+                                            <div class="pending_container">
+                                                <!--            placeholder  vvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="avg_rating"></div>
+                                                <div class="view_profile">
+                                                    <button id="btn_profile" onclick="view_profile()">View Profile</button>
+                                                </div>
+                                                <div class="approve_deny">
+                                                    <button id="btn_approve" onclick="approve()">Approve</button>
+                                                    <button id="btn_deny" onclick="deny()">Deny</button>
+                                                </div>
+                                            </div>
+                                        
+                                            <!-- view profile popup -->
+                                            <div class="profile_popup" id="profile_popup">
+                                                <div class="row">
+                                                    <div class="column">
+                                                        <div class="profile_container">
+                                                            <div class="header">Profile</div>
+                                                            <div class="volunteer_name">Volunteer Name</div>
+                                                            <div class="volunteer_avg_rating"></div>
+                                                        </div>
+                                                        <div class="column">
+                                                            <div class="skills_container">
+                                                                <div class="header">Skills</div>
+                                                                <!--                                                 skills go here (placeholder in right now) vvvvv -->
+                                                                <textarea name="profile_skills" id="profile_skills" cols="30" rows="10" disabled>
+                                        + chasier
+                                        + supply management
+                                        + tech savvy
+                                        
+                                                                </textarea>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="event_history_container">
+                                                            <div class="header">Event History</div>
+                                                            <button type="button" class="close_btn" onclick="close_profile()">&times;</button>
+                                                            <div class="previous_events_container">
+                                                                <!-- where list of previous events go -->
+                                        
+                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <!-- End of pending element -->
                                         </div>
                                     </div>
                                     
@@ -215,7 +265,15 @@
                                         </div>
                                         <div class="volunteers_element_container">
                                             <!-- Where comment/question elements will populate -->
-                                            
+                                            <div class="question_container">
+                                                <!--            placeholders  vvvvvvvvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="question_comment">I was wondering what kind of supplies I need to bring for the event?</div>
+                                                <div class="reply">
+                                                    <button id="btn_reply" onclick="reply()">Reply</button>
+                                                </div>
+                                            </div>
+                                            <!-- End of comment/question element -->
                                         </div>
                                     </div>
                                     
@@ -248,7 +306,18 @@
                                         </div>
                                         <div class="volunteers_element_container">
                                             <!-- Where rating elements will populate -->
-                                            
+                                            <div class="rating_container">
+                                                <!--            placeholder  vvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="rate_volunteer"></div>
+                                                <div class="comments">
+                                                    <textarea name="volunteer_comments" id="volunteer_comments" cols="30" rows="10" placeholder="Enter comments here"></textarea>
+                                                </div>
+                                                <div class="submit_rating">
+                                                    <button id="btn_submit_rating" onclick="submit_rating()">Submit</button>
+                                                </div>
+                                            </div>
+                                            <!-- End of rating element -->
                                         </div>
                                     </div>
                                     
