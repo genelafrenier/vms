@@ -46,12 +46,7 @@
 }
 
 
-.profile_top img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
 
-}
 
 .pfp_container {
     background-color: transparent;
@@ -59,27 +54,7 @@
     height: 100%;
 }
 
-.btn_pfp {
-    height: 10%;
-    padding-left: 1%;
-}
 
-.btn_pfp label {
-    font-family: "Inter-Regular", Helvetica;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-    width: 75px;
-    background-color: #727272;
-    display: block;
-    text-align: center;
-    border-radius: 10%;
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.btn_pfp input {
-    display: none;
-}
 
 .name_dep_container {
     height: 100%;
@@ -99,9 +74,8 @@
     
     position: flex;
     font-family: "Inter-Bold", Helvetica;
-    font-size: 30px;
+    font-size: 1.5rem;
     font-weight: 700;
-    font-size: 30px;
     letter-spacing: 0;
     line-height: normal;
     color: #000000;
@@ -113,7 +87,7 @@
     width: 100%;
     font-family: "Inter-Regular", Helvetica;
     color: #000000a6;
-    font-size: 20px;
+    font-size: 1rem;
     background-color: transparent;
     border: none;
 }
@@ -125,7 +99,7 @@
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     color: #000000;
-    font-size: 24px;
+    font-size: 1rem;
     letter-spacing: 0;
     line-height: normal;
     min-height: 5px;
@@ -137,7 +111,7 @@
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     color: #000000;
-    font-size: 24px;
+    font-size: 1rem;
     letter-spacing: 0;
     line-height: normal;
     margin-left: 1vw;
@@ -149,7 +123,7 @@
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     color: #000000;
-    font-size: 24px;
+    font-size: 1rem;
     letter-spacing: 0;
     line-height: normal;
     margin-left: 1vw;
@@ -162,7 +136,7 @@
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     color: #000000;
-    font-size: 24px;
+    font-size: 1rem;
     letter-spacing: 0;
     line-height: normal;
     margin-left: 1vw;
@@ -182,7 +156,7 @@
     color: #000000;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1rem;
     letter-spacing: 0;
     line-height: normal;
     margin-right: 25%;
@@ -192,7 +166,7 @@
 
 .btns_container {
     background-color: transparent;
-    margin-top: 5%;
+    margin-top: 1vh;
     margin-left: 5vw;
 }
 
@@ -206,7 +180,7 @@
     border-radius: 50px;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1.5rem;
     letter-spacing: 0;
     line-height: normal;
     cursor: pointer;
@@ -222,7 +196,7 @@
     border-radius: 50px;
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 1.5rem;
     letter-spacing: 0;
     line-height: normal;
     cursor: pointer;
