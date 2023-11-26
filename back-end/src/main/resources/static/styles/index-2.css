@@ -1,0 +1,120 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.test{                 /*VISIBILITY PURPOSES -REMOVE LATER*/
+  width:450px;
+  height: 600px;
+  background-color: aqua;
+}
+.tab{
+  width:90%;
+  margin: auto;
+  margin-top: 6%;
+  box-shadow: 0 5px 1px#555555;
+  border-radius: 8px;
+}
+.buttonList {
+  background-color: #043927; /* Green */
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.buttonGrid {
+  background-color: #ffffff; /* Green */
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 12px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.grid{
+  display: none;
+  grid-template-columns: auto auto auto;
+  grid-gap: 20px;
+  width:90%;
+  margin: auto;
+  margin-top: 2%;
+}
+.grid div{
+  background-color: #808080;
+  box-shadow: 0 5px 5px#555555;
+}
+.title{
+  text-overflow:ellipsis;
+  overflow: hidden;
+  text-align:center;
+  justify-content: center;
+  height:75px;
+  margin: 0;
+  width:70%;
+  max-width:400px;
+  padding-top: 10px;
+  background-color: lightgreen; /*VISIBILITY PURPOSES -REMOVE LATER*/
+}
+.location{
+  width:90%;
+  height:40px;
+  background-color: darkseagreen;  /*VISIBILITY PURPOSES -REMOVE LATER*/
+  margin: 0;
+  padding-left: 5px;
+}
+.date{
+  width:60%;
+  background-color: aquamarine; /*VISIBILITY PURPOSES -REMOVE LATER*/
+  margin: 0;
+  height:35px;
+  padding-left: 5px;
+}
+.desc{
+  width:100%;
+  background-color: aqua; /*VISIBILITY PURPOSES -REMOVE LATER*/
+  margin: 0;
+  height:65px;
+  padding-left: 5px;
+}
+.list{                    /*L suffix for list*/
+  display:grid;
+  grid-gap: 20px;
+  width:90%;
+  margin: auto;
+  margin-top: 2%;
+
+}
+.list > div {
+  box-shadow: 0 5px 5px#555555;
+}
+.Logo{grid-area: Logo;}
+.titleList{
+  grid-area: titleList;
+  background-color: lightgreen; /*VISIBILITY PURPOSES -REMOVE LATER*/
+
+}
+.descList{
+  grid-area: descList;
+  background-color: aqua; /*VISIBILITY PURPOSES -REMOVE LATER*/
+}
+.dateList{
+  grid-area: dateList;
+  background-color: aquamarine; /*VISIBILITY PURPOSES -REMOVE LATER*/
+}
+/* DESKTOP VIEW until screen is px*/
+@media screen and (max-width: 450px) {
+  .grid{
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    width:90%;
+    margin: auto;
+    margin-top: 8%;
+  }
+}
