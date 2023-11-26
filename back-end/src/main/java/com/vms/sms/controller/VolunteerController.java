@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 public class VolunteerController {
 /* 
     @Autowired
-    private VolunteerRepository volunteerRepository;
+    private VolunteerReposito   ry volunteerRepository;
 
     //endpoint to get past volunteer history for user dashboard
     @GetMapping("/volunteer-history")
