@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vms.sms.controller.UserController;
 import com.vms.sms.model.Event;
 import com.vms.sms.model.User;
 import com.vms.sms.repository.EventRepository;
-import java.util.*;
 
 import jakarta.servlet.http.HttpSession;
 

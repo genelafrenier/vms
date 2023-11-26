@@ -18,23 +18,23 @@
     font-size: 28px;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 400;
-    margin-top: 10px;
+    
 }
 
 .question_container .question_comment {
     height: 100%;
     background-color: transparent;
     width: 50%;
-    font-size: 28px;
+    font-size: 20px;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 400;
-    margin-top: 10px;
+    overflow-y: auto;
+    
 }
 
 .question_container .reply {
     height: 100%;
     width: 25%;
-    margin-top: 10px;
     text-align: center;
 }
 

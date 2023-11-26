@@ -18,32 +18,32 @@
     font-size: 28px;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 400;
-    margin-top: 10px;
+    
 }
 
 .pending_container .avg_rating {
     height: 100%;
     width: 28%;
-    margin-top: 10px;
+    
 }
 
 .pending_container .view_profile {
     height: 100%;
     width: 25%;
-    margin-top: 10px;
+    
 }
 
 .pending_container .approve_deny {
     height: 100%;
     width: 15%;
-    margin-top: 10px;
+    
 }
 
 .pending_container button {
     background: transparent;
     border: none;
     text-align: center;
-    font-size: 28px;
+    font-size: 22px;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 400;
     cursor: pointer;

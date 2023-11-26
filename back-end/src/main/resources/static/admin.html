@@ -6,10 +6,16 @@
     <title>Admin Dash</title>
     <link rel="stylesheet" href="styles/admin.css">
     <link rel="stylesheet" href="event element/event_styles.css">
+    <link rel="stylesheet" href="event element/volunteer elements/pending element/pending_styles.css">
+    <link rel="stylesheet" href="event element/volunteer elements/question element/question_styles.css">
+    <link rel="stylesheet" href="event element/volunteer elements/rating element/rating_styles.css">
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <script src="js/admin.js"></script>
     <script src="event element/event_script.js"></script>
+    <script src="event element/volunteer elements/pending element/pending_script.js"></script>
+    <script src="event element/volunteer elements/question element/question_script.js"></script>
+    <script src="event element/volunteer elements/rating element/rating_script.js"></script>
     <script src="js/navbar.js"></script>
     
     <style>
@@ -121,6 +127,7 @@
                             <div class="events_populate">
                                 <!-- Where Event Elements Will Populate -->
 
+                                <!-- Event 1 -->
                                 <div class="event_container">
                                     <!-- Placeholder         vvv -->
                                     <div class="event_name">Event</div> 
@@ -176,6 +183,111 @@
                                         <div class="volunteers_element_container">
                                             <!-- Where pending elements will populate -->
                                             
+                                            <!-- Pending Element 1 -->
+                                            <div class="pending_container">
+                                                <!--            placeholder  vvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="avg_rating"></div>
+                                                <div class="view_profile">
+                                                    <button id="btn_profile" onclick="view_profile()">View Profile</button>
+                                                </div>
+                                                <div class="approve_deny">
+                                                    <button id="btn_approve" onclick="approve()">Approve</button>
+                                                    <button id="btn_deny" onclick="deny()">Deny</button>
+                                                </div>
+                                            </div>
+                                        
+                                            <!-- view profile popup -->
+                                            <div class="profile_popup" id="profile_popup">
+                                                <div class="row">
+                                                    <div class="column">
+                                                        <div class="profile_container">
+                                                            <div class="header">Profile</div>
+                                                            <div class="volunteer_name">Volunteer Name</div>
+                                                            <div class="volunteer_avg_rating"></div>
+                                                        </div>
+                                                        <div class="column">
+                                                            <div class="skills_container">
+                                                                <div class="header">Skills</div>
+                                                                <!--                                                 skills go here (placeholder in right now) vvvvv -->
+                                                                <textarea name="profile_skills" id="profile_skills" cols="30" rows="10" disabled>
+                                        + chasier
+                                        + supply management
+                                        + tech savvy
+                                        
+                                                                </textarea>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="event_history_container">
+                                                            <div class="header">Event History</div>
+                                                            <button type="button" class="close_btn" onclick="close_profile()">&times;</button>
+                                                            <div class="previous_events_container">
+                                                                <!-- where list of previous events go -->
+                                        
+                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
+
+                                            <!-- pending element 2 -->
+                                            <div class="pending_container">
+                                                <!--            placeholder  vvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="avg_rating"></div>
+                                                <div class="view_profile">
+                                                    <button id="btn_profile" onclick="view_profile()">View Profile</button>
+                                                </div>
+                                                <div class="approve_deny">
+                                                    <button id="btn_approve" onclick="approve()">Approve</button>
+                                                    <button id="btn_deny" onclick="deny()">Deny</button>
+                                                </div>
+                                            </div>
+                                        
+                                            <!-- view profile popup -->
+                                            <div class="profile_popup" id="profile_popup">
+                                                <div class="row">
+                                                    <div class="column">
+                                                        <div class="profile_container">
+                                                            <div class="header">Profile</div>
+                                                            <div class="volunteer_name">Volunteer Name</div>
+                                                            <div class="volunteer_avg_rating"></div>
+                                                        </div>
+                                                        <div class="column">
+                                                            <div class="skills_container">
+                                                                <div class="header">Skills</div>
+                                                                <!--                                                 skills go here (placeholder in right now) vvvvv -->
+                                                                <textarea name="profile_skills" id="profile_skills" cols="30" rows="10" disabled>
+                                        + chasier
+                                        + supply management
+                                        + tech savvy
+                                        
+                                                                </textarea>
+                                                            </div>  
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="event_history_container">
+                                                            <div class="header">Event History</div>
+                                                            <button type="button" class="close_btn" onclick="close_profile()">&times;</button>
+                                                            <div class="previous_events_container">
+                                                                <!-- where list of previous events go -->
+                                        
+                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+
+
+                                            <!-- END OF PENDING POPULATE -->
                                         </div>
                                     </div>
                                     
@@ -209,6 +321,28 @@
                                         <div class="volunteers_element_container">
                                             <!-- Where comment/question elements will populate -->
                                             
+                                            <!-- Element 1 -->
+                                            <div class="question_container">
+                                                <!--            placeholders  vvvvvvvvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="question_comment">I was wondering what kind of supplies I need to bring for the event?</div>
+                                                <div class="reply">
+                                                    <button id="btn_reply" onclick="reply()">Reply</button>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Element 2 -->
+                                            <div class="question_container">
+                                                <!--            placeholders  vvvvvvvvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="question_comment">I was wondering what kind of supplies I need to bring for the event?</div>
+                                                <div class="reply">
+                                                    <button id="btn_reply" onclick="reply()">Reply</button>
+                                                </div>
+                                            </div>
+
+                                            <!-- END OF COMMENT/QUESTION POPULATE -->
                                         </div>
                                     </div>
                                     
@@ -242,6 +376,35 @@
                                         <div class="volunteers_element_container">
                                             <!-- Where rating elements will populate -->
                                             
+                                            <!-- Element 1 -->
+                                            <div class="rating_container">
+                                                <!--            placeholder  vvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="rate_volunteer"></div>
+                                                <div class="comments">
+                                                    <textarea name="volunteer_comments" id="volunteer_comments" cols="30" rows="10" placeholder="Enter comments here"></textarea>
+                                                </div>
+                                                <div class="submit_rating">
+                                                    <button id="btn_submit_rating" onclick="submit_rating()">Submit</button>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Element 2 -->
+                                            <div class="rating_container">
+                                                <!--            placeholder  vvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="rate_volunteer"></div>
+                                                <div class="comments">
+                                                    <textarea name="volunteer_comments" id="volunteer_comments" cols="30" rows="10" placeholder="Enter comments here"></textarea>
+                                                </div>
+                                                <div class="submit_rating">
+                                                    <button id="btn_submit_rating" onclick="submit_rating()">Submit</button>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- END OF RATING POPULATE -->
                                         </div>
                                     </div>
                                     
@@ -307,7 +470,7 @@
                                 </div>
 
 
-
+<!-- Event 2 -->
                                 <div class="event_container">
                                     <!-- Placeholder         vvv -->
                                     <div class="event_name">Event</div> 
