@@ -4,16 +4,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.sql.Date;
-
+import java.util.List;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import jakarta.persistence.FetchType;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,5 +35,9 @@ public class Event {
     private @Getter @Setter Date eventDate;
     private @Getter @Setter String eventTime;
     private @Getter @Setter String eventLocation;
+
+    @OneToMany(targetEntity = Volunteer.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "eventId")
+    private List<Volunteer> volunteers;
   
 }

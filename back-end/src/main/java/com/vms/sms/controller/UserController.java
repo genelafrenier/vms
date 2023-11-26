@@ -18,6 +18,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    //endpoint for login functionality
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User loginUser, HttpSession session) {
         Optional<User> optionalUser = userRepository.findByUsername(loginUser.getUsername());
@@ -32,6 +33,7 @@ public class UserController {
         }
     }
 
+    //endpoint to return current username
     @GetMapping("/current-user")
     public @ResponseBody String currentUser(HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -43,6 +45,7 @@ public class UserController {
         }
     }
 
+    //endpoint for user creation functionality on registration page
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
         if (!userRepository.existsByUsername(user.getUsername())) {
@@ -53,6 +56,7 @@ public class UserController {
         }
     }
 
+    //endpoint to retrieve role of current user - used for navbar links
     @GetMapping("/role")
     public ResponseEntity<String> roleEndpoint(HttpSession session) {
         User user = (User) session.getAttribute("user");
