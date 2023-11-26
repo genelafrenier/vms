@@ -1,0 +1,50 @@
+.question_container {
+    background-color: #c4b581;
+    width: 96%;
+    padding: 10px;
+    height: 60px;
+    border-radius: 50px;
+    display: flex;
+    margin-top: 20px;
+    border: 2px solid black;
+    margin-left: 1%;
+}
+
+.question_container .volunteer_name {
+    height: 100%;
+    background-color: transparent;
+    width: 25%;
+    text-align: center;
+    font-size: 28px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+    
+}
+
+.question_container .question_comment {
+    height: 100%;
+    background-color: transparent;
+    width: 50%;
+    font-size: 20px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+    overflow-y: auto;
+    
+}
+
+.question_container .reply {
+    height: 100%;
+    width: 25%;
+    text-align: center;
+}
+
+.question_container button {
+    background: transparent;
+    border: none;
+    text-align: center;
+    font-size: 28px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: underline;
+}
