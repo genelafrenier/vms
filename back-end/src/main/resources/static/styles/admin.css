@@ -281,6 +281,7 @@
     margin-left: 5%;
 }
 
+/* Popup */
 .popup {
     display: none;
     position: fixed;
@@ -296,7 +297,7 @@
 }
 
 .popup_content {
-    background-color: white;
+    background-color: transparent;
 }
 
 .popup .close_btn {
@@ -380,7 +381,7 @@
 }
 
 .popup .row {
-    padding-bottom: 5%;
+    padding-bottom: 0;
     background-color: transparent;
 }
 
