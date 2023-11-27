@@ -26,7 +26,7 @@
 
 
     <div class="apply">
-      <button class="button" onclick="openForm()"><b>Apply</b></button>
+      <button class="button" onclick="apply()"><b>Apply</b></button>
 
       <h6 style="font-size: 27px">Have a question?</h6>
       <p style="font-size: 12px">Ask any questions during application</p>
@@ -38,7 +38,7 @@
       <p style="font-size: 12px">Organizer@csus.edu</p>
 
     </div>
-    <!--Apply Form-->
+    <!--Apply Form
       <div class="form-container" id="applyForm">
         <form action="/action_page.php">
           <div class= "row">
@@ -73,7 +73,8 @@
           <button type="button"  onclick="closeForm()" class="button">Submit</button>
           <button type="button"  onclick="closeForm()" class="button" style="float: right;">Close</button>
         </form>
-      </div><!--End Apply Form-->
+      </div>--><!--End Apply Form-->
+    
 
   </div> <!--End container-->
 
@@ -121,6 +122,45 @@
     <div class="desc">${data.eventDescription}</div>`
     
         document.getElementById("event-frame").innerHTML = tab;
+    }
+  
+    function apply() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const event_id = urlParams.get('id');
+    const approvalStatus = "Pending";
+
+    fetch('http://localhost:8080/current-user', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      student_id = data;
+      var data = {
+        studentId: student_id,
+        eventId: event_id,
+        approvalStatus: approvalStatus,
+    };
+    console.log(JSON.stringify(data));
+
+    fetch('http://localhost:8080/request', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+                    },
+        body: JSON.stringify(data)
+    })
+    console.log("Applied");
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    
+
+
     }
   
   </script>
