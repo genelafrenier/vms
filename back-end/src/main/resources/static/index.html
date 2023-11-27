@@ -17,16 +17,20 @@
         });
     </script>
 
-
+    
     <div>
         <div class="tab">
             <button class="buttonList" onclick="listview()" id="buttonList"><b>List</b></button>
             <button class="buttonGrid" onclick="gridview()" id="buttonGrid"><b>Grid</b></button>
+            
         </div>
         <!--List View-->
-        <div class="list" id="list">
+        <div id="list">
+          
         </div>
         <!--End List view-->
+
+
         <!-- Start of grid view-->
      <div class="grid" id="grid">
      </div> <!--End of Grid-->
@@ -83,12 +87,14 @@ let listData = "";
 for (let r of data) {
       listData += 
     `     
-    <div>
-     <h2 class="title"><a href="/eventDetail.html?id=${r.id}">${r.eventName}</a></h2>
-     <p class="location">${r.eventLocation}</p>
-     <p class="date">${r.eventDate}   ${r.eventTime}</p>
-     <p class="desc">${r.eventDescription}</p>
-   </div>`;
+    <div class="list">
+        <img src=" " class="Logo">
+        <h2 class="titleList"><a href="/eventDetail.html?id=${r.id}">${r.eventName}</a></h2>
+        <!-- <p class="dateList">${r.eventLocation}</p> -->
+        <p class="dateList">${r.eventDate}   ${r.eventTime} <br><br>${r.eventLocation}</p>
+        <p class="descList">${r.eventDescription}</p>
+     </div>`;
+   
 
 }
 // Setting innerHTML as tab variable
