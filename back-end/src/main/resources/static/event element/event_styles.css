@@ -19,6 +19,8 @@
     font-weight: 700;
     margin-top: 5px;
     cursor: pointer;
+    text-overflow:ellipsis;
+    overflow: hidden;
 }
 
 .btn_volunteers {
@@ -199,7 +201,7 @@ button {
     border: none;
 } 
 
-.edit_popup .create_event{
+.edit_popup .edit_event{
     padding-left: 5%;
 }
 

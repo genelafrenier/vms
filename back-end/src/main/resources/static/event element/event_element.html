@@ -63,9 +63,12 @@
                     </div>
                 </div>
             </div>
-            <div class="volunteers_element_container">
+            <div class="volunteers_element_container" id="pending_element_container">
                 <!-- Where pending elements will populate -->
                 
+
+
+                <!-- end of pendingg populate -->
             </div>
         </div>
         
@@ -96,9 +99,13 @@
                     </div>
                 </div>
             </div>
-            <div class="volunteers_element_container">
+            <div class="volunteers_element_container" id="question_element_container">
                 <!-- Where comment/question elements will populate -->
                 
+
+
+
+                <!-- end of comment/question populate -->
             </div>
         </div>
         
@@ -129,9 +136,12 @@
                     </div>
                 </div>
             </div>
-            <div class="volunteers_element_container">
+            <div class="volunteers_element_container" id="rate_element_container">
                 <!-- Where rating elements will populate -->
                 
+
+
+                <!-- End of rating populate -->
             </div>
         </div>
         
@@ -140,7 +150,7 @@
     <div class="edit_popup" id="edit_popup">
         <div class="popup_content">
             <button type="button" class="close_btn" onclick="close_edit()">&times;</button>
-        <div class="create_event">
+        <div class="edit_event">
             <form class="imbedded_fields" id="edit_id" name="edit_event" onsubmit="return edit_validation_testing()">
                 <div class="row">
                     <div class="column">
@@ -243,35 +253,35 @@ function close_edit(){
 function edit_validation_testing(){
 
     //title input error checking
-    if(document.edit_event.edit_event_title.value==""){
+    if(document.getElementById("edit_event_title").value==""){
         document.getElementById("edit_title_error").innerHTML="Please Enter a Title for your Event";
         return false;
     }
 
 
     //date input error checking
-    else if(document.edit_event.edit_event_date.value==""){
+    else if(document.getElementById("edit_event_date").value==""){
         document.getElementById("edit_date_error").innerHTML="Please Select a Date for your Event";
         return false;
     }
 
 
     //location input error checking
-    else if(document.edit_event.edit_event_location.value==""){
+    else if(document.getElementById("edit_event_location").value==""){
         document.getElementById("edit_location_error").innerHTML="Please Enter a Location for your Event";
         return false;
     }
 
 
     //time input error checking
-    else if(document.edit_event.edit_event_time.value==""){
+    else if(document.getElementById("edit_event_time").value==""){
         document.getElementById("edit_time_error").innerHTML="Please Select a Time for your Event";
         return false;
     }
 
 
     //description input error checking
-    else if(document.edit_event.edit_event_description.value==""){
+    else if(document.getElementById("edit_event_description").value==""){
         document.getElementById("edit_description_error").innerHTML=="Please Enter a Description for your Event";
         return false;
     }

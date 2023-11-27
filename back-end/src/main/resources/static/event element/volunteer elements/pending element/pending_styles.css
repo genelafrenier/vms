@@ -110,7 +110,7 @@
     font-weight: 700;
 }
 
-.profile_popup textarea {
+.profile_popup .profile_skills {
     margin-left: 5%;
     width: 80%;
     background-color: transparent;
