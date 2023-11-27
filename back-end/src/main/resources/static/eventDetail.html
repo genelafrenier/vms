@@ -1,36 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>SMS</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="styles/eventDetail.css" />
-<link rel="stylesheet" href="styles/navbar.css">
-<script src="js/navbar.js"></script>
+  <link rel="stylesheet" href="styles/EventDetail.css">
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="Logo" href="images/Logo.png">
+  <title>Event Description</title>
+  <script src="js/EventDetail.js"></script>
+  <link rel="stylesheet" href="styles/navbar.css">
+  <script src="js/navbar.js"></script>
 </head>
 <body>
+  <!--Nav-->
   <div class="navbar-container" id="navbar"></div>
   <script>
       document.addEventListener('DOMContentLoaded', (event) => {
           loadNavbar();
       });
   </script>
-  <div class ="outer-frame">
-  <div class ="event-frame" id ="event-frame"></div>
-  <div class ="contact-window" id="contact-window">
-    <div class="contact-inner-frame">
-        <button type="button" class ="apply-button">Apply</button>
-        <div class="contact-title">Have a Question?
-        <p class = "contact-text"> Ask any questions about the event.</p>
+
+  <div class="container" id="event-frame">
+
+ 
     </div>
+
+
+    <div class="apply">
+      <button class="button" onclick="apply()"><b>Apply</b></button>
+
+      <h6 style="font-size: 27px">Have a question?</h6>
+      <p style="font-size: 12px">Ask any questions during application</p>
+
+      <img src="images/default_profile.jpg" alt = "default picture">
+
+      <h6 style="font-size: 27px">Organizer Name</h6>
+      <p style="font-size: 12px">Department/Group</p>
+      <p style="font-size: 12px">Organizer@csus.edu</p>
+
     </div>
-    
+    <!--Apply Form
+      <div class="form-container" id="applyForm">
+        <form action="/action_page.php">
+          <div class= "row">
+            <div class="col-100">
+              <h1 style="text-align: center">Event name</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-50">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Happy">
+              <label for="email"> Email</label>
+              <input type="text" id="email" name="email" placeholder="HappyMufasa@csus.edu">
+              <label for="phone">Phone</label>
+              <input type="text" id="phone" name="phone" placeholder="(123)456-7890">
+            </div>
+
+            <div class="col-50">
+              <label for="Last">Last Name</label>
+              <input type="text" id="Last"placeholder="Mufasa">
+              <label for="ID">ID</label>
+              <input type="text" id="ID"placeholder="987654321">
+            </div>
+          </div>
+          <div class= "row">
+            <div class="col-100">
+              <label for="Question">Question</label>
+              <input type="text" id="Question" placeholder="question goes here">
+            </div>
+
+          </div>
+          <button type="button"  onclick="closeForm()" class="button">Submit</button>
+          <button type="button"  onclick="closeForm()" class="button" style="float: right;">Close</button>
+        </form>
+      </div>--><!--End Apply Form-->
     
 
-  </div>
+  </div> <!--End container-->
 
-  </div>
   <script>
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
@@ -59,24 +106,63 @@
     function populateEvent(data){
         let tab = "";
         tab +=
-        `<div class="title-frame">
-            <h1 class="event-title-dtl">${data.eventName}</h1>
-        </div>
-        <div class="description-frame">
-            <div class="description">${data.eventDescription}</div>
-        </div>
-        <div class="date-time-frame">
-            <div class="date">${data.eventDate}</div>
-            <div class="time">${data.eventTime}</div>
-            <div class="location">${data.eventLocation}</div>
-        </div>`
+        `
+        <button onclick="history.back()" class="back">Previous Page</button>
+      <div class="title">
+        <h5>${data.eventName}</h5>
+      </div>
+
+      <div class="date">    <!-- May need to make time separate-->
+        <p>${data.eventDate}</p>
+        <p>${data.eventTime}</p>
+      <div>
+        <h4>${data.eventLocation}</h4>
+      </div>
+    </div>
+    <div class="desc">${data.eventDescription}</div>`
+    
         document.getElementById("event-frame").innerHTML = tab;
     }
+  
+    function apply() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const event_id = urlParams.get('id');
+    const approvalStatus = "Pending";
+
+    fetch('http://localhost:8080/current-user', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      student_id = data;
+      var data = {
+        studentId: student_id,
+        eventId: event_id,
+        approvalStatus: approvalStatus,
+    };
+    console.log(JSON.stringify(data));
+
+    fetch('http://localhost:8080/request', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+                    },
+        body: JSON.stringify(data)
+    })
+    console.log("Applied");
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
     
 
 
-  </script>
+    }
   
-
+  </script>
 </body>
 </html>
