@@ -182,7 +182,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="volunteers_element_container">
+                                        <div class="volunteers_element_container" id="pending_element_container">
                                             <!-- Where pending elements will populate -->
                                             <div class="pending_container">
                                                 <!--            placeholder  vvv -->
@@ -209,13 +209,11 @@
                                                         <div class="column">
                                                             <div class="skills_container">
                                                                 <div class="header">Skills</div>
-                                                                <!--                                                 skills go here (placeholder in right now) vvvvv -->
-                                                                <textarea name="profile_skills" id="profile_skills" cols="30" rows="10" disabled>
-                                        + chasier
-                                        + supply management
-                                        + tech savvy
-                                        
-                                                                </textarea>
+                                                                <!-- placeholder           vvvvvvvvvvv -->
+                                                                <div class="profile_skills">+ chasier
+                                                                    + supply management
+                                                                    + tech savvy</div>
+                                                                
                                                             </div>  
                                                         </div>
                                                     </div>
@@ -233,8 +231,9 @@
                                                 </div>
                                                 
                                             </div>
-
-                                            <!-- End of pending element -->
+                            
+                            
+                                            <!-- end of pendingg populate -->
                                         </div>
                                     </div>
                                     
@@ -265,17 +264,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="volunteers_element_container">
+                                        <div class="volunteers_element_container" id="question_element_container">
                                             <!-- Where comment/question elements will populate -->
-                                            <div class="question_container">
-                                                <!--            placeholders  vvvvvvvvv -->
-                                                <div class="volunteer_name">Volunteer Name</div>
-                                                <div class="question_comment">I was wondering what kind of supplies I need to bring for the event?</div>
-                                                <div class="reply">
-                                                    <button id="btn_reply" onclick="reply()">Reply</button>
+                                            <body>
+                                                <div class="question_container">
+                                                    <!--            placeholders  vvvvvvvvv -->
+                                                    <div class="volunteer_name">Volunteer Name</div>
+                                                    <div class="question_comment">I was wondering what kind of supplies I need to bring for the event?</div>
+                                                    <div class="reply">
+                                                        <button id="btn_reply" onclick="reply()">Reply</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <!-- End of comment/question element -->
+                            
+                            
+                            
+                                            <!-- end of comment/question populate -->
                                         </div>
                                     </div>
                                     
@@ -306,7 +309,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="volunteers_element_container">
+                                        <div class="volunteers_element_container" id="rate_element_container">
                                             <!-- Where rating elements will populate -->
                                             <div class="rating_container">
                                                 <!--            placeholder  vvv -->
@@ -319,7 +322,9 @@
                                                     <button id="btn_submit_rating" onclick="submit_rating()">Submit</button>
                                                 </div>
                                             </div>
-                                            <!-- End of rating element -->
+                            
+                            
+                                            <!-- End of rating populate -->
                                         </div>
                                     </div>
                                     
@@ -328,7 +333,7 @@
                                 <div class="edit_popup" id="edit_popup">
                                     <div class="popup_content">
                                         <button type="button" class="close_btn" onclick="close_edit()">&times;</button>
-                                    <div class="create_event">
+                                    <div class="edit_event">
                                         <form class="imbedded_fields" id="edit_id" name="edit_event" onsubmit="return edit_validation_testing()">
                                             <div class="row">
                                                 <div class="column">
