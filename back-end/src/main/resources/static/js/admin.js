@@ -398,6 +398,7 @@ function populate_events(data){
             <button id="btn_edit" onclick="open_edit()">
                 <img src="images/Event_Edit.png">
             </button>
+        </div>
         </div>`;
     }
   // populate html for events_populate
