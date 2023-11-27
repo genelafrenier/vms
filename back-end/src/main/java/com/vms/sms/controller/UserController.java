@@ -44,6 +44,17 @@ public class UserController {
             return user.getUsername();
         }
     }
+    //code by Calvin to test
+    @GetMapping("/current")
+    public @ResponseBody User current(HttpSession session) {
+    User user = (User) session.getAttribute("user");
+    if (user == null) {
+        return null;
+    } else {
+        return user;
+    }
+}
+ // end code here
 
     //endpoint for user creation functionality on registration page
     @PostMapping("/register")
