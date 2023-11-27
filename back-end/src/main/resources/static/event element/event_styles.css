@@ -19,6 +19,8 @@
     font-weight: 700;
     margin-top: 5px;
     cursor: pointer;
+    text-overflow:ellipsis;
+    overflow: hidden;
 }
 
 .btn_volunteers {
