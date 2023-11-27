@@ -306,11 +306,7 @@ function create_event(){
     .then(data =>{
       console.log(data);
       organizer_id = data;
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-
+        
     var data = {
         organizerId: organizer_id,
         eventName: title,
@@ -332,6 +328,79 @@ function create_event(){
         body: JSON.stringify(data)
     })
     window.location.href = 'admin.html';
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 
     
 }
+
+async function get_events(){
+
+    
+    fetch('http://localhost:8080/current-user', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      organizer_id = data;
+      url = 'http://localhost:8080/events-by-organizer?organizer_id=' + organizer_id;
+      fetch(url, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      populate_events(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+        
+    console.log(JSON.stringify(data));
+    })
+}
+
+
+function populate_events(data){
+
+    let eventData = "";
+  
+    for (let r of data) {
+          eventData += 
+        `    <div class="event_container">
+        <div class="event_name">${r.eventName}</div> 
+        <div class="btn_volunteers">
+            <button id="btn_volunteers" onclick="open_pending()">
+                <img src="images/Event_Volunteers.png">
+            </button>
+        </div>
+        <div class="btn_comments">
+            <button id="btn_comments" onclick="open_comments()">
+                <img src="images/Event_Comments.png">
+            </button>
+        </div>
+        <div class="btn_ratings">
+            <button id="btn_ratings" onclick="open_rate()">
+                <img src="images/Event_Rate.png">
+            </button>
+        </div>
+        <div class="btn_edit">
+            <button id="btn_edit" onclick="open_edit()">
+                <img src="images/Event_Edit.png">
+            </button>
+        </div>`;
+    }
+  // populate html for events_populate
+  document.getElementById("events_populate").innerHTML = eventData;
+}
+    
