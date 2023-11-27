@@ -5,9 +5,9 @@
 }
 .container{
     display: grid;
-    grid-template-areas: 'back . . .'
-                         'title date . apply'
-                         'desc desc . apply';
+    grid-template-areas: 'back .'
+                         'title date'
+                         'desc desc ';
     width:90%;
     margin: 5%;
     text-align: center;
@@ -68,7 +68,7 @@
     border-right-style: solid;
     border-left-style: solid;
     text-align: left;
-    padding-top: 5%;
+    padding-top: 1%;
     padding-left: 1%;
 }
 .apply{                /*has inline font size*/
@@ -77,10 +77,11 @@
     background-color: rgba(128,128,128,0.5);
     border-style: solid;
     border-radius: 50px;
-    justify-content: center;
+    text-align: center;
     height: 350px;
     width: 100%;
     max-width: 260px;
+    margin-top: 15%;
 }
 .button {
     background-color: #C4B581;
