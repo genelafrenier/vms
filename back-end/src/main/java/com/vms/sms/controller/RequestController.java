@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.vms.sms.model.RequestDetails;
 
 @RestController
 public class RequestController {
@@ -22,7 +23,7 @@ public class RequestController {
 
     //endpoint to get requests by event, for organizer dashboard request approval popup
     @GetMapping("/requests-by-event")
-    public Iterable<Requests> getRequestsByEventId(@RequestParam("eventId") int event_id){
+    public Iterable<RequestDetails> getRequestsByEventId(@RequestParam("eventId") int event_id){
         return requestRepository.getRequestsByEventId(event_id);
     }
 

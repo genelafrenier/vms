@@ -4,6 +4,7 @@
 
 function closeForm() {
     document.getElementById("applyForm").style.display = "none";
+
 }
 // function checklogin(){
 //     const userRole = getRole();
