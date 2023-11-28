@@ -1,64 +1,12 @@
-@charset "UTF-8";
-.averageRating {
-    position: relative;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-            appearance: none;
-    color: transparent;
-    width: auto;
-    display: inline-block;
-    vertical-align: baseline;
-    font-size: 40px;
-    margin-top: 3%;
-    bottom: 37px;
-}
-
-.averageRating::before {
-    --percent: calc(4/5*100%);
-    content: "★★★★★";
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: rgba(0, 0, 0, 0.2);
-    background: linear-gradient(90deg, gold var(--percent), rgba(0, 0, 0, 0.2) var(--percent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.eventRating {
-    position: relative;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-            appearance: none;
-    color: transparent;
-    width: auto;
-    display: inline-block;
-    vertical-align: baseline;
-    font-size: 40px;
-    /* margin-top: 3%; */
-    /* bottom: 37px; */
-}
-
-.eventRating::before {
-    --percent: calc(4/5*100%);
-    content: "★★★★★";
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: rgba(0, 0, 0, 0.2);
-    background: linear-gradient(90deg, gold var(--percent), rgba(0, 0, 0, 0.2) var(--percent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
+@charset "UTF-8"; 
 
 * {
     padding: 0px;
     margin: 0px;
 }
+
 .grid {
     display: grid;
-    /* grid-template-columns: auto auto auto; */
     grid-template-columns: minmax(430px, 600px) minmax(430px, 600px) minmax(430px, 600px);
     grid-gap: 30px;
     width: 90%;
@@ -66,8 +14,6 @@
     margin-top: 5%;
     margin-bottom: 5%;
 }
-
-
 
 .current {
     margin-bottom: 5%;
@@ -102,20 +48,13 @@
     padding: 2%;
 }
 
-
-
-
 .container{
     background-color: #C4B581;
-    /* width: 80%; */
     height: 630px;
-    /* margin: 50px; */
     border-radius: 50px;
 }
 .container_for_info{
-
     margin: 5.5%;
-
 }
 p{
     margin-left: 70%;
@@ -128,13 +67,11 @@ label {
 
 input {
     width: 210px;
-    /* width: 80%; */
 }
 
 .pastRating {
     margin: auto;
     color: grey;
-
 }
 
 div.ratingWrapper{
@@ -155,7 +92,7 @@ div.ratingWrapper{
 
 .centerText{
     font-size: 30px;
-    margin-top: 10%;
+    margin-top: 1%;
     justify-content: center;
     text-align: center;
 }
@@ -165,12 +102,7 @@ div#info{
     width: 350px;
     height: 30px;
     border-radius: 50px;
-    /* margin: 10px; */
-
     position: relative;
-    /* top: 10px; */
-    /* left: 15px; */
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -220,17 +152,7 @@ div.header{
     background-color: #008453;
     width: 40px;
     height: 40px;
-
-    /* position: absolute; */
-    /* right: 40px; */
-    /* top: 5px; */
-
     margin-left: 80%;
-    /* float: right; */
-
-
-    /* display: flex; */
-    /* padding: 7px; */
     border-radius: 50px;
     color: white;
     cursor: pointer;
@@ -240,67 +162,32 @@ div.header{
 #form button {
     color: white;
     background-color: #008453;
-    /* border: none; */
     border-radius: 50px;
-
-
-    /* margin-top: 5%; */
     display: flex;
-    /* align-items: center; */
     justify-content: center;
 }
 
 .saveChangesBtn {
-    /* margin-top: 100px; */
     width: 30%;
     height: 20%;
     border-radius: 50px;
-
     margin: auto;
-    /* align-items: center; */
-    /* padding: 5px; */
     cursor: pointer;
-
-    /* display: flex; */
-    /* align-items: center;
-    justify-content: center; */
 }
 
 div#info{
     background-color: white;
-    /* width: 350px; */
     width: 90%;
     height: 30px;
-    /* height: 100%; */
     border-radius: 50px;
-    /* margin: 10px; */
-
-    /* position: relative; */
-    /* top: 10px; */
-    /* left: 15px; */
-
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
-
-
 div#textbox {
-    /* background-color: white; */
-    /* width: 300px; */
-    /* width: 80%; */
-    /* height: 100px; */
     border-radius: 10px;
-    /* margin: auto; */
     margin-left: 5%;
-    /* position: relative; */
-    /* top: 15px; */
-    /* left: 25px; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
 }
 
 /* Makes autofill info white instead of blue */
@@ -314,20 +201,9 @@ input:-webkit-autofill
         /* display: grid; */
         grid-template-columns: minmax(430px, 500px) minmax(430px, 500px);
         width: 90%;
-        /* margin: auto; */
         margin-top: 10%;
     }
 }
-
-/* @media screen and (max-width: 940px) {
-    .grid {
-        display: grid;
-        grid-template-columns: minmax(430px, 500px);
-        width: 90%;
-        margin: auto;
-        margin-top: 10%;
-    }    
-} */
 
 @media only screen and (max-width:630px) {
     .grid {
