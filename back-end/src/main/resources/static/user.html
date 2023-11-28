@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+
 <html lang = "en">
 
 <head>    
@@ -12,6 +13,36 @@
 
 
 <style>
+    /* @charset "UTF-8"; */
+    /* .averageRating {
+        position: relative;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+                appearance: none;
+        color: transparent;
+        width: auto;
+        display: inline-block;
+        vertical-align: baseline;
+        font-size: 40px;
+        margin-top: 3%;
+        bottom: 37px;
+    }
+  
+    .averageRating::before {
+        --percent: calc(4/5*100%);
+        content: "★★★★★";
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: rgba(0, 0, 0, 0.2);
+        background: linear-gradient(90deg, gold var(--percent), rgba(0, 0, 0, 0.2) var(--percent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    } */
+
+
+
+
     .textarea{
 
         resize: none;
@@ -44,6 +75,7 @@
         border-color: black;
     
     }
+
 </style>
 
 
@@ -65,13 +97,9 @@
 
     <div class="centerText"> Your Rating: 
         <div class="ratingWrapper">
-            <meter class="averageRating" min="0" max="5" value="3" title="3.0 out of 5 stars">3.0 out of 5</meter>
+            <div class="averageRating" min="0" max="5" value=""></div>
         </div>
-        
-    
     </div>
-
-    <p>Product rating: <meter class="averageRating" min="0" max="5" value="3" title="3.0 out of 5 stars">3.0 out of 5</meter></p>
     
     <!-- <div class="outline"> -->
 
@@ -272,7 +300,9 @@
                     <p1>Location: Sac State</p1>
 
 
-                    <div class="pastRating">
+                    <div class="eventRating" min="0" max="5" value=""></div>
+
+                    <!-- <div class="pastRating">
                         
                         <span dataRating="5">&#9733;</span>
                 
@@ -284,7 +314,7 @@
                 
                         <span dataRating="1">&#9733;</span>
     
-                    </div>
+                    </div> -->
 
                 </div>
 
