@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="styles/EventDetail.css">
+  <link rel="stylesheet" href="styles/EventDetail-2.css">
   <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="Logo" href="images/Logo.png">
   <title>Event Description</title>
-  <script src="js/EventDetail.js"></script>
+  <script src="js/EventDetail-2.js"></script>
   <link rel="stylesheet" href="styles/navbar.css">
   <script src="js/navbar.js"></script>
 </head>
@@ -19,33 +19,59 @@
       });
   </script>
 
-  <div class="row">
-    <div class="col-75">
-      <div class="container" id="event-frame">
-        <!-- Populate event data here-->
-      </div>
-      
-    </div> <!---End col75-->
-    <div class="col-25"> 
-      <div class="apply">
-        <button class="button" onclick="getUser()"><b>Apply</b></button>
-  
-        <h6 style="font-size: 27px">Have a question?</h6>
-        <p style="font-size: 12px">Ask any questions during application</p>
-  
-        <img src="images/DefaultProfile.png" alt = "default picture">
-  
-        <h6 style="font-size: 27px">Organizer Name</h6>
-        <p style="font-size: 12px">Department/Group</p>
-        <p style="font-size: 12px">Organizer@csus.edu</p>
-  
-      </div>
+  <div class="container" id="event-frame"></div>
+
+    <div class="apply">
+      <button class="button" onclick="openForm()"><b>Apply</b></button>
+
+      <h6 style="font-size: 27px">Have a question?</h6>
+      <p style="font-size: 12px">Ask any questions during application</p>
+
+      <img src="Images/DefaultProfile.png" alt = "default picture">
+
+      <h6 style="font-size: 27px">Organizer Name</h6>
+      <p style="font-size: 12px">Department/Group</p>
+      <p style="font-size: 12px">Organizer@csus.edu</p>
+
     </div>
     <!--Apply Form-->
-    <div class="form-container" id="applyForm">
-      <!-- Display form if logged in//details at checklogin() in eventDetail.js-->
-    </div><!--End Apply Form-->
-  </div> <!--End row-->
+      <div class="form-container" id="applyForm">
+        <form action="/action_page.php">
+          <div class= "row">
+            <div class="col-100">
+              <h1 style="text-align: center">Event name</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-50">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Happy">
+              <label for="email"> Email</label>
+              <input type="text" id="email" name="email" placeholder="HappyMufasa@csus.edu">
+              <label for="phone">Phone</label>
+              <input type="text" id="phone" name="phone" placeholder="(123)456-7890">
+            </div>
+
+            <div class="col-50">
+              <label for="Last">Last Name</label>
+              <input type="text" id="Last"placeholder="Mufasa">
+              <label for="ID">ID</label>
+              <input type="text" id="ID"placeholder="987654321">
+            </div>
+          </div>
+          <div class= "row">
+            <div class="col-100">
+              <label for="Question">Question</label>
+              <input type="text" id="Question" placeholder="question goes here">
+            </div>
+
+          </div>
+          <button type="button"  onclick="closeForm()" class="button">Submit</button>
+          <button type="button"  onclick="closeForm()" class="button" style="float: right;">Close</button>
+        </form>
+      </div><!--End Apply Form-->
+
+  </div> <!--End container-->
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
