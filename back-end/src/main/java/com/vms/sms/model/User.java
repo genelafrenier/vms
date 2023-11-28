@@ -23,7 +23,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private @Getter @Setter int id;
     @Column(unique = true)
-    private @Getter @Setter String username;
+    private @Getter @Setter int username;
     private @Getter @Setter String password;
     private @Getter @Setter String role;
     private @Getter @Setter String firstName;
