@@ -16,12 +16,13 @@
 
         resize: none;
         background-color: white;
-        /* padding: 1em; */
         border-radius: 10px;
         border: 2px solid transparent;
         outline: none;
         font-size: 14px;
         line-height: 1.3;
+        /* padding: 1em; */
+        
         /* width: 310px; */
         /* height: 100px; */
         /* margin: 10px; */
@@ -80,6 +81,7 @@
             
                     <span dataRating="1">&#9733;</span>
 
+
                 </div>
         
             </div>
@@ -129,7 +131,6 @@
                 <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
 
                 <form id="form">
-
                     <div class="container_for_info" id="info">
 
                         <div class="inputControl">
@@ -141,46 +142,31 @@
                         </div>
 
                     </div>
-
                     <div class="container_for_info" id="info">
-
                         <div class="inputControl">
 
                             <label for="lname">Last Name:</label>
                             <input type="text" id="lname" name="lname" disabled>
                             <div class="error"></div>
-
                         </div>
-                        
                     </div>
-
                     <div class="container_for_info" id="info">
-
                         <div class="inputControl">
-
                             <label for="phoneNum">Phone Number:</label>
                             <input type="tel" id="phoneNum" name="phoneNum" placeholder="123-456-7890     Required*" disabled>
                             <div class="error"></div>
 
                         </div>
                         <div class="error"></div>
-                        
                     </div>
-
                     <div class="container_for_info" id="info">
-
                         <div class="inputControl">
-
                             <label for="email">Email:</label>
                             <input type="text" id="email" name="email"  placeholder="School email      Required*" disabled>
                             <div class="error"></div>
-
                         </div>
-
                     </div>
-                    
                     <div id="textbox">
-            
                         <label for="userSkills">Skills:</label>
                         <textarea class="textarea" id="userSkills" placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled></textarea>
                         <p class="adjustResult" id="result"></p>
