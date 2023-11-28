@@ -133,6 +133,7 @@
             email: email,
             phone: phoneNumber
         };
+        console.log("Calling Register");
         console.log(JSON.stringify(data));
         // Make an AJAX request to the login endpoint
         fetch('http://localhost:8080/register', {
@@ -159,7 +160,7 @@
       closePopup.addEventListener("click", () => {
       contentOfPopup.close();
       })
-
+      console.log("Form Submitted");
       register();
     }
 

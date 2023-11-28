@@ -23,8 +23,15 @@
 
 .pending_container .avg_rating {
     height: 100%;
-    width: 28%;
-    
+    width: 30%;
+    justify-content: center;
+    display: flex;
+    background-color: transparent;
+}
+
+.pending_container .avg_rating span {
+    font-size: 28px;
+    font-weight: 400;
 }
 
 .pending_container .view_profile {
@@ -35,8 +42,8 @@
 
 .pending_container .approve_deny {
     height: 100%;
-    width: 15%;
-    
+    width: 20%;
+    background-color: transparent;
 }
 
 .pending_container button {
@@ -110,7 +117,16 @@
     font-weight: 700;
 }
 
-.profile_popup textarea {
+.profile_popup .ratings {
+    display: flex;
+    justify-content: center;
+}
+
+.profile_popup .ratings span {
+    font-size: 36px;
+}
+
+.profile_popup .profile_skills {
     margin-left: 5%;
     width: 80%;
     background-color: transparent;

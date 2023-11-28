@@ -59,10 +59,8 @@ public class EventController {
 
     //endpoint for events by organizer
     @GetMapping("/events-by-organizer")
-    public Iterable<Event> getEventsByOrganizerId(HttpSession session){
-        User user = (User) session.getAttribute("user");
-
-        int organizer_id = Integer.valueOf(user.getUsername());
+    public @ResponseBody Iterable<Event> getEventsByOrganizerId(@RequestParam("organizer_id") int organizer_id){
+  
         return eventRepository.getEventsByOrganizerId(organizer_id);
     }
 

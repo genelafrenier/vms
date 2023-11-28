@@ -11,7 +11,21 @@
     <div class="pending_container">
         <!--            placeholder  vvv -->
         <div class="volunteer_name">Volunteer Name</div>
-        <div class="avg_rating"></div>
+        <div class="avg_rating">
+            <div class="ratings">
+                    
+                <span dataRating="5">&#9733;</span>
+        
+                <span dataRating="4">&#9733;</span>
+        
+                <span dataRating="3">&#9733;</span>
+        
+                <span dataRating="2">&#9733;</span>
+        
+                <span dataRating="1">&#9733;</span>
+
+            </div>
+        </div>
         <div class="view_profile">
             <button id="btn_profile" onclick="view_profile()">View Profile</button>
         </div>
@@ -21,6 +35,7 @@
         </div>
     </div>
 
+
     <!-- view profile popup -->
     <div class="profile_popup" id="profile_popup">
         <div class="row">
@@ -28,18 +43,30 @@
                 <div class="profile_container">
                     <div class="header">Profile</div>
                     <div class="volunteer_name">Volunteer Name</div>
-                    <div class="volunteer_avg_rating"></div>
+                    <div class="volunteer_avg_rating">
+                        <div class="ratings">
+                    
+                            <span dataRating="5">&#9733;</span>
+                    
+                            <span dataRating="4">&#9733;</span>
+                    
+                            <span dataRating="3">&#9733;</span>
+                    
+                            <span dataRating="2">&#9733;</span>
+                    
+                            <span dataRating="1">&#9733;</span>
+        
+                        </div>
+                    </div>
                 </div>
                 <div class="column">
                     <div class="skills_container">
                         <div class="header">Skills</div>
-                        <!--                                                 skills go here (placeholder in right now) vvvvv -->
-                        <textarea name="profile_skills" id="profile_skills" cols="30" rows="10" disabled>
-+ chasier
-+ supply management
-+ tech savvy
-
-                        </textarea>
+                        <!-- placeholder           vvvvvvvvvvv -->
+                        <div class="profile_skills">+ chasier
+                            + supply management
+                            + tech savvy</div>
+                        
                     </div>  
                 </div>
             </div>
@@ -57,6 +84,7 @@
         </div>
         
     </div>
+    
     <!-- Start of pending element script -->
     <script>
         

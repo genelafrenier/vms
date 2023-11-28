@@ -4,6 +4,8 @@ body {
 
 .about-section {
     text-align: center; /*centers about section title*/
+    margin-top: 30px; /* Add margin to create space between the top and "About Us" */
+
 }
 
 .about-section::after { /*add an invisible element to make soace between the about and images*/
