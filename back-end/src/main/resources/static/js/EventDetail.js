@@ -67,7 +67,7 @@ async function checklogin(data) {
                         </div>
 
                       </div>
-                      <button type="button"  onclick="closeForm()" class="button">Submit</button>
+                      <button type="button"  onclick="apply()" class="button">Submit</button>
                       <button type="button"  onclick="closeForm()" class="button" style="float: right;">Close</button>
                     </form>`;
     if (userRole === "USER") {
