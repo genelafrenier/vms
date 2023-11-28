@@ -356,17 +356,15 @@ async function get_events(){
         'Content-Type': 'application/json',
                 },
         })
-
     .then(response => response.json())
     .then(data =>{
-      console.log(data);
-      populate_events(data);
+        console.log(data);
+        populate_events(data);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
         
-    console.log(JSON.stringify(data));
     })
 }
 
@@ -376,7 +374,8 @@ function populate_events(data){
     let eventData = "";
   
     for (let r of data) {
-          eventData += 
+        get_pending(r.id);
+            eventData +=
         `    <div class="event_container">
         <div class="event_name">${r.eventName}</div> 
         <div class="btn_volunteers">
@@ -400,24 +399,21 @@ function populate_events(data){
             </button>
         </div>
         </div>`;
-        get_pending(r.eventId)
     }
   // populate html for events_populate
   document.getElementById("events_populate").innerHTML = eventData;
 }
-    
-function get_pending(eventId){
-    url = 'http://localhost:8080/requests-by-event?eventId=' + eventId;
+
+async function get_pending(id) {
+    url = '/requests-by-event?eventId=' + id;
     fetch(url, {
         method: 'GET',
         headers: {
         'Content-Type': 'application/json',
                 },
         })
-
     .then(response => response.json())
     .then(data =>{
-      console.log(data);
       populate_pending(data);
     })
     .catch((error) => {
@@ -425,12 +421,13 @@ function get_pending(eventId){
     });
 }
 
+//populate a pending row for EACH volunteer for each event
 function populate_pending(data){
     let pendingData = "";
 
     for (let r of data) {
           pendingData += 
-        `<div class="pending_container">
+        `<div class="pending_container" id="${r.eventId}">
         <!--            placeholder  vvv -->
         <div class="volunteer_name">${r.firstName} ${r.lastName}</div>
         <div class="avg_rating"></div>

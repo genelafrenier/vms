@@ -5,6 +5,8 @@ import com.vms.sms.repository.RequestRepository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,8 +23,11 @@ public class RequestController {
 
     //endpoint to get requests by event, for organizer dashboard request approval popup
     @GetMapping("/requests-by-event")
-    public Iterable<RequestDetails> getRequestsByEventId(@RequestParam("eventId") int event_id){
-        return requestRepository.getRequestsByEventId(event_id);
+    public @ResponseBody Iterable<RequestDetails> getRequestsByEventId(@RequestParam("eventId") String event_id){
+            int eventId = Integer.parseInt(event_id);
+            
+            return requestRepository.getRequestsByEventId(eventId);
+
     }
 
     @PostMapping("/request")
