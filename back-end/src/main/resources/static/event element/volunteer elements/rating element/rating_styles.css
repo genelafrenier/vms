@@ -24,7 +24,16 @@
 .rating_container .rate_volunteer {
     height: 100%;
     width: 33%;
-    margin-top: 10px;
+    margin-top: 0px;
+}
+
+.rating_container .ratings {
+    justify-content: center;
+    display: flex;
+}
+
+.rating_container span{
+    font-size: 28px;
 }
 
 .rating_container .comments {
