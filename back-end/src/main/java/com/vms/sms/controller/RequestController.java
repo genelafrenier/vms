@@ -1,10 +1,8 @@
 package com.vms.sms.controller;
 
 import com.vms.sms.model.Requests;
-import com.vms.sms.model.User;
 import com.vms.sms.repository.RequestRepository;
 
-import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
