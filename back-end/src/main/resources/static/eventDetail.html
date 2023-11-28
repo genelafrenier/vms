@@ -119,6 +119,43 @@
         document.getElementById("event-frame").innerHTML = tab;
     }
   
+    function apply() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const event_id = urlParams.get('id');
+    const approvalStatus = "Pending";
+
+    fetch('http://localhost:8080/current-user', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      student_id = data;
+      var data = {
+        studentId: student_id,
+        eventId: event_id,
+        approvalStatus: approvalStatus,
+    };
+    console.log(JSON.stringify(data));
+
+    fetch('http://localhost:8080/request', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+                    },
+        body: JSON.stringify(data)
+    })
+    console.log("Applied");
+    closeForm();
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    }
+  
   </script>
 </body>
 </html>
