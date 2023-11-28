@@ -432,7 +432,7 @@ function populate_pending(data){
           pendingData += 
         `<div class="pending_container">
         <!--            placeholder  vvv -->
-        <div class="volunteer_name">${r.name}</div>
+        <div class="volunteer_name">${r.firstName} ${r.lastName}</div>
         <div class="avg_rating"></div>
         <div class="view_profile">
             <button id="btn_profile" onclick="view_profile()">View Profile</button>

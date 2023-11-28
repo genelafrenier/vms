@@ -47,6 +47,7 @@ public class UserController {
         }
     }
     //code by Calvin to test
+    //this works but exposes password in GET call. Not a big deal since we're in a hurry!
     @GetMapping("/current")
     public @ResponseBody User current(HttpSession session) {
     User user = (User) session.getAttribute("user");
