@@ -1,73 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
-  
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles/home.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="Logo" href="Logo.png">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/navbar.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="Logo" href="images/Logo.png">
+    <script src="js/index.js"></script>
     <script src="js/navbar.js"></script>
     <title>Swarm Management System</title>
 </head>
 <body>
-  <div class="navbar-container" id="navbar"></div>
-  <script>
-      document.addEventListener('DOMContentLoaded', (event) => {
-          loadNavbar();
-      });
-  </script>
-     <!-- Start of list view-->
-     <div class="grid" id="grid">
-     </div>
-
-     <script>
-
-      //URL For Get Request
-      const getUrl = 'http://localhost:8080/events';
-    
-      //Use fetch() get get event data
-      async function getEvents(getUrl) {
-          fetch(getUrl, {
-            method: 'GET',
-            headers: {
-            'Content-Type': 'application/json',
-                    },
-            })
-            //If response received, convert to json and send to console and populate table
-        .then(response => response.json())
-        .then(data =>{
-          console.log(data);
-          populateEvents(data);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
+    <div class="navbar-container" id="navbar"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadNavbar();
         });
-      }
-      
-    
-      getEvents(getUrl);
-    
-    
-      function populateEvents(data){
-    
-        let tab = "";
-      
-        // create div for each event
-        for (let r of data) {
-              tab += 
-            `<div class="grid-item">
-            <h2 class="title">${r.eventName}</h2>
-            <p class="location">${r.eventLocation}</p>
-            <p class="date">${r.eventDate} ${r.eventTime}</p>
-            <p class="desc">${r.eventDescription}</p>
-            </div>`;
-        }
-      // add divs to grid
-      document.getElementById("grid").innerHTML = tab;
-    
-      }
     </script>
+
+    
+    <div>
+        <div class="tab">
+            <button class="buttonList" onclick="listview()" id="buttonList"><b>List</b></button>
+            <button class="buttonGrid" onclick="gridview()" id="buttonGrid"><b>Grid</b></button>
+            
+        </div>
+        <!--List View-->
+        <div id="list">
+          
+        </div>
+        <!--End List view-->
+
+
+        <!-- Start of grid view-->
+     <div class="grid" id="grid">
+     </div> <!--End of Grid-->
+    </div>
+<script>
+      async function getEvents() {
+      fetch('/events', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      populateGrid(data);
+      populateList(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+  
+
+  getEvents();
+
+
+  function populateGrid(data){
+
+    let gridData = "";
+  
+
+    for (let r of data) {
+          gridData += 
+        `    <div>
+                <!--<img src=" " alt="Logo" class="Logo">-->
+                <h2 class="title"><a href="/eventDetail.html?id=${r.id}"> ${r.eventName}</a></h2>
+                <p class="location">${r.eventLocation}</p>
+                <p class="date">${r.eventDate}   ${r.eventTime}</p>
+                <p class="desc">${r.eventDescription}</p>
+            </div>`;
+
+    }
+  // Setting innerHTML as tab variable
+  document.getElementById("grid").innerHTML = gridData;
+}
+
+function populateList(data){
+
+let listData = "";
+
+
+for (let r of data) {
+      listData += 
+    `     
+    <div class="list">
+        <img src=" " class="Logo">
+        <h2 class="titleList"><a href="/eventDetail.html?id=${r.id}">${r.eventName}</a></h2>
+        <!-- <p class="dateList">${r.eventLocation}</p> -->
+        <p class="dateList">${r.eventDate}   ${r.eventTime} <br><br>${r.eventLocation}</p>
+        <p class="descList">${r.eventDescription}</p>
+     </div>`;
+   
+
+}
+// Setting innerHTML as tab variable
+document.getElementById("list").innerHTML = listData;
+}
+</script>
+
+
+
+
 </body>
 </html>
 

@@ -37,13 +37,27 @@ public class UserController {
     @GetMapping("/current-user")
     public @ResponseBody String currentUser(HttpSession session) {
         User user = (User) session.getAttribute("user");
+        
         if (user == null) {
             return "";
         }
         else{
-            return user.getUsername();
+            String username = Integer.toString(user.getUsername());
+            return username;
         }
     }
+    //code by Calvin to test
+    //this works but exposes password in GET call. Not a big deal since we're in a hurry!
+    @GetMapping("/current")
+    public @ResponseBody User current(HttpSession session) {
+    User user = (User) session.getAttribute("user");
+    if (user == null) {
+        return null;
+    } else {
+        return user;
+    }
+}
+ // end code here
 
     //endpoint for user creation functionality on registration page
     @PostMapping("/register")

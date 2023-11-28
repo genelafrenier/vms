@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="volunteer elements/pending element/pending_styles.css">
     <link rel="stylesheet" href="volunteer elements/question element/question_styles.css">
     <link rel="stylesheet" href="volunteer elements/rating element/rating_styles.css">
-    <script src="event_script.js"></script>
+    
 </head>
 <body>
     <div class="event_container">
@@ -63,9 +63,12 @@
                     </div>
                 </div>
             </div>
-            <div class="volunteers_element_container">
+            <div class="volunteers_element_container" id="pending_element_container">
                 <!-- Where pending elements will populate -->
                 
+
+
+                <!-- end of pendingg populate -->
             </div>
         </div>
         
@@ -96,9 +99,13 @@
                     </div>
                 </div>
             </div>
-            <div class="volunteers_element_container">
+            <div class="volunteers_element_container" id="question_element_container">
                 <!-- Where comment/question elements will populate -->
                 
+
+
+
+                <!-- end of comment/question populate -->
             </div>
         </div>
         
@@ -129,9 +136,12 @@
                     </div>
                 </div>
             </div>
-            <div class="volunteers_element_container">
+            <div class="volunteers_element_container" id="rate_element_container">
                 <!-- Where rating elements will populate -->
                 
+
+
+                <!-- End of rating populate -->
             </div>
         </div>
         
@@ -140,7 +150,7 @@
     <div class="edit_popup" id="edit_popup">
         <div class="popup_content">
             <button type="button" class="close_btn" onclick="close_edit()">&times;</button>
-        <div class="create_event">
+        <div class="edit_event">
             <form class="imbedded_fields" id="edit_id" name="edit_event" onsubmit="return edit_validation_testing()">
                 <div class="row">
                     <div class="column">
@@ -195,5 +205,134 @@
         </div>
         
     </div> 
+
+    <!-- *** Start of event element script *** -->
+
+    <script>
+
+        //needs scripting to put title of event into .event_container .event_name
+
+
+// *** Pending volunteers popup *** //
+function open_pending(){
+    document.getElementById("pending_popup").style.display = "block";
+}
+
+function close_pending(){
+    document.getElementById("pending_popup").style.display = "none";
+}
+
+// *** Comments/questions popup *** //
+function open_comments(){
+    document.getElementById("comments_popup").style.display = "block";
+}
+
+function close_comments(){
+    document.getElementById("comments_popup").style.display = "none";
+}
+
+// *** Rate volunteers popup *** //
+function open_rate(){
+    document.getElementById("rate_popup").style.display = "block";
+}
+
+function close_rate(){
+    document.getElementById("rate_popup").style.display = "none";
+}
+
+
+// *** Edit event popup *** // needs script to populate current event info into form values and textarea innerHTML
+function open_edit(){
+    document.getElementById("edit_popup").style.display = "block";
+}
+
+function close_edit(){
+    document.getElementById("edit_popup").style.display = "none";
+}
+
+function edit_validation_testing(){
+
+    //title input error checking
+    if(document.getElementById("edit_event_title").value==""){
+        document.getElementById("edit_title_error").innerHTML="Please Enter a Title for your Event";
+        return false;
+    }
+
+
+    //date input error checking
+    else if(document.getElementById("edit_event_date").value==""){
+        document.getElementById("edit_date_error").innerHTML="Please Select a Date for your Event";
+        return false;
+    }
+
+
+    //location input error checking
+    else if(document.getElementById("edit_event_location").value==""){
+        document.getElementById("edit_location_error").innerHTML="Please Enter a Location for your Event";
+        return false;
+    }
+
+
+    //time input error checking
+    else if(document.getElementById("edit_event_time").value==""){
+        document.getElementById("edit_time_error").innerHTML="Please Select a Time for your Event";
+        return false;
+    }
+
+
+    //description input error checking
+    else if(document.getElementById("edit_event_description").value==""){
+        document.getElementById("edit_description_error").innerHTML=="Please Enter a Description for your Event";
+        return false;
+    }
+
+
+    //call submit_form()
+    else {
+        //pull validated data into database
+        // *** printing to console to check data is going through *** //
+        document.getElementById("edit_event_title");
+        console.log(edit_event_title.value);
+
+        document.getElementById("edit_event_date");
+        console.log(edit_event_date.value);
+
+        document.getElementById("edit_event_location");
+        console.log(edit_event_location.value);
+
+        document.getElementById("edit_event_time");
+        console.log(edit_event_time.value);
+
+        document.getElementById("edit_event_description");
+        console.log(edit_event_description.value);
+
+        edit_event();
+    }
+
+}
+
+//creates event and sends you back to dashboard
+function edit_event(){
+    var title = document.getElementById("edit_event_title").value;
+    var date = document.getElementById("edit_event_date").value;
+    var location = document.getElementById("edit_event_location").value;
+    var time = document.getElementById("edit_event_time").value;
+    var description = document.getElementById("edit_event_description").value;
+
+    var data = {
+        event_title: title,
+        event_date: date,
+        event_location: location,
+        event_time: time,
+        event_description: description
+    };
+    console.log(JSON.stringify(data));
+    //make an AJAX request to the event endpoint
+
+    
+}
+
+
+    </script>
 </body>
 </html>

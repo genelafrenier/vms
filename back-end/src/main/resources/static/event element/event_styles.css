@@ -10,15 +10,18 @@
 }
 
 .event_name {
-    height: 100%;
+    height: 90%;
     background-color: transparent;
-    width: 50%;
+    width: 45%;
     text-align: center;
     font-size: 28px;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     margin-top: 5px;
     cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .btn_volunteers {
@@ -72,6 +75,7 @@ button {
     background-color: rgb(226, 226, 226);
 }
 
+
 .spacer {
     height: 30%;
     background-color: transparent;
@@ -108,10 +112,11 @@ button {
 .volunteers_head_container {
     background-color: transparent;
     height: 10%;
-    font-size: 30px;
+    font-size: 28px;
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
-    margin-left: 10%;
+    margin-left: 0%;
+    text-align: center;
 }
 
 .name_head {
@@ -120,6 +125,7 @@ button {
 
 .avg_rate_head {
     background-color: transparent;
+    
 }
 
 .profile_head {
@@ -199,7 +205,7 @@ button {
     border: none;
 } 
 
-.edit_popup .create_event{
+.edit_popup .edit_event{
     padding-left: 5%;
 }
 

@@ -23,6 +23,7 @@
   <div class="LoginPage">
     <!-- Start Of Login Form  -->
     <form class="ImbededBox" name="userLogin" id="loginForm">
+      <p class="account-Error" id="accountError"></p>
       <div class="ID">
         <label for= "loginUsername"> Student or Employee ID: </label>
       </div>
@@ -98,21 +99,24 @@
         })
         .then(response => {
           if (!response.ok){
+            LoginFailed(); 
             throw new Error(response.status);
           }
           if(response.ok){
             window.location.href = 'index.html';
           }
-          return response.text();
         })
         .then(result => {
-            alert(result);
             console.log(result);
             window.location.href = 'index.html';
         })
         .catch(error => console.error('Error:', error));
     }
 
+  function LoginFailed()
+  {
+    document.getElementById("accountError").innerHTML="* Incorrect Username/Password *";
+  }
 
   function LoginValidation()
   {
@@ -121,6 +125,7 @@
     // The Error Is Fixed Upon LoginValidation() Being Called Again, Either Through 
     // The "oninput" Function or When Validation Is Triggered Upon "LOGIN"
     // Button Being Clicked By The User ***
+    document.getElementById("accountError").innerHTML="";
     document.getElementById("idInputError").innerHTML="";
     document.getElementById("passwordInputError").innerHTML="";
     

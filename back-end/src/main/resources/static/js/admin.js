@@ -306,11 +306,7 @@ function create_event(){
     .then(data =>{
       console.log(data);
       organizer_id = data;
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-
+        
     var data = {
         organizerId: organizer_id,
         eventName: title,
@@ -332,6 +328,152 @@ function create_event(){
         body: JSON.stringify(data)
     })
     window.location.href = 'admin.html';
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 
     
+}
+
+async function get_events(){
+
+    
+    fetch('http://localhost:8080/current-user', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      organizer_id = data;
+      url = 'http://localhost:8080/events-by-organizer?organizer_id=' + organizer_id;
+      fetch(url, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      populate_events(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+        
+    console.log(JSON.stringify(data));
+    })
+}
+
+
+function populate_events(data){
+
+    let eventData = "";
+  
+    for (let r of data) {
+          eventData += 
+        `    <div class="event_container">
+        <div class="event_name">${r.eventName}</div> 
+        <div class="btn_volunteers">
+            <button id="btn_volunteers" onclick="open_pending()">
+                <img src="images/Event_Volunteers.png">
+            </button>
+        </div>
+        <div class="btn_comments">
+            <button id="btn_comments" onclick="open_comments()">
+                <img src="images/Event_Comments.png">
+            </button>
+        </div>
+        <div class="btn_ratings">
+            <button id="btn_ratings" onclick="open_rate()">
+                <img src="images/Event_Rate.png">
+            </button>
+        </div>
+        <div class="btn_edit">
+            <button id="btn_edit" onclick="open_edit()">
+                <img src="images/Event_Edit.png">
+            </button>
+        </div>
+        </div>`;
+        get_pending(r.eventId)
+    }
+  // populate html for events_populate
+  document.getElementById("events_populate").innerHTML = eventData;
+}
+    
+function get_pending(eventId){
+    url = 'http://localhost:8080/requests-by-event?eventId=' + eventId;
+    fetch(url, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+
+    .then(response => response.json())
+    .then(data =>{
+      console.log(data);
+      populate_pending(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+
+function populate_pending(data){
+    let pendingData = "";
+
+    for (let r of data) {
+          pendingData += 
+        `<div class="pending_container">
+        <!--            placeholder  vvv -->
+        <div class="volunteer_name">${r.firstName} ${r.lastName}</div>
+        <div class="avg_rating"></div>
+        <div class="view_profile">
+            <button id="btn_profile" onclick="view_profile()">View Profile</button>
+        </div>
+        <div class="approve_deny">
+            <button id="btn_approve" onclick="approve()">Approve</button>
+            <button id="btn_deny" onclick="deny()">Deny</button>
+        </div>
+    </div>
+    <!-- view profile popup -->
+    <div class="profile_popup" id="profile_popup">
+        <div class="row">
+            <div class="column">
+                <div class="profile_container">
+                    <div class="header">Profile</div>
+                    <div class="volunteer_name">Volunteer Name</div>
+                    <div class="volunteer_avg_rating"></div>
+                </div>
+                <div class="column">
+                    <div class="skills_container">
+                        <div class="header">Skills</div>
+                        <!-- placeholder           vvvvvvvvvvv -->
+                        <div class="profile_skills">+ chasier
+                            + supply management
+                            + tech savvy</div>
+                        
+                    </div>  
+                </div>
+            </div>
+            <div class="row">
+                <div class="event_history_container">
+                    <div class="header">Event History</div>
+                    <button type="button" class="close_btn" onclick="close_profile()">&times;</button>
+                    <div class="previous_events_container">
+                        <!-- where list of previous events go -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+    }
+  // populate html in pending_element_container
+  document.getElementById("pending_element_container").innerHTML = pendingData;
 }

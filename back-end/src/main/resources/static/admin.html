@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
     <script src="js/admin.js"></script>
-    <script src="event element/event_script.js"></script>
+    <!-- will need to be commented out when scripts are being looped in per object -->
+    <script src="event element/event_script.js"></script> 
     <script src="event element/volunteer elements/pending element/pending_script.js"></script>
     <script src="event element/volunteer elements/question element/question_script.js"></script>
     <script src="event element/volunteer elements/rating element/rating_script.js"></script>
+    <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
     <script src="js/navbar.js"></script>
     
     <style>
@@ -124,33 +126,12 @@
                                     <button id="btn_add" onclick="open_popup()">+</button>
                                 </div>
                             </div>
-                            <div class="events_populate">
-                                <!-- Where Event Elements Will Populate -->
-
-                                <!-- Event 1 -->
-                                <div class="event_container">
-                                    <!-- Placeholder         vvv -->
-                                    <div class="event_name">Event</div> 
-                                    <div class="btn_volunteers">
-                                        <button id="btn_volunteers" onclick="open_pending()">
-                                            <img src="images/Event_Volunteers.png">
-                                        </button>
-                                    </div>
-                                    <div class="btn_comments">
-                                        <button id="btn_comments" onclick="open_comments()">
-                                            <img src="images/Event_Comments.png">
-                                        </button>
-                                    </div>
-                                    <div class="btn_ratings">
-                                        <button id="btn_ratings" onclick="open_rate()">
-                                            <img src="images/Event_Rate.png">
-                                        </button>
-                                    </div>
-                                    <div class="btn_edit">
-                                        <button id="btn_edit" onclick="open_edit()">
-                                            <img src="images/Event_Edit.png">
-                                        </button>
-                                    </div>
+                            <script>
+                                get_events();
+                            </script>
+                            <div class="events_populate" id="events_populate">
+  
+                                
                                 </div>
                             
                                 <!-- popups -->
@@ -180,9 +161,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="volunteers_element_container">
+                                        <div class="volunteers_element_container" id="pending_element_container">
                                             <!-- Where pending elements will populate -->
-                                            
+                                            <script>
+                                                get_pending();
+                                            </script>
+                                            <!-- end of pendingg populate -->
                                         </div>
                                     </div>
                                     
@@ -213,9 +197,21 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="volunteers_element_container">
+                                        <div class="volunteers_element_container" id="question_element_container">
                                             <!-- Where comment/question elements will populate -->
-                                            
+                                            <body>
+                                                <div class="question_container">
+                                                    <!--            placeholders  vvvvvvvvv -->
+                                                    <div class="volunteer_name">Volunteer Name</div>
+                                                    <div class="question_comment">I was wondering what kind of supplies I need to bring for the event?</div>
+                                                    <div class="reply">
+                                                        <button id="btn_reply" onclick="reply()">Reply</button>
+                                                    </div>
+                                                </div>
+                            
+                            
+                            
+                                            <!-- end of comment/question populate -->
                                         </div>
                                     </div>
                                     
@@ -246,9 +242,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="volunteers_element_container">
+                                        <div class="volunteers_element_container" id="rate_element_container">
                                             <!-- Where rating elements will populate -->
-                                            
+                                            <div class="rating_container">
+                                                <!--            placeholder  vvv -->
+                                                <div class="volunteer_name">Volunteer Name</div>
+                                                <div class="rate_volunteer"></div>
+                                                <div class="comments">
+                                                    <textarea name="volunteer_comments" id="volunteer_comments" cols="30" rows="10" placeholder="Enter comments here"></textarea>
+                                                </div>
+                                                <div class="submit_rating">
+                                                    <button id="btn_submit_rating" onclick="submit_rating()">Submit</button>
+                                                </div>
+                                            </div>
+                            
+                            
+                                            <!-- End of rating populate -->
                                         </div>
                                     </div>
                                     
@@ -257,7 +266,7 @@
                                 <div class="edit_popup" id="edit_popup">
                                     <div class="popup_content">
                                         <button type="button" class="close_btn" onclick="close_edit()">&times;</button>
-                                    <div class="create_event">
+                                    <div class="edit_event">
                                         <form class="imbedded_fields" id="edit_id" name="edit_event" onsubmit="return edit_validation_testing()">
                                             <div class="row">
                                                 <div class="column">
