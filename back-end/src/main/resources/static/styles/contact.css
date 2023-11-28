@@ -47,12 +47,16 @@ header p {
 
 
 .section h2 {
-    font-size: 32px;
+    font-size: 26px;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-weight: normal;
+
 }
 
 .section p {
-    font-size: 24px;
+    font-size: 18px;
     margin: 5px 0;
+    font-weight: normal;
+
 }
