@@ -1,5 +1,101 @@
+async function getUser() {
+    fetch('/current', {
+      method: 'GET',
+      headers: {
+      'Content-Type': 'application/json',
+              },
+      })
+      .then(response => response.json())
+      .then(data => {
+        checklogin(data);
+      })
+      .catch(error => {
+        console.error('not logged in', error);
+        // Redirect to login page 
+        window.location.href = "login.html";
+      });
+  }
+  async function checklogin(data) {
+    const userRole = await getRole();
+    let html = `<form id="form">
+                    <div class="row">
+                        <div class="column">
+                                <div class="profile_content">
+                                    <div class = "profile_top">
+                                        
+                                        <div class="name_dep_container">
+                                            <div class="name_container">
+                                                <div class="input_control">
 
+                                                    <input type="text" class="input" id="fname" name="fname" value="${data.firstName}" placeholder="Organizer" disabled>
+                                                    <div class="error"></div>
 
+                                                </div>
+                                                <div class="input_control">
+
+                                                    <input type="text" class="input" id="lname" name="lname" value="${data.lastName}" placeholder="Name" disabled>
+                                                    <div class="error"></div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="dep_container">
+
+                                                <input type="text" class="input" id="dep" name="dep" value="${data.dept}" placeholder="Your Department/Group" disabled>
+
+                                            </div>
+                                            
+
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    
+                                    <div class="profile_body">
+                                        <div class="contact_head">Contact Info</div>
+                                        <div class="email_head">Email:</div>
+                                        <div class="input_control">
+
+                                            <input type="text" class="input" id="email" name="email" value="${data.email}" placeholder="organizer@csus.edu" disabled>
+                                            <hr>
+                                            <div class="error"></div>
+
+                                        </div>
+                                        
+                                    
+                                        <div class="phone_head">Phone #:</div>
+                                        
+                                        <div>
+                                            <div class="input_control">
+
+                                                <input type="tel" class="input" id="phone" name="phone" value="${data.phone}" placeholder="123-456-7890" disabled>
+                                                <hr>
+                                                <div class="error"></div>
+
+                                            </div>
+                                        
+                                        </div>
+                                        <div>
+                                        <div class="other_head">Other:</div>
+                                    
+                                    <input type="text" class="input" id="other" name="other" value="${data.username}" placeholder="(optional)" disabled>
+                                    <hr>
+                                    </div>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    <div class="btns_container">
+                        <button type="button" class="edit_btn" onclick="enable_edit()">Edit</button>
+                    <button type="submit" onclick="save_changes()" class="save_changes_btn" disabled>Save Changes</button>
+                    </div>
+                    
+                </form>
+                `;
+                    
+    document.getElementById("profileData").innerHTML = html;
+}
 
 // *** editing profile info *** //
 function enable_edit(){
@@ -337,8 +433,6 @@ function create_event(){
 }
 
 async function get_events(){
-
-    
     fetch('http://localhost:8080/current-user', {
         method: 'GET',
         headers: {

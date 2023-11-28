@@ -21,17 +21,13 @@ async function getUser() {
     })
     .then(response => response.json())
     .then(data => {
-        // Assuming 'data' is the user object 
-        checklogin(data);
+      checklogin(data);
     })
     .catch(error => {
       console.error('not logged in', error);
-      // Redirect to login page or handle the error as needed
+      // Redirect to login page 
       window.location.href = "login.html";
     });
-}
-function display(){
-  
 }
 async function checklogin(data) {
     const userRole = await getRole();
