@@ -2,8 +2,6 @@
     padding: 0px;
     margin: 0px;
 }
-
-
 .grid {
     display: grid;
     /* grid-template-columns: auto auto auto; */
@@ -11,12 +9,9 @@
     grid-gap: 30px;
     width: 90%;
     margin: auto;
-
     margin-top: 5%;
     margin-bottom: 5%;
 }
-
-
 
 
 
@@ -62,25 +57,17 @@
     /* margin: 50px; */
     border-radius: 50px;
 }
-
 .container_for_info{
 
     margin: 5.5%;
 
 }
-
-
-h1{
-    color: white;
-}
-
 p{
     
     margin-left: 70%;
     top: 5%;
     
 }
-
 label {
     width: 120px;
     display: inline-block;
@@ -137,7 +124,6 @@ div#info{
 
 }
 
-
 div.inputControl input {
     border: 2px solid #f0f0f0;
     border-radius: 4px;
@@ -146,7 +132,6 @@ div.inputControl input {
 div.inputControl input:focus {
     outline: 0;
 }
-
 
 /* The success and error both control border color that indicates whether or not the meet the validation */
 div.inputControl.success input {
