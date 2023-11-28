@@ -17,5 +17,4 @@ public interface VolunteerRepository extends CrudRepository<Volunteer, Integer>{
     //query for past events portion of User Dashboard, pass in userID field
     @Query(nativeQuery = true, value = "SELECT * FROM Volunteer v, Event e, WHERE v.studentId = ?1 AND e.eventDate < CURDATE()")
     public Iterable<Volunteer> getVolunteerHistoryByStudentId(int student_id);
-    
 }
