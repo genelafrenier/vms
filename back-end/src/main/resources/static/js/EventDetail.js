@@ -21,8 +21,7 @@ async function getUser() {
     })
     .then(response => response.json())
     .then(data => {
-        // Assuming 'data' is the user object
-        console.log('User Data:', data); //remove 
+        // Assuming 'data' is the user object 
         checklogin(data);
     })
     .catch(error => {

@@ -247,15 +247,12 @@ div#textbox {
     border-radius: 10px;
     /* margin: auto; */
     margin-left: 5%;
-
     /* position: relative; */
     /* top: 15px; */
     /* left: 25px; */
-
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
-
 }
 
 
@@ -265,7 +262,15 @@ input:-webkit-autofill
 {
   transition: background-color 5000s;
 }
-
+@media screen and (max-width: 600px) {
+    .grid {
+        display: grid;
+        grid-template-columns: minmax(430px, 500px);
+        width: 90%;
+        margin: auto;
+        margin-top: 10%;
+    }    
+}
 @media screen and (max-width: 1000px) {
     .grid {
         display: grid;
@@ -276,12 +281,3 @@ input:-webkit-autofill
     }
 }
 
-@media screen and (max-width: 600px) {
-    .grid {
-        display: grid;
-        grid-template-columns: minmax(430px, 500px);
-        width: 90%;
-        margin: auto;
-        margin-top: 10%;
-    }    
-}
