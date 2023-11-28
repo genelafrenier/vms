@@ -54,6 +54,87 @@
 }
 
 
+@charset "UTF-8";
+.starRating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  
+  .radioInput {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .radioLabel {
+    cursor: pointer;
+    font-size: 0;
+    color: rgba(0, 0, 0, 0.2);
+    transition: color 0.1s ease-in-out;
+  }
+  
+  .radioLabel:before {
+    content: "★";
+    display: inline-block;
+    font-size: 32px;
+  }
+  
+  .radioInput:checked ~ .radioLabel {
+    color: #ffc700;
+    color: gold;
+  }
+  
+  .radioLabel:hover,
+  .radioLabel:hover ~ .radioLabel {
+    color: goldenrod;
+  }
+  
+  .radioInput:checked + .radioLabel:hover,
+  .radioInput:checked + .radioLabel:hover ~ .radioLabel,
+  .radioInput:checked ~ .radioLabel:hover,
+  .radioInput:checked ~ .radioLabel:hover ~ .radioLabel,
+  .radioLabel:hover ~ .radioInput:checked ~ .radioLabel {
+    color: darkgoldenrod;
+  }
+  
+  .averageRating {
+    position: relative;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    color: transparent;
+    width: auto;
+    display: inline-block;
+    vertical-align: baseline;
+    font-size: 25px;
+  }
+  
+  .averageRating::before {
+    
+
+    --percent: calc(4/5*100%);
+    content: "★★★★★";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, gold var(--percent), rgba(0, 0, 0, 0.2) var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* body {
+    margin: 50px;
+  } */
+  
+  /* form {
+    margin: 0 0 50px;
+  } */
+
+
+
+
 
 .container{
     background-color: #C4B581;
@@ -75,10 +156,8 @@ h1{
 }
 
 p{
-    
     margin-left: 70%;
     top: 5%;
-    
 }
 
 label {
@@ -134,9 +213,7 @@ div#info{
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
-
 
 div.inputControl input {
     border: 2px solid #f0f0f0;
@@ -146,7 +223,6 @@ div.inputControl input {
 div.inputControl input:focus {
     outline: 0;
 }
-
 
 /* The success and error both control border color that indicates whether or not the meet the validation */
 div.inputControl.success input {
@@ -164,7 +240,6 @@ div.inputControl.error input {
     top: 33px;
 }
 
-
 /* Gets rid of the border colors after a user clicks on save changes */
 .inputControl.default input {
     border-color: none;
@@ -178,7 +253,6 @@ div.header{
     text-align: center;
     justify-content: center;
     font-size: large;
-
 }
 
 .editBtn {
@@ -216,7 +290,6 @@ div.header{
 }
 
 .saveChangesBtn {
-
     /* margin-top: 100px; */
     width: 30%;
     height: 20%;
@@ -248,7 +321,6 @@ div#info{
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 
@@ -270,10 +342,7 @@ div#textbox {
     /* display: flex; */
     /* align-items: center; */
     /* justify-content: center; */
-
 }
-
-
 
 /* Makes autofill info white instead of blue */
 input:-webkit-autofill  
@@ -281,22 +350,32 @@ input:-webkit-autofill
   transition: background-color 5000s;
 }
 
-@media screen and (max-width: 1000px) {
+@media only screen and (max-width: 1400px) {
     .grid {
-        display: grid;
+        /* display: grid; */
         grid-template-columns: minmax(430px, 500px) minmax(430px, 500px);
         width: 90%;
-        margin: auto;
+        /* margin: auto; */
         margin-top: 10%;
     }
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 940px) {
     .grid {
         display: grid;
         grid-template-columns: minmax(430px, 500px);
         width: 90%;
         margin: auto;
+        margin-top: 10%;
+    }    
+} */
+
+@media only screen and (max-width:630px) {
+    .grid {
+        /* display: grid; */
+        grid-template-columns: minmax(0, 1fr);
+        /* width: 90%; */
+        /* margin: auto; */
         margin-top: 10%;
     }    
 }

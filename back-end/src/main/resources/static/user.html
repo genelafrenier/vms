@@ -3,7 +3,7 @@
 <html lang = "en">
 
 <head>    
-    <title>Contacts Page</title>
+    <title>User Dashboard</title>
     <link rel="stylesheet" type="text/css" href="styles/boxes.css">
     <script defer src="js/saveChangesButton.js"></script>
     <link rel="stylesheet" href="styles/navbar.css">
@@ -62,9 +62,19 @@
     <script src="index.js"></script> -->
 
 
+    <div class="centerText"> Your Rating: 
+        <div class="ratingWrapper">
+            <meter class="averageRating" min="0" max="5" value="3" title="3.0 out of 5 stars">3.0 out of 5</meter>
+        </div>
+        
+    
+    </div>
+
+    <p>Product rating: <meter class="averageRating" min="0" max="5" value="3" title="3.0 out of 5 stars">3.0 out of 5</meter></p>
+    
     <!-- <div class="outline"> -->
 
-        <div class="centerText"> Your Rating:
+        <!-- <div class="centerText"> Your Rating:
 
             <div class="ratingWrapper">
 
@@ -84,7 +94,7 @@
         
             </div>
 
-        </div>
+        </div> -->
     
     <div class="grid">
 
@@ -114,6 +124,61 @@
                     <br>
                     <p1>Location: Sac State Student Union</p1>
                 </div>
+
+
+
+            </script>
+            <!-- Start of list view-->
+            <div class="grid" id="grid">
+            </div>
+       
+            <!-- <script>
+       
+             //URL For Get Request
+             const getUrl = 'http://localhost:8080/events';
+           
+             //Use fetch() get get event data
+             async function getEvents(getUrl) {
+                 fetch(getUrl, {
+                   method: 'GET',
+                   headers: {
+                   'Content-Type': 'application/json',
+                           },
+                   })
+                   //If response received, convert to json and send to console and populate table
+               .then(response => response.json())
+               .then(data =>{
+                 console.log(data);
+                 populateEvents(data);
+               })
+               .catch((error) => {
+                 console.error('Error:', error);
+               });
+             }
+             
+           
+             getEvents(getUrl);
+           
+           
+             function populateEvents(data){
+           
+               let tab = "";
+             
+               // create div for each event
+               for (let r of data) {
+                     tab += 
+                   `<div class="grid-item">
+                   <h2 class="title">${r.eventName}</h2>
+                   <p class="location">${r.eventLocation}</p>
+                   <p class="date">${r.eventDate} ${r.eventTime}</p>
+                   <p class="desc">${r.eventDescription}</p>
+                   </div>`;
+               }
+             // add divs to grid
+             document.getElementById("grid").innerHTML = tab;
+           
+             }
+           </script> -->
 
 
 
