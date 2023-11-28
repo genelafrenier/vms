@@ -154,6 +154,16 @@ body {
   color: red;
 }
 
+.account-Error
+{
+  height: 20px;
+  padding-bottom: 30px;
+  text-align: center;
+  font-size: 16pt;
+  font-weight: bold;
+  color: red;
+}
+
 input:-webkit-autofill  
 {
   transition: background-color 5000s;
