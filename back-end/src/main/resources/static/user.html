@@ -9,6 +9,7 @@
     <script defer src="js/saveChangesButton.js"></script>
     <link rel="stylesheet" href="styles/navbar.css">
     <script src="js/navbar.js"></script>
+    <script src="js/user.js"></script>
 </head>
 
 
@@ -25,17 +26,13 @@
         width: 95%;
         padding: 5%;
     }
-
     .textarea:focus{
         cursor: text;
         background-color: white;
         border-color: black;
     }
 </style>
-
-
-
-<body>
+<body onload="getUser()">
 
     <div class="navbar-container" id="navbar"></div>
     <script>
@@ -73,7 +70,7 @@
         <div>
 
             <div class="header"><h1>Current Events</h1></div>
-            <div class="container">
+            <div class="container" id="currentEvent">
 
                 <br>
 
@@ -102,66 +99,8 @@
         <div>
 
             <div class="header"><h1>About Me</h1></div>
-            <div class="container">
-
-                <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
-
-                <form id="form">
-                    <div class="container_for_info" id="info">
-
-                        <div class="inputControl">
-
-                            <label for="fname">First Name:</label>
-                            <input type="text" class="input" id="fname" name="fname" value="" disabled>
-                            <div class="error"></div>
-
-                        </div>
-
-                    </div>
-                    <div class="container_for_info" id="info">
-                        <div class="inputControl">
-
-                            <label for="lname">Last Name:</label>
-                            <input type="text" id="lname" name="lname" disabled>
-                            <div class="error"></div>
-                        </div>
-                    </div>
-                    <div class="container_for_info" id="info">
-                        <div class="inputControl">
-                            <label for="phoneNum">Phone Number:</label>
-                            <input type="tel" id="phoneNum" name="phoneNum" placeholder="123-456-7890     Required*" disabled>
-                            <div class="error"></div>
-
-                        </div>
-                        <div class="error"></div>
-                    </div>
-                    <div class="container_for_info" id="info">
-                        <div class="inputControl">
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" name="email"  placeholder="School email      Required*" disabled>
-                            <div class="error"></div>
-                        </div>
-                    </div>
-                    <div id="textbox">
-                        <label for="userSkills">Skills:</label>
-                        <textarea class="textarea" id="userSkills" placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled></textarea>
-                        <p class="adjustResult" id="result"></p>
-
-                    </div>
-
-                    <br>
-
-                    <div id="textbox">
-
-                        <label for="userAboutMe">About Me:</label>
-                        <textarea class="textarea" id="userAboutMe" placeholder="What would you like the organizers to know about you?" id="personal_info" disabled></textarea>
-                        <p id="result2"></p>
-
-                    </div>
-
-                    <button type="submit" onclick="saveChanges()" class="saveChangesBtn" disabled>Save Changes</button>
-
-                </form>
+            <div class="container" id="aboutme" >
+                <div onload="getEvents();"> </div>
 
             </div>
             

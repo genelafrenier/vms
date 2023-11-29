@@ -8,9 +8,8 @@
     display: block;
     align-items: center;
     justify-content: center;
-
+    margin-top:10%;
 }
-
 .main_container {
     background-color: white;
     border-bottom: 1px solid;

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.vms.sms.model.User;
+import com.vms.sms.model.UserData; // copy of user but omit password
 import com.vms.sms.repository.UserRepository;
 
 import java.util.Optional;
@@ -47,14 +48,26 @@ public class UserController {
         }
     }
     //code by Calvin to test
-    //this works but exposes password in GET call. Not a big deal since we're in a hurry!
+    // *Fixed* this works but exposes password in GET call. Not a big deal since we're in a hurry! *Fixed*
     @GetMapping("/current")
-    public @ResponseBody User current(HttpSession session) {
+    public @ResponseBody UserData current(HttpSession session) {
     User user = (User) session.getAttribute("user");
     if (user == null) {
         return null;
     } else {
-        return user;
+        //define "new user" without password
+        UserData UserData = new UserData();
+        UserData.setFirstName(user.getFirstName());
+        UserData.setLastName(user.getLastName());
+        UserData.setUsername(user.getUsername());
+        //no password
+        UserData.setAbout(user.getAbout());
+        UserData.setDept(user.getDept());
+        UserData.setEmail(user.getEmail());
+        UserData.setPhone(user.getPhone());
+        UserData.setRole(user.getRole());
+        UserData.setSkills(user.getSkills());
+        return UserData;
     }
 }
  // end code here
