@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore; //used to ignore password
 @Table(name = "user")
 @Entity
 public class UserData {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private @Getter @Setter int id;

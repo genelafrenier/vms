@@ -466,14 +466,18 @@ async function get_events(){
 function populate_events(data){
 
     let eventData = "";
-  
+    let pendingFrame = "";
+    
     for (let r of data) {
-        get_pending(r.id);
+        let pending=r.id;
+        console.log(pending);
+            get_pending(pending);
+    
             eventData +=
         `    <div class="event_container">
-        <div class="event_name">${r.eventName}</div> 
+        <div class="event_name">${r.id}  ${r.eventName}</div> 
         <div class="btn_volunteers">
-            <button id="btn_volunteers" onclick="open_pending()">
+            <button id="btn_volunteers" onclick="open_pending(${pending})">
                 <img src="images/Event_Volunteers.png">
             </button>
         </div>
@@ -493,9 +497,41 @@ function populate_events(data){
             </button>
         </div>
         </div>`;
+
+        pendingFrame += `<div class="pending_popup" id="pending_popup${r.id}">
+        <div class="header_container">
+            <div class="spacer"></div>
+            <!--                         placeholder    vvv    -->
+            <div class="header">Pending volunteers for Event</div>
+            <button type="button" class="close_btn" onclick="close_pending(${pending})">&times;</button>
+            <div class="header_bottom"></div>
+        </div>
+        <div class="volunteers_container">
+            <div class="volunteers_head_container">
+                <div class="spacer"></div>
+                <div class="row">
+                    <div class="column">
+                        <div class="name_head">Name</div>
+                    </div>
+                    <div class="column">
+                        <div class="avg_rate_head">Average Rating</div>
+                    </div>
+                    <div class="column">
+                        <div class="profile_head">Profile</div>
+                    </div>
+                    <div class="column">
+                        <div class="operation_head">Operation</div>
+                    </div>
+                </div>
+            </div>
+            <div class="volunteers_element_container" id="pending_element_container${r.id}">
+            </div>
+        </div>
+    </div>`;
     }
   // populate html for events_populate
   document.getElementById("events_populate").innerHTML = eventData;
+  document.getElementById("events_container").innerHTML += pendingFrame;
 }
 
 async function get_pending(id) {
@@ -506,8 +542,10 @@ async function get_pending(id) {
         'Content-Type': 'application/json',
                 },
         })
+        
     .then(response => response.json())
     .then(data =>{
+        console.log(data);
       populate_pending(data);
     })
     .catch((error) => {
@@ -521,9 +559,10 @@ function populate_pending(data){
 
     for (let r of data) {
           pendingData += 
-        `<div class="pending_container" id="${r.eventId}">
+        `
+        <div class="pending_container" id="${r.eventId}" >
         <!--            placeholder  vvv -->
-        <div class="volunteer_name">${r.firstName} ${r.lastName}</div>
+        <div class="volunteer_name">${r.eventId} ${r.firstName} ${r.lastName}</div>
         <div class="avg_rating"></div>
         <div class="view_profile">
             <button id="btn_profile" onclick="view_profile()">View Profile</button>
@@ -563,8 +602,10 @@ function populate_pending(data){
                 </div>
             </div>
         </div>
-    </div>`;
+    </div></div></div></div>`;
+    let container_id = "pending_element_container" + r.eventId;
+    document.getElementById(container_id).innerHTML += pendingData;
     }
   // populate html in pending_element_container
-  document.getElementById("pending_element_container").innerHTML = pendingData;
+
 }

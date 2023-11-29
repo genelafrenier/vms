@@ -28,7 +28,7 @@ public class RequestController {
     @GetMapping("/requests-by-event")
     public @ResponseBody Iterable<RequestDetails> getRequestsByEventId(@RequestParam("eventId") String event_id){
             int eventId = Integer.parseInt(event_id);
-            
+            System.out.println(eventId);
             return requestRepository.getRequestsByEventId(eventId);
 
     }
