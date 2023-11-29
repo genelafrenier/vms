@@ -8,15 +8,23 @@
     <script src="js/index.js"></script>
     <script src="js/navbar.js"></script>
     <title>Swarm Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> <!--Donwloads the Inter font (from Figma)-->
+
 </head>
 <body>
+
+    
     <div class="navbar-container" id="navbar"></div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             loadNavbar();
         });
     </script>
-
+  
+  <div class ="events-header">
+    <h1>Events</h1>
+    <p>Here you can apply to any volunteering event you'd like.</p>
+</div>
     
     <div>
         <div class="tab">
@@ -101,9 +109,6 @@ for (let r of data) {
 document.getElementById("list").innerHTML = listData;
 }
 </script>
-
-
-
 
 </body>
 </html>
