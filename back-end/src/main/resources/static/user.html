@@ -26,13 +26,17 @@
         width: 95%;
         padding: 5%;
     }
+
     .textarea:focus{
         cursor: text;
         background-color: white;
         border-color: black;
     }
 </style>
-<body onload="getUser()">
+
+
+
+<body onload="callFunctions()">
 
     <div class="navbar-container" id="navbar"></div>
     <script>
@@ -71,7 +75,7 @@
 
             <div class="header"><h1>Current Events</h1></div>
             <div class="container" id="currentEvent">
-
+                <!-- getCurrent() -->
                 <br>
 
                 <div class="currentEvent">
@@ -99,9 +103,8 @@
         <div>
 
             <div class="header"><h1>About Me</h1></div>
-            <div class="container" id="aboutme" >
-                <div onload="getEvents();"> </div>
-
+            <div class="container" id="aboutme">
+                    <!-- loadProfile() -->
             </div>
             
         </div>
@@ -146,7 +149,3 @@
 </body>
 
 </html>
-
-
-
-

@@ -20,4 +20,5 @@ public interface VolunteerRepository extends CrudRepository<Volunteer, Integer>{
     public Iterable<VolunteerDetails> getVolunteerHistoryByStudentId(int student_id);
     
     boolean existsByStudentIdAndEventId(int studentId, int eventId);
+    
 }
