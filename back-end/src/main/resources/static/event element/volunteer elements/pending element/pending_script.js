@@ -35,7 +35,7 @@ function approve(requestId, studentId, eventId){
 
 function deny(requestId){
     var id = requestId;
-    var approvalStatus = "Approved";
+    var approvalStatus = "Denied";
 
     var data = {
         id: id,
