@@ -4,6 +4,8 @@
 <html lang = "en">
 
 <head>    
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" type="text/css" href="styles/boxes.css">
     <script defer src="js/saveChangesButton.js"></script>
@@ -72,29 +74,114 @@
     <div class="grid">
 
         <div>
+            <script>
+            async function get_current(){
+                fetch('http://localhost:8080/current-user', {
+                    method: 'GET',
+                    headers: {
+                    'Content-Type': 'application/json',
+                            },
+                    })
+                .then(response => response.json())
+                .then(data =>{
+                console.log(data);
+                student_id = data;
+                url = 'http://localhost:8080/volunteer-current?studentId=' + student_id;
+                fetch(url, {
+                    method: 'GET',
+                    headers: {
+                    'Content-Type': 'application/json',
+                            },
+                    })
+                .then(response => response.json())
+                .then(data =>{
+                    console.log(data);
+                    populate_current(data);
+                })
+                .catch((error) => {
+                console.error('Error:', error);
+                });
+                    
+                })
+            }
 
+            function populate_current(data){
+                let eventData = "";
+
+                for (let r of data) {
+                        eventData +=
+                                    `<div class="currentEvent">
+                                        <h2>Name: ${r.eventName}</h2>
+                                        <p1>Time: ${r.eventTime}</p1>
+                                        <br>
+                                        <p1>Date: ${r.eventDate}</p1>
+                                        <br>
+                                        <p1>Location: ${r.eventLocation}</p1>
+                                    </div>`;
+                }
+                document.getElementById("currentEvent").innerHTML += eventData;
+            }
+
+            async function get_history(){
+                fetch('http://localhost:8080/current-user', {
+                    method: 'GET',
+                    headers: {
+                    'Content-Type': 'application/json',
+                            },
+                    })
+                .then(response => response.json())
+                .then(data =>{
+                console.log(data);
+                student_id = data;
+                url = 'http://localhost:8080/volunteer-history?studentId=' + student_id;
+                fetch(url, {
+                    method: 'GET',
+                    headers: {
+                    'Content-Type': 'application/json',
+                            },
+                    })
+                .then(response => response.json())
+                .then(data =>{
+                    console.log(data);
+                    populate_history(data);
+                })
+                .catch((error) => {
+                console.error('Error:', error);
+                });
+                    
+                })
+            }
+
+            function populate_history(data){
+                let eventData = "";
+
+                for (let r of data) {
+                        eventData +=
+                                    `<div class="pastEvent">
+                                    <h2>Name: ${r.eventName}</h2>
+                                    <p1>Time: ${r.eventTime}</p1>
+                                    <br>
+                                    <p1>Date: ${r.eventDate}</p1>
+                                    <br>
+                                    <p1>Location: ${r.eventLocation}</p1>
+                                    <div class="pastRating">
+                                        <span dataRating="5">&#9733;</span>
+                                        <span dataRating="4">&#9733;</span>
+                                        <span dataRating="3">&#9733;</span>
+                                        <span dataRating="2">&#9733;</span>
+                                        <span dataRating="1">&#9733;</span>
+                                    </div>
+                                    </div>`;
+                }
+                document.getElementById("pastEvent").innerHTML += eventData;
+            }
+            get_current();
+            get_history();
+            </script>
             <div class="header"><h1>Current Events</h1></div>
             <div class="container" id="currentEvent">
                 <!-- getCurrent() -->
                 <br>
-
-                <div class="currentEvent">
-                    <h2>Name: Cozy Fire</h2>
-                    <p1>Time: 1:00</p1>
-                    <br>
-                    <p1>Date: 11/25/2023</p1>
-                    <br>
-                    <p1>Location: Sac State</p1>
-                </div>
-
-                <div class="currentEvent">
-                    <h2>Name: Crazy Dave</h2>
-                    <p1>Time: 5:00</p1>
-                    <br>
-                    <p1>Date: 11/29/2023</p1>
-                    <br>
-                    <p1>Location: Sac State Student Union</p1>
-                </div>
 
             </div>
 
@@ -112,33 +199,11 @@
         <div>
 
             <div class="header"><h1>Past Events</h1></div>
-            <div class="container">
+            <div class="container" id="pastEvent">
 
                 <br>
 
-                <div class="pastEvent">
-                    <h2>Name: Snow Balls</h2>
-                    <p1>Time: 11:00</p1>
-                    <br>
-                    <p1>Date: 11/21/2023</p1>
-                    <br>
-                    <p1>Location: Sac State</p1>
 
-                    <div class="pastRating">
-                        
-                        <span dataRating="5">&#9733;</span>
-                
-                        <span dataRating="4">&#9733;</span>
-                
-                        <span dataRating="3">&#9733;</span>
-                
-                        <span dataRating="2">&#9733;</span>
-                
-                        <span dataRating="1">&#9733;</span>
-    
-                    </div>
-
-                </div>
 
             </div>
             
