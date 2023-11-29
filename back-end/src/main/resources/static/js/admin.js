@@ -557,6 +557,7 @@ async function get_pending(id) {
 function populate_pending(data){
     let pendingData = "";
 
+
     for (let r of data) {
           pendingData += 
         `
@@ -568,8 +569,8 @@ function populate_pending(data){
             <button id="btn_profile" onclick="view_profile()">View Profile</button>
         </div>
         <div class="approve_deny">
-            <button id="btn_approve" onclick="approve()">Approve</button>
-            <button id="btn_deny" onclick="deny()">Deny</button>
+            <button id="btn_approve" onclick="approve(${r.id},${r.studentId}, ${r.eventId})">Approve</button>
+            <button id="btn_deny" onclick="deny(${r.id})">Deny</button>
         </div>
     </div>
     <!-- view profile popup -->

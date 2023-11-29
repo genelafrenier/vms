@@ -39,13 +39,7 @@ public class VolunteerController {
     }
 
     @PostMapping("/volunteer")
-    public @ResponseBody String saveVolunteer(@RequestParam("eventId") int eventId, HttpSession session){
-        User user = (User) session.getAttribute("user");
-
-        int user_id = Integer.valueOf(user.getUsername());
-        Volunteer volunteer = new Volunteer();
-        volunteer.setEventId(eventId);
-        volunteer.setStudentId(user_id);
+    public @ResponseBody String saveVolunteer(@RequestBody Volunteer volunteer){
         volunteerRepository.save(volunteer);
         return "Volunteer saved";
     }

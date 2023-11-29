@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -53,5 +54,13 @@ public class RequestController {
     public @ResponseBody Iterable<Event> getEventsBystudentId(@RequestParam("student_id") int student_id){
   
         return requestRepository.getEventsBystudentId(student_id);
+    }
+
+    @PutMapping("/request")
+    public @ResponseBody String approveDenyRequest(@RequestParam ("id") int id, @RequestParam ("approvalStatus") String status){
+        Requests request = requestRepository.findById(id).get();
+        request.setApprovalStatus(status);
+        requestRepository.save(request);
+        return "Request saved";
     }
 }
