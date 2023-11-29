@@ -122,4 +122,8 @@ public class UserController {
         return ResponseEntity.ok("Logout successful");
     }
 
+    @PutMapping("/update")
+    public @ResponseBody String updateProfile(@RequestBody User user,@RequestParam ("username") int id){
+     return "Not working";
+    }
 }

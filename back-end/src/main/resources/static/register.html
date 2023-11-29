@@ -100,12 +100,12 @@
 
         <div class="createAccountButton">
           <!-- CREATE ACCOUNT Button Triggers Form Validation - Send To Database Once Validated -->
-          <button data-showSuccessMessage type="button" class="createAccountBtn" onclick="ValidationTesting()">CREATE ACCOUNT</button>
+          <button data-showSuccessMessage type="button" class="createAccountBtn" onclick="register()">CREATE ACCOUNT</button>
             <!-- Success Modal  -->
             <dialog data-popupContent class="successPopUp" id="accountSuccess">
             <h1>Account Successfully Created!</h1>
               <!-- EVENTS PAGE Button - Directs User To Events Page  -->
-              <a href="index.html">
+              <a href="login.html">
               <button data-closeSuccessMessage type="button" id="submits" class="popupBtn" onclick="SubmitForm()">EVENTS PAGE</button>
               </a>
             </dialog>
@@ -152,7 +152,12 @@
         })
         .then(response => {
           if (!response.ok){
-            throw new Error(response.status);
+            alert("Account already exists");
+            window.location.href = "register.html";
+            //throw new Error(response.status);
+          }
+          else{
+            contentOfPopup.showModal();
           }
         })
         .then(result => {
@@ -164,11 +169,11 @@
     function SubmitForm()
     {
       //Modal Close
-      closePopup.addEventListener("click", () => {
+      // closePopup.addEventListener("click", () => {
+      // })
       contentOfPopup.close();
-      })
       console.log("Form Submitted");
-      register();
+      //register();
     }
 
     function ValidationTesting()
@@ -294,8 +299,6 @@
       {
         var clicking = "click";
         openPopup.addEventListener(clicking, () => {
-          contentOfPopup.showModal();
-
           //Pull Validated Data Into DATABASE
           // **** Printing To Console To Check Data Is Going Through **** //
           document.getElementById("firstName");
@@ -316,7 +319,6 @@
           document.getElementById("password");
           console.log(password.value);
         })
-
         //Prevents User From Exiting Success Message When Pressing "ESC" Key
         document.addEventListener("keydown", () => { 
         if(event.code == "Escape")

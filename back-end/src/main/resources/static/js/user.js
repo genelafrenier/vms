@@ -75,12 +75,102 @@ async function loadProfile(data) {
             <p id="result2"></p>
 
         </div>
-
-        <button type="submit" onclick="savechanges()" class="saveChangesBtn" disabled>Save Changes</button>
+                
+        <button type="button" onclick="saveChanges()" class="saveChangesBtn" disabled>Save Changes</button>
 
     </form>`;
     document.getElementById("aboutme").innerHTML = html;
 }
+async function saveChanges() {
+    
+    
+    var first = document.getElementById('fname').value;
+    var last = document.getElementById('lname').value;
+    var newemail = document.getElementById('email').value;
+    var newphone = document.getElementById('phoneNum').value;
+    var newskills = document.getElementById('userSkills').value;
+    var newabout = document.getElementById('userAboutMe').value;
+    fetch('/current-user', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+        .then(response => response.json())
+        .then(data => {
+        
+          
+    // fetch('http://localhost:8080/current-user', {
+    //     method: 'GET',
+    //     headers: {
+    //     'Content-Type': 'application/json',
+    //             },
+    //     })
+    // .then(response => response.json())
+    // .then(data =>{
+      console.log(data);
+      console.log(data);
+      student_id = data;
+        
+    var data = {
+        username: student_id,
+        firstName: first,
+        lastName: last,
+        email: newemail,
+        phone: newphone,
+        about: newskills,
+        skills: newskills,
+        about: newabout
+    };
+    console.log(JSON.stringify(data));
+
+    fetch('http://localhost:8080/update?username='+ student_id, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+                    },
+        body: JSON.stringify(data)
+    })
+
+    })//.then
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+    if(submitValidation()) {
+
+        // Disable the text boxes after saving changes
+        document.getElementById('fname').disabled = true;
+        document.getElementById('lname').disabled = true;
+        document.getElementById('email').disabled = true;
+        document.getElementById('phoneNum').disabled = true;
+        document.getElementById('userSkills').disabled = true;
+        document.getElementById('userAboutMe').disabled = true;
+
+        // Disable the Save changes button
+        document.querySelector('.saveChangesBtn').disabled = true;
+        
+        // setDefault(fname);
+        // setDefault(lname);
+        // setDefault(email);
+        // setDefault(phoneNum);
+
+    } else {
+
+        // Continues to enable the text boxes until the user passes all input validation
+        document.getElementById('fname').disabled = false;
+        document.getElementById('lname').disabled = false;
+        document.getElementById('email').disabled = false;
+        document.getElementById('phoneNum').disabled = false;
+        document.getElementById('userSkills').disabled = false;
+        document.getElementById('userAboutMe').disabled = false;
+
+        // Enable the Save changes button
+        document.querySelector('.saveChangesBtn').disabled = false;
+    }
+}
+
 
 function getCurrent() {
     fetch('http://localhost:8080/current-user', {

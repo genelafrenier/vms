@@ -113,19 +113,26 @@
         eventId: event_id,
         approvalStatus: approvalStatus,
     };
-    console.log(JSON.stringify(data));
-
-    fetch('http://localhost:8080/apply', {
+          console.log(JSON.stringify(data));
     
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-                    },
-        body: JSON.stringify(data)
-    })
-    closeForm();
+          fetch('http://localhost:8080/apply', {
+          
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                          },
+              body: JSON.stringify(data)
+            })
+            .then(response => {
+                  if (!response.ok) {
+                    alert("Already Applied");
+                  }
+                })
+                     
+      closeForm();
     })
     .catch((error) => {
+ 
       console.error('Error:', error);
     });
     }

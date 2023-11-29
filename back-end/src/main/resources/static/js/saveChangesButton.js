@@ -170,42 +170,6 @@ function submitValidation() {
 }
 
 
-function saveChanges() {
-
-    if(submitValidation()) {
-
-        // Disable the text boxes after saving changes
-        document.getElementById('fname').disabled = true;
-        document.getElementById('lname').disabled = true;
-        document.getElementById('email').disabled = true;
-        document.getElementById('phoneNum').disabled = true;
-        document.getElementById('userSkills').disabled = true;
-        document.getElementById('userAboutMe').disabled = true;
-
-        // Disable the Save changes button
-        document.querySelector('.saveChangesBtn').disabled = true;
-        
-        setDefault(fname);
-        setDefault(lname);
-        setDefault(email);
-        setDefault(phoneNum);
-
-    } else {
-
-        // Continues to enable the text boxes until the user passes all input validation
-        document.getElementById('fname').disabled = false;
-        document.getElementById('lname').disabled = false;
-        document.getElementById('email').disabled = false;
-        document.getElementById('phoneNum').disabled = false;
-        document.getElementById('userSkills').disabled = false;
-        document.getElementById('userAboutMe').disabled = false;
-
-        // Enable the Save changes button
-        document.querySelector('.saveChangesBtn').disabled = false;
-        
-    }
-
-}
 
 
 // If a input validation fails it gives the input a red border and an error message
