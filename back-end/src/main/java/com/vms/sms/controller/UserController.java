@@ -55,6 +55,7 @@ public class UserController {
     if (user == null) {
         return null;
     } else {
+        //refine later
         //define "new user" without password
         UserData UserData = new UserData();
         UserData.setFirstName(user.getFirstName());

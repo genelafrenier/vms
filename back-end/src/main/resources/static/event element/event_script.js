@@ -2,12 +2,14 @@
 
 
 // *** Pending volunteers popup *** //
-function open_pending(){
-    document.getElementById("pending_popup").style.display = "block";
+function open_pending(id){
+    popup_id = "pending_popup" + id;
+    document.getElementById(popup_id).style.display = "block";
 }
 
-function close_pending(){
-    document.getElementById("pending_popup").style.display = "none";
+function close_pending(id){
+    popup_id = "pending_popup" + id;
+    document.getElementById(popup_id).style.display = "none";
 }
 
 // *** Comments/questions popup *** //
