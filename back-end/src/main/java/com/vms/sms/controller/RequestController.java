@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,8 +27,11 @@ public class RequestController {
 
     //endpoint to get requests by event, for organizer dashboard request approval popup
     @GetMapping("/requests-by-event")
-    public Iterable<RequestDetails> getRequestsByEventId(@RequestParam("eventId") int event_id){
-        return requestRepository.getRequestsByEventId(event_id);
+    public @ResponseBody Iterable<RequestDetails> getRequestsByEventId(@RequestParam("eventId") String event_id){
+            int eventId = Integer.parseInt(event_id);
+            System.out.println(eventId);
+            return requestRepository.getRequestsByEventId(eventId);
+
     }
 
     @PostMapping("/request")
@@ -55,5 +59,13 @@ public class RequestController {
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-111);
         }
+    }
+
+    @PutMapping("/request")
+    public @ResponseBody String approveDenyRequest(@RequestParam ("id") int id, @RequestParam ("approvalStatus") String status){
+        Requests request = requestRepository.findById(id).get();
+        request.setApprovalStatus(status);
+        requestRepository.save(request);
+        return "Request saved";
     }
 }

@@ -1,3 +1,12 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.events-header {
+  text-align: center; /*centers about section title*/
+  margin-top: 30px; /* Add margin to create space between the top and "About Us" */
+
+}
 
 *{
     box-sizing: border-box;
@@ -12,7 +21,7 @@
 .tab{
   width:90%;
   margin: auto;
-  margin-top: 6%;
+  margin-top: 30px;
   box-shadow: 0 3px 0px#555555;
   border-radius: 8px;
 }
