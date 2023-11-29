@@ -6,6 +6,8 @@ import com.vms.sms.repository.VolunteerRepository;
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,7 +58,16 @@ public class VolunteerController {
         return "Volunteer saved";
     }
 
-    
+    @GetMapping("/approved-events")
+    public ResponseEntity<Integer> getEventsbyStudentId(@RequestParam("student_id") int studentId,
+                                                       @RequestParam("event_id") int eventId){
+        if (!volunteerRepository.existsByStudentIdAndEventId(studentId,eventId)) {
+            
+            return ResponseEntity.ok(eventId);
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-111);
+        }
+    }
 
 
 

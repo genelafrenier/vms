@@ -1,3 +1,7 @@
+function callFunctions(){
+    getUser();
+    getCurrent();
+}
 async function getUser() {
     fetch('/current', {
       method: 'GET',
@@ -78,4 +82,66 @@ async function loadProfile(data) {
     document.getElementById("aboutme").innerHTML = html;
 }
 
+// function getCurrent() {
+//     fetch('http://localhost:8080/current-user', {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//     })
+//     .then(response => response.json())
+//     .then(data => {//NESTED FETCH, 
+//         console.log(data);
+//         const url = 'http://localhost:8080/approved-events';
+//         fetch(url, {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//             },
+//         })
+//         .then(response => response.json())
+//         .then(eventData => {
+//             console.log(eventData);
+//             //popCurrent(data);
+//         })
+//         .catch((error) => {
+//             console.error('No current events:', error);
+//         });
+        
+//     })
+//     .catch((error) => {
+//         console.error('no user:', error);
+//     });
+// }
+function getCurrent(){
+    fetch('/approved-events', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+        .then(response => response.json())
+        .then(data => {
+          popCurrent(data);
+        })
+        .catch(error => {
+          console.error('not logged in', error);
+          // Redirect to login page 
+          window.location.href = "login.html";
+        });
+}
+async function popCurrent(data){
+    let html= ``;
 
+    for (let r of data) {
+    html += `<div class="currentEvent">
+                    <h2>Name: ${r.eventName}</h2>
+                    <p1>Time: 1:00</p1> //${r.eventTime}
+                    <br>
+                    <p1>Date: ${r.eventDate}</p1>
+                    <br>
+                    <p1>Location: ${r.eventLocation}</p1>
+                </div>`;
+    }
+    document.getElementById("currentEvent").innerHTML = html;
+}

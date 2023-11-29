@@ -47,8 +47,13 @@ public class RequestController {
     }
 
     @GetMapping("/events-by-user")
-    public @ResponseBody Iterable<Event> getEventsBystudentId(@RequestParam("student_id") int student_id){
-  
-        return requestRepository.getEventsBystudentId(student_id);
+    public ResponseEntity<Integer> getEventsbyStudentId(@RequestParam("student_id") int studentId,
+                                                       @RequestParam("event_id") int eventId){
+        if (!requestRepository.existsByStudentIdAndEventId(studentId,eventId)) {
+            
+            return ResponseEntity.ok(eventId);
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-111);
+        }
     }
 }
