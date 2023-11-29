@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.vms.sms.model.User;
 import com.vms.sms.model.Volunteer;
+import com.vms.sms.model.VolunteerDetails;
 
 
 @Controller
@@ -25,17 +26,14 @@ public class VolunteerController {
 
     //endpoint to get past volunteer history for user dashboard
     @GetMapping("/volunteer-history")
-    public Iterable<Volunteer> getVolunteerHistory(HttpSession session){
-        User user = (User) session.getAttribute("user");
-
-        int user_id = Integer.valueOf(user.getUsername());
-        return volunteerRepository.getVolunteerHistoryByStudentId(user_id);
+    public @ResponseBody Iterable<VolunteerDetails> getVolunteerHistoryTest(@RequestParam("studentId") int studentId){
+        return volunteerRepository.getVolunteerHistoryByStudentId(studentId);
     }
 
-    @GetMapping("/volunteer-history-test")
-    public Iterable<Volunteer> getVolunteerHistoryTest(@RequestParam("studentId") int studentId){
-
-        return volunteerRepository.getVolunteerHistoryByStudentId(studentId);
+    //endpoint to get current volunteer events for user dashboard
+    @GetMapping("/volunteer-current")
+    public @ResponseBody Iterable<VolunteerDetails> getCurrentVolunteerTest(@RequestParam("studentId") int studentId){
+        return volunteerRepository.getCurrentVolunteerByStudentId(studentId);
     }
 
     @PostMapping("/volunteer")
