@@ -123,7 +123,22 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public @ResponseBody String updateProfile(@RequestBody User user,@RequestParam ("username") int id){
-     return "Not working";
+    public @ResponseBody String updateProfile(@RequestParam ("username") int id, @RequestBody User user){
+        Optional<User> userOptional = userRepository.findByUsername(id);
+        if (userOptional.isPresent()) {
+            System.out.println("User found");
+            User userUpdate = userOptional.get();
+            userUpdate.setFirstName(user.getFirstName());
+            userUpdate.setLastName(user.getLastName());
+            userUpdate.setEmail(user.getEmail());
+            userUpdate.setPhone(user.getPhone());
+            userUpdate.setAbout(user.getAbout());
+            userUpdate.setSkills(user.getSkills());
+            userRepository.save(userUpdate);
+            return "User Updated";
+        } else {
+            System.out.println("User not found");
+            return "User not found";
+        }
     }
 }

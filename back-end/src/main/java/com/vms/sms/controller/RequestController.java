@@ -1,7 +1,6 @@
 package com.vms.sms.controller;
 
 import com.vms.sms.model.Requests;
-import com.vms.sms.model.User;
 import com.vms.sms.repository.RequestRepository;
 
 
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.vms.sms.model.Event;
 import com.vms.sms.model.RequestDetails;
 
 @RestController

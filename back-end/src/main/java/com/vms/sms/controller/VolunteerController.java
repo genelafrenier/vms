@@ -2,20 +2,13 @@ package com.vms.sms.controller;
 
 
 import com.vms.sms.repository.VolunteerRepository;
-
-import jakarta.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.vms.sms.model.User;
 import com.vms.sms.model.Volunteer;
 import com.vms.sms.model.VolunteerDetails;
 

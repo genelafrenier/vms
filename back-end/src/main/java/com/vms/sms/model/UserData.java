@@ -25,7 +25,6 @@ public class UserData {
     private @Getter @Setter int id;
     @Column(unique = true)
     private @Getter @Setter int username;
-    private @Getter @Setter String password;
     private @Getter @Setter String role;
     private @Getter @Setter String firstName;
     private @Getter @Setter String lastName;

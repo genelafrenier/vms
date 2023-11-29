@@ -19,6 +19,7 @@ async function getUser() {
       });
   }
 async function loadProfile(data) {
+    console.log(data);
     let html = `
     <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
 
