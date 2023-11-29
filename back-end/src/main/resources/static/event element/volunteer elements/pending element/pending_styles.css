@@ -24,9 +24,13 @@
 .pending_container .avg_rating {
     height: 100%;
     width: 30%;
+    text-align: center;
     justify-content: center;
     display: flex;
     background-color: transparent;
+    font-size: 28px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
 }
 
 .pending_container .avg_rating span {
@@ -120,6 +124,13 @@
 .profile_popup .ratings {
     display: flex;
     justify-content: center;
+}
+
+.profile_popup .volunteer_avg_rating {
+    text-align: center;
+    font-size: 30px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
 }
 
 .profile_popup .ratings span {
