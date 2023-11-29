@@ -14,6 +14,12 @@ function approve(requestId, studentId, eventId){
     var approvalStatus = "Approved";
 
     console.log("approved");
+    // *** disabling buttons and displaying approved *** //
+    document.getElementById("btn_approve"+id).innerHTML = "Approved";
+    document.getElementById("btn_approve"+id).disabled = true;
+    document.getElementById("btn_deny"+id).innerHTML = "";
+    document.getElementById("btn_deny"+id).disabled = true;
+
     var data = {
         id: id,
         approvalStatus: approvalStatus,
@@ -36,6 +42,12 @@ function approve(requestId, studentId, eventId){
 function deny(requestId){
     var id = requestId;
     var approvalStatus = "Denied";
+
+    // *** disabling buttons and displaying denied *** //
+    document.getElementById("btn_approve"+id).innerHTML = "";
+    document.getElementById("btn_approve"+id).disabled = true;
+    document.getElementById("btn_deny"+id).innerHTML = "Denied";
+    document.getElementById("btn_deny"+id).disabled = true;
 
     var data = {
         id: id,

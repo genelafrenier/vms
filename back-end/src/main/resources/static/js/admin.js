@@ -564,13 +564,13 @@ function populate_pending(data){
         <div class="pending_container" id="${r.eventId}" >
         <!--            placeholder  vvv -->
         <div class="volunteer_name">${r.eventId} ${r.firstName} ${r.lastName}</div>
-        <div class="avg_rating"></div>
+        <div class="avg_rating"> /5</div>
         <div class="view_profile">
             <button id="btn_profile" onclick="view_profile()">View Profile</button>
         </div>
         <div class="approve_deny">
-            <button id="btn_approve" onclick="approve(${r.id},${r.studentId}, ${r.eventId})">Approve</button>
-            <button id="btn_deny" onclick="deny(${r.id})">Deny</button>
+            <button id="btn_approve${r.id}" onclick="approve(${r.id},${r.studentId}, ${r.eventId})">Approve</button>
+            <button id="btn_deny${r.id}" onclick="deny(${r.id})">Deny</button>
         </div>
     </div>
     <!-- view profile popup -->
