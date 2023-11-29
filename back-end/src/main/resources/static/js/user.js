@@ -1,6 +1,6 @@
 function callFunctions(){
-    getUser();
     getCurrent();
+    getUser();
 }
 async function getUser() {
     fetch('/current', {
@@ -82,56 +82,39 @@ async function loadProfile(data) {
     document.getElementById("aboutme").innerHTML = html;
 }
 
-// function getCurrent() {
-//     fetch('http://localhost:8080/current-user', {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//     })
-//     .then(response => response.json())
-//     .then(data => {//NESTED FETCH, 
-//         console.log(data);
-//         const url = 'http://localhost:8080/approved-events';
-//         fetch(url, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//         })
-//         .then(response => response.json())
-//         .then(eventData => {
-//             console.log(eventData);
-//             //popCurrent(data);
-//         })
-//         .catch((error) => {
-//             console.error('No current events:', error);
-//         });
-        
-//     })
-//     .catch((error) => {
-//         console.error('no user:', error);
-//     });
-// }
-function getCurrent(){
-    fetch('/approved-events', {
+function getCurrent() {
+    fetch('http://localhost:8080/current-user', {
         method: 'GET',
         headers: {
-        'Content-Type': 'application/json',
-                },
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        const url = `http://localhost:8080/approved-events?student_id=${data}`;
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
         })
         .then(response => response.json())
-        .then(data => {
-          popCurrent(data);
+        .then(eventData => {
+            console.log(eventData);
+            popCurrent(eventData);
         })
-        .catch(error => {
-          console.error('not logged in', error);
-          // Redirect to login page 
-          window.location.href = "login.html";
+        .catch((error) => {
+            console.error('No current events:', error);
         });
+    })
+    .catch((error) => {
+        console.error('no user:', error);
+    });
 }
+
 async function popCurrent(data){
-    let html= ``;
+    let html= "";
 
     for (let r of data) {
     html += `<div class="currentEvent">
@@ -143,5 +126,5 @@ async function popCurrent(data){
                     <p1>Location: ${r.eventLocation}</p1>
                 </div>`;
     }
-    document.getElementById("currentEvent").innerHTML = html;
+    document.getElementById("currentEvent").innerHTML += html;
 }

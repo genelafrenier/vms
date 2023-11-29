@@ -77,18 +77,18 @@
         tab +=
         `
         <button onclick="history.back()" class="back">Previous Page</button>
-      <div class="title">
-        <h5>${data.eventName}</h5>
-      </div>
+            <div class="title">
+                <h5>${data.eventName}</h5>
+              </div>
 
-      <div class="date">    <!-- May need to make time separate-->
-        <p>${data.eventDate}</p>
-        <p>${data.eventTime}</p>
-      <div>
-        <h4>${data.eventLocation}</h4>
-      </div>
-    </div>
-    <div class="desc">${data.eventDescription}</div>`
+              <div class="date">    <!-- May need to make time separate-->
+                <p>${data.eventDate}</p>
+                <p>${data.eventTime}</p>
+              <div>
+                <h4>${data.eventLocation}</h4>
+              </div>
+          </div>
+          <div class="desc">${data.eventDescription}</div>`
     
         document.getElementById("event-frame").innerHTML = tab;
     }

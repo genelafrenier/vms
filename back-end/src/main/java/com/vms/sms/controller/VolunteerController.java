@@ -52,16 +52,16 @@ public class VolunteerController {
         return "Volunteer saved";
     }
 
-    @GetMapping("/approved-events")
-    public ResponseEntity<Integer> getEventsbyStudentId(@RequestParam("student_id") int studentId,
-                                                       @RequestParam("event_id") int eventId){
-        if (!volunteerRepository.existsByStudentIdAndEventId(studentId,eventId)) {
+    // @GetMapping("/approved-events")
+    // public ResponseEntity<Integer> getEventsbyStudentId(@RequestParam("student_id") int studentId){
+    //     if (!volunteerRepository.existsById(studentId)) {
             
-            return ResponseEntity.ok(eventId);
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-111);
-        }
-    }
+    //         return ResponseEntity.ok(studentId);
+    //     } else {
+    //         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-111);
+    //     }
+    // }
+    
 
 
 

@@ -50,16 +50,7 @@ public class RequestController {
         }
     }
 
-    @GetMapping("/events-by-user")
-    public ResponseEntity<Integer> getEventsbyStudentId(@RequestParam("student_id") int studentId,
-                                                       @RequestParam("event_id") int eventId){
-        if (!requestRepository.existsByStudentIdAndEventId(studentId,eventId)) {
-            
-            return ResponseEntity.ok(eventId);
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(-111);
-        }
-    }
+    
 
     @PutMapping("/request")
     public @ResponseBody String approveDenyRequest(@RequestParam ("id") int id, @RequestParam ("approvalStatus") String status){
