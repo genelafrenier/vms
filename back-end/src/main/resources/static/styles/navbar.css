@@ -2,6 +2,8 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+        font-family: 'Inter', sans-serif;
+
   }
   .logo{
     background-color: rgb(255, 255, 255);
@@ -21,7 +23,11 @@
       margin: 0;
       padding: 0;
       width: 150px;
+      
   }
+
+
+
   li a{
     display: block;
     padding: 10px 20px;
@@ -30,6 +36,7 @@
     font-size: 20px;
     border-style: solid;
     border-width: 1px;
+
   }
   li a:hover{
     background-color: #A39A7E;
@@ -40,6 +47,7 @@
     cursor: pointer;
     padding-right: 20px;
     z-index:999;
+    
   }
   .menu-content{
     display: none;
@@ -53,4 +61,5 @@
     display: block;
     position: absolute;
     right: 20px;
+
   }

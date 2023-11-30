@@ -6,14 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.vms.sms.model.User;
-import com.vms.sms.model.UserData; // copy of user but omit password
+import com.vms.sms.model.UserDetails; // copy of user but omit password
 import com.vms.sms.repository.UserRepository;
 
 import java.util.Optional;
 
 import jakarta.servlet.http.HttpSession;
-import lombok.Getter;
-import lombok.Setter;
 
 @RestController
 public class UserController {
@@ -51,34 +49,57 @@ public class UserController {
     }
     //code by Calvin to test
     // *Fixed* this works but exposes password in GET call. Not a big deal since we're in a hurry! *Fixed*
+    //Gene - rewrote as UserDetails plain java object (not a JPA entity)
     @GetMapping("/current")
-    public @ResponseBody UserData current(HttpSession session) {
+    public @ResponseBody UserDetails current(HttpSession session) {
     User user = (User) session.getAttribute("user");
     if (user == null) {
         return null;
     } else {
         //refine later
         //define "new user" without password
-        UserData UserData = new UserData();
-        UserData.setFirstName(user.getFirstName());
-        UserData.setLastName(user.getLastName());
-        UserData.setUsername(user.getUsername());
-        //no password
-        UserData.setAbout(user.getAbout());
-        UserData.setDept(user.getDept());
-        UserData.setEmail(user.getEmail());
-        UserData.setPhone(user.getPhone());
-        UserData.setRole(user.getRole());
-        UserData.setSkills(user.getSkills());
-        return UserData;
+        UserDetails userDetails = new UserDetails();
+        userDetails.setFirstName(user.getFirstName());
+        userDetails.setLastName(user.getLastName());
+        userDetails.setUsername(user.getUsername());
+        userDetails.setAbout(user.getAbout());
+        userDetails.setDept(user.getDept());
+        userDetails.setEmail(user.getEmail());
+        userDetails.setPhone(user.getPhone());
+        userDetails.setRole(user.getRole());
+        userDetails.setSkills(user.getSkills());
+        return userDetails;
     }
 }
  // end code here
+
+ //endpoint to return user details with given username
+    @GetMapping("/user-details")
+    public @ResponseBody UserDetails userDetails(@RequestParam("username") int username) {
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            UserDetails userDetails = new UserDetails();
+            userDetails.setFirstName(user.getFirstName());
+            userDetails.setLastName(user.getLastName());
+            userDetails.setUsername(user.getUsername());
+            userDetails.setAbout(user.getAbout());
+            userDetails.setDept(user.getDept());
+            userDetails.setEmail(user.getEmail());
+            userDetails.setPhone(user.getPhone());
+            userDetails.setRole(user.getRole());
+            userDetails.setSkills(user.getSkills());
+            return userDetails;
+        } else {
+            return null;
+        }
+    }
 
     //endpoint for user creation functionality on registration page
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
         if (!userRepository.existsByUsername(user.getUsername())) {
+            user.setDept("Career Center");
             userRepository.save(user);
             return ResponseEntity.ok("Registration successful");
         } else {

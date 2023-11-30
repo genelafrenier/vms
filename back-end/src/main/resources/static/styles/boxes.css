@@ -3,6 +3,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    font-family: 'Inter', sans-serif;
 }
 
 .grid {
@@ -119,7 +120,8 @@ div.inputControl input:focus {
 
 /* The success and error both control border color that indicates whether or not the meet the validation */
 div.inputControl.success input {
-    border-color: #09c372;
+    /* border-color: #09c372; */
+    border-color: #043927;
 }
 
 div.inputControl.error input {
@@ -139,37 +141,47 @@ div.inputControl.error input {
 }
 
 div.header{
-    background-color: #008453;
+    /* background-color: #008453; */
+    background-color: #043927;
     border-radius: 50px;
     margin: auto;
     margin-bottom: 10%;
     text-align: center;
     justify-content: center;
     font-size: large;
+    /* color: white; */
+    color: #C4B581;
+    
 }
 
 .editBtn {
-    background-color: #008453;
-    width: 40px;
-    height: 40px;
-    margin-left: 80%;
+    /* background-color: #008453; */
+    background-color: #043927;
+    width: 15%;
+    height: 4%;
+    margin-top: 1%;
+    margin-left: 70%;
     border-radius: 50px;
-    color: white;
+    /* color: white; */
+    color: #C4B581;
     cursor: pointer;
 }
 
 /* This controls the save changes button info */
 #form button {
-    color: white;
-    background-color: #008453;
+    /* color: white; */
+    color: #C4B581;
+    /* background-color: #008453; */
+    background-color: #043927;
     border-radius: 50px;
     display: flex;
     justify-content: center;
+    margin-top: 10%;
 }
 
 .saveChangesBtn {
     width: 30%;
-    height: 20%;
+    height: 22%;
     border-radius: 50px;
     margin: auto;
     cursor: pointer;

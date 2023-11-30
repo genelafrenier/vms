@@ -32,47 +32,49 @@ function close_rate(){
 
 
 // *** Edit event popup *** // needs script to populate current event info into form values and textarea innerHTML
-function open_edit(){
-    document.getElementById("edit_popup").style.display = "block";
+function open_edit(id){
+    popup_id = "edit_popup" + id;
+    document.getElementById(popup_id).style.display = "block";
 }
 
-function close_edit(){
-    document.getElementById("edit_popup").style.display = "none";
+function close_edit(id){
+    popup_id = "edit_popup" + id;
+    document.getElementById(popup_id).style.display = "none";
 }
 
-function edit_validation_testing(){
+function edit_validation_testing(id){
 
     //title input error checking
-    if(document.edit_event.edit_event_title.value==""){
-        document.getElementById("edit_title_error").innerHTML="Please Enter a Title for your Event";
+    if(document.getElementById(`"edit_event_title${id}"`)==""){
+        document.getElementById(`"edit_title_error${id}"`).innerHTML="Please Enter a Title for your Event";
         return false;
     }
 
 
     //date input error checking
-    else if(document.edit_event.edit_event_date.value==""){
-        document.getElementById("edit_date_error").innerHTML="Please Select a Date for your Event";
+    else if(document.getElementById(`"edit_event_date${id}"`)==""){
+        document.getElementById(`"edit_date_error${id}"`).innerHTML="Please Select a Date for your Event";
         return false;
     }
 
 
     //location input error checking
-    else if(document.edit_event.edit_event_location.value==""){
-        document.getElementById("edit_location_error").innerHTML="Please Enter a Location for your Event";
+    else if(document.getElementById(`"edit_event_location${id}"`)==""){
+        document.getElementById(`"edit_location_error${id}"`).innerHTML="Please Enter a Location for your Event";
         return false;
     }
 
 
     //time input error checking
-    else if(document.edit_event.edit_event_time.value==""){
-        document.getElementById("edit_time_error").innerHTML="Please Select a Time for your Event";
+    else if(document.getElementById(`"edit_event_time${id}"`)==""){
+        document.getElementById(`"edit_time_error${id}"`).innerHTML="Please Select a Time for your Event";
         return false;
     }
 
 
     //description input error checking
-    else if(document.edit_event.edit_event_description.value==""){
-        document.getElementById("edit_description_error").innerHTML=="Please Enter a Description for your Event";
+    else if(document.getElementById(`"edit_event_description${id}"`)==""){
+        document.getElementById(`"edit_description_error${id}"`).innerHTML=="Please Enter a Description for your Event";
         return false;
     }
 
@@ -81,43 +83,56 @@ function edit_validation_testing(){
     else {
         //pull validated data into database
         // *** printing to console to check data is going through *** //
-        document.getElementById("edit_event_title");
-        console.log(edit_event_title.value);
+        console.log("Calling edit_event()");
+        edit_event(id);
 
-        document.getElementById("edit_event_date");
-        console.log(edit_event_date.value);
-
-        document.getElementById("edit_event_location");
-        console.log(edit_event_location.value);
-
-        document.getElementById("edit_event_time");
-        console.log(edit_event_time.value);
-
-        document.getElementById("edit_event_description");
-        console.log(edit_event_description.value);
-
-        edit_event();
     }
 
 }
 
 //creates event and sends you back to dashboard
-function edit_event(){
-    var title = document.getElementById("edit_event_title").value;
-    var date = document.getElementById("edit_event_date").value;
-    var location = document.getElementById("edit_event_location").value;
-    var time = document.getElementById("edit_event_time").value;
-    var description = document.getElementById("edit_event_description").value;
+function edit_event(id){
+    var event_title_id = "edit_event_title" + id;
+    var event_date_id = "edit_event_date" + id;
+    var event_location_id = "edit_event_location" + id;
+    var event_time_id = "edit_event_time" + id;
+    var event_description_id = "edit_event_description" + id;
+
+    var title = document.getElementById(event_title_id).value;
+    var date = document.getElementById(event_date_id).value;
+    var location = document.getElementById(event_location_id).value;
+    var time = document.getElementById(event_time_id).value;
+    var description = document.getElementById(event_description_id).value;
 
     var data = {
-        event_title: title,
-        event_date: date,
-        event_location: location,
-        event_time: time,
-        event_description: description
+        eventName: title,
+        eventDate: date,
+        eventLocation: location,
+        eventTime: time,
+        eventDescription: description
     };
     console.log(JSON.stringify(data));
     //make an AJAX request to the event endpoint
+    fetch('/event?id='+ id, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+                    },
+        body: JSON.stringify(data)
+    })
+    .then((response) => {
+        if (response.status === 200) {
+            console.log("Event Updated");
+            close_edit(id);
+            window.location.href = "/admin.html";
+        } else {
+            console.log("Event Not Updated");
+        }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 
     
 }
