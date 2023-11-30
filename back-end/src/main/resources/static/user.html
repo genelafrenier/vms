@@ -9,6 +9,8 @@
     <title>User Dashboard</title>
     <link rel="stylesheet" type="text/css" href="styles/boxes.css">
     <link rel="stylesheet" href="styles/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
     <script src="js/navbar.js"></script>
     <script src="js/user.js"></script>
 </head>
@@ -26,6 +28,8 @@
         height: 100px;
         width: 95%;
         padding: 5%;
+        font-family: 'Inter', sans-serif;
+
     }
 
     .textarea:focus{
@@ -33,19 +37,36 @@
         background-color: white;
         border-color: black;
     }
+
+    header h1 {
+    font-size: 30px; /* Adjust the size as needed */
+    text-align: center;
+    margin-top: 30px;
+}
+
+    header p {
+        font-size: 15px; /* Adjust the size as needed */
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 55px;
+        font-weight: normal;
+
+    }
 </style>
-
-
-
-<body onload="callFunctions()">
+<body >
 
     <div class="navbar-container" id="navbar"></div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             loadNavbar();
         });
+      callFunctions();
     </script>
 
+    <header>
+        <h1 style= "text-align:center;">User Dashbboard</h1>
+        <p style="text-align:center;">Here you have access to all admin functionality.</p>
+    </header>
 
     <div class="centerText"> Your Rating:
 

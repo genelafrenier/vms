@@ -15,6 +15,7 @@ body {
 }
 
 .team-section {
+    margin-top: 30px;
     display: flex;/*spaces items evenly*/
     justify-content: center; /*centers the images*/
     flex-wrap: wrap; /*adjusts images to any screen*/
