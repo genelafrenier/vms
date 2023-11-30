@@ -16,8 +16,9 @@ public class RequestDetails {
     private @Getter @Setter String lastName;
     private @Getter @Setter String email;
     private @Getter @Setter String phone;
+    private @Getter @Setter String skills;
 
-    public RequestDetails(int id, int eventId, int studentId, String firstName, String lastName, String email, String phone) {
+    public RequestDetails(int id, int eventId, int studentId, String firstName, String lastName, String email, String phone, String skills) {
         this.id = id;
         this.eventId = eventId;
         this.studentId = studentId;
@@ -25,6 +26,7 @@ public class RequestDetails {
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.skills = skills;
     }
 
 }

@@ -1,12 +1,14 @@
 
 
 // *** View Profile Popup *** //
-function view_profile(){
-    document.getElementById("profile_popup").style.display = "block";
+function view_profile(id){
+    var profile_popup = "profile_popup" + id;
+    document.getElementById(profile_popup).style.display = "block";
 }
 
-function close_profile(){
-    document.getElementById("profile_popup").style.display = "none";
+function close_profile(id){
+    var profile_popup = "profile_popup" + id;
+    document.getElementById(profile_popup).style.display = "none";
 }
 
 function approve(requestId, studentId, eventId){
