@@ -143,6 +143,9 @@ async function saveChanges() {
 
     if(submitValidation()) {
 
+
+        
+
         // Disable the text boxes after saving changes
         document.getElementById('fname').disabled = true;
         document.getElementById('lname').disabled = true;
