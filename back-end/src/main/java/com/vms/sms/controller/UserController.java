@@ -12,6 +12,8 @@ import com.vms.sms.repository.UserRepository;
 import java.util.Optional;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.Getter;
+import lombok.Setter;
 
 @RestController
 public class UserController {
@@ -95,7 +97,6 @@ public class UserController {
             return ResponseEntity.ok(user.getRole());
         }
     }
-
     @GetMapping("/admin")
     public ResponseEntity<String> adminEndpoint(HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -105,7 +106,6 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Access denied");
         }
     }
-
     @GetMapping("/user")
     public ResponseEntity<String> userEndpoint(HttpSession session) {
         User user = (User) session.getAttribute("user");
@@ -121,7 +121,6 @@ public class UserController {
         session.invalidate();   
         return ResponseEntity.ok("Logout successful");
     }
-
     @PutMapping("/update")
     public @ResponseBody String updateProfile(@RequestParam ("username") int id, @RequestBody User user){
         Optional<User> userOptional = userRepository.findByUsername(id);
@@ -134,6 +133,7 @@ public class UserController {
             userUpdate.setPhone(user.getPhone());
             userUpdate.setAbout(user.getAbout());
             userUpdate.setSkills(user.getSkills());
+            userUpdate.setDept(user.getDept());
             userRepository.save(userUpdate);
             return "User Updated";
         } else {

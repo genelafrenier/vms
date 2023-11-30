@@ -19,7 +19,9 @@ async function getUser() {
       });
   }
 async function loadProfile(data) {
-    console.log(data);
+    console.log(JSON.stringify(data));
+    console.log(JSON.stringify(data));
+    console.log(JSON.stringify(data));
     let html = `
     <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
 
@@ -62,7 +64,7 @@ async function loadProfile(data) {
         </div>
         <div id="textbox">
             <label for="userSkills">Skills:</label>
-            <textarea class="textarea" id="userSkills"  value="${data.skills}"placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled></textarea>
+            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" value="${data.skills}"disabled></textarea>
             <p class="adjustResult" id="result"></p>
 
         </div>
@@ -72,7 +74,7 @@ async function loadProfile(data) {
         <div id="textbox">
 
             <label for="userAboutMe">About Me:</label>
-            <textarea class="textarea" id="userAboutMe"  value="${data.about}"placeholder="What would you like the organizers to know about you?" id="personal_info" disabled></textarea>
+            <textarea class="textarea" id="userAboutMe"   placeholder="What would you like the organizers to know about you?" id="personal_info" value="${data.about}"disabled></textarea>
             <p id="result2"></p>
 
         </div>
@@ -152,10 +154,10 @@ async function saveChanges() {
         // Disable the Save changes button
         document.querySelector('.saveChangesBtn').disabled = true;
         
-        // setDefault(fname);
-        // setDefault(lname);
-        // setDefault(email);
-        // setDefault(phoneNum);
+        setDefault(fname);
+        setDefault(lname);
+        setDefault(email);
+        setDefault(phoneNum);
 
     } else {
 
@@ -171,8 +173,6 @@ async function saveChanges() {
         document.querySelector('.saveChangesBtn').disabled = false;
     }
 }
-
-
 function getCurrent() {
     fetch('http://localhost:8080/current-user', {
         method: 'GET',
