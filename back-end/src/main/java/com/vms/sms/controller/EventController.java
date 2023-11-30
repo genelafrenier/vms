@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.vms.sms.model.Event;
+import com.vms.sms.model.User;
 import com.vms.sms.repository.EventRepository;
+
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -49,8 +52,21 @@ public class EventController {
     //endpoint for edit event functionality
     @PutMapping("/event")
     public @ResponseBody String updateEvent(@RequestBody Event event, @RequestParam("id") int id){
-        eventRepository.save(event);
-        return "Event updated";
+        Optional<Event> eventOptional = eventRepository.findById(id);
+        if (eventOptional.isPresent()) {
+            System.out.println("Event found");
+            Event eventUpdate = eventOptional.get();
+            eventUpdate.setEventName(event.getEventName());
+            eventUpdate.setEventDescription(event.getEventDescription());
+            eventUpdate.setEventDate(event.getEventDate());
+            eventUpdate.setEventTime(event.getEventTime());
+            eventUpdate.setEventLocation(event.getEventLocation());
+            eventRepository.save(eventUpdate);
+            return "Event Updated";
+        } else {
+            System.out.println("Event not found");
+            return "Event not found";
+        }
     }
 
     //endpoint for events by organizer

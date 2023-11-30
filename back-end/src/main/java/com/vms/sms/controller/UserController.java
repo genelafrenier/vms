@@ -79,6 +79,7 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
         if (!userRepository.existsByUsername(user.getUsername())) {
+            user.setDept("Career Center");
             userRepository.save(user);
             return ResponseEntity.ok("Registration successful");
         } else {

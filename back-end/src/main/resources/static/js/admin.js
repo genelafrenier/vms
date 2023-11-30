@@ -467,6 +467,7 @@ function populate_events(data){
 
     let eventData = "";
     let pendingFrame = "";
+    let editFrame = "";
     
     for (let r of data) {
         let pending=r.id;
@@ -475,7 +476,7 @@ function populate_events(data){
     
             eventData +=
         `    <div class="event_container">
-        <div class="event_name">${r.id}  ${r.eventName}</div> 
+        <div class="event_name">${r.eventName}</div> 
         <div class="btn_volunteers">
             <button id="btn_volunteers" onclick="open_pending(${pending})">
                 <img src="images/Event_Volunteers.png">
@@ -492,7 +493,7 @@ function populate_events(data){
             </button>
         </div>
         <div class="btn_edit">
-            <button id="btn_edit" onclick="open_edit()">
+            <button id="btn_edit" onclick="open_edit(${r.id})">
                 <img src="images/Event_Edit.png">
             </button>
         </div>
@@ -528,10 +529,70 @@ function populate_events(data){
             </div>
         </div>
     </div>`;
+
+    editFrame += `<div class="edit_popup" id="edit_popup${r.id}">
+    <div class="popup_content">
+        <button type="button" class="close_btn" onclick="close_edit(${r.id})">&times;</button>
+    <div class="edit_event">
+        <form class="imbedded_fields" id="edit_id" name="edit_event" onsubmit="return edit_validation_testing(${r.id})">
+            <div class="row">
+                <div class="column">
+                    <div class="form_element">
+                        <label for="edit_event_title">Event Title</label>
+                        <span class="error" id="edit_title_error${r.id}"></span>
+                        <input type="text" id="edit_event_title${r.id}" placeholder="Enter event title" name="event_title" value="${r.eventName}">
+                    </div>
+                    
+                </div>
+                <div class="column">
+                    <div class="form_element">
+                        <label for="edit_event_date">Date</label>
+                        <span class="error" id="edit_date_error${r.id}"></span>
+                        <input type="date" id="edit_event_date${r.id}" name="event_date" value="${r.eventDate}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="form_element">
+                        <label for="edit_event_location">Location</label>
+                        <span class="error" id="edit_location_error${r.id}"></span>
+                        <input type="text" id="edit_event_location${r.id}" placeholder="Enter location of event" name="event_location" value="${r.eventLocation}">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="form_element">
+                        <label for="edit_event_time">Time</label>
+                        <span class="error" id="edit_time_error${r.id}"></span>
+                        <input type="time" id="edit_event_time${r.id}" name="event_time" value="${r.eventTime}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="event_description">
+                    <div class="form_element">
+                        <label for="edit_event_description">Description</label>
+                        <span class="error" id="edit_description_error${r.id}"></span>
+                        <textarea name="event_description" id="edit_event_description${r.id}" cols="30" rows="10" placeholder="Enter a description of the event">${r.eventDescription}</textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="btn_submit">
+                    <button type="button" class="submit_btn" onclick="edit_validation_testing(${r.id})">Save Changes</button>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    </div>
+    
+</div>`;
     }
   // populate html for events_populate
   document.getElementById("events_populate").innerHTML = eventData;
   document.getElementById("events_container").innerHTML += pendingFrame;
+  document.getElementById("events_container").innerHTML += editFrame;
 }
 
 async function get_pending(id) {
