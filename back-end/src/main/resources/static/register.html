@@ -28,13 +28,6 @@
             <label for= "lastName"> Last Name: </label>
           </div>
         </div>
-     
-
-
-
-
-
-
 
         <!-- First Name Input  -->
         <div style="float: left;" class="nameFields">
@@ -100,12 +93,12 @@
 
         <div class="createAccountButton">
           <!-- CREATE ACCOUNT Button Triggers Form Validation - Send To Database Once Validated -->
-          <button data-showSuccessMessage type="button" class="createAccountBtn" onclick="register()">CREATE ACCOUNT</button>
+          <button data-showSuccessMessage type="button" class="createAccountBtn" onclick="Success()">CREATE ACCOUNT</button>
             <!-- Success Modal  -->
             <dialog data-popupContent class="successPopUp" id="accountSuccess">
             <h1>Account Successfully Created!</h1>
-              <!-- success close Button - Directs User To Login Page  -->
-              <button data-closeSuccessMessage type="button" id="submits" class="popupBtn" onclick="SubmitForm()">Close</button>
+              <!-- CLOSE Button - Directs User To Login Page  -->
+              <button data-closeSuccessMessage type="button" id="submits" class="popupBtn" onclick="SubmitForm()">CLOSE</button>
             </dialog>
         </div>
 
@@ -152,7 +145,7 @@
           if (!response.ok){
             alert("Account already exists");
             window.location.reload;//refresh page
-            //throw new Error(response.status);
+            throw new Error(response.status);
           }
           else{
             contentOfPopup.showModal();
@@ -166,13 +159,18 @@
     //Closes Modal and Submits Form
     function SubmitForm()
     {
-      //Modal Close
-      // closePopup.addEventListener("click", () => {
-      // })
       contentOfPopup.close();
       console.log("Form Submitted");
-      //register();
       window.location.href = "login.html";
+    }
+
+    function Success()
+    {
+      if (ValidationTesting() == true)
+      {
+        //Pull Validated Data Into DATABASE
+        register();
+      }
     }
 
     function ValidationTesting()
@@ -298,7 +296,6 @@
       {
         var clicking = "click";
         openPopup.addEventListener(clicking, () => {
-          //Pull Validated Data Into DATABASE
           // **** Printing To Console To Check Data Is Going Through **** //
           document.getElementById("firstName");
           console.log(firstName.value);
@@ -318,6 +315,7 @@
           document.getElementById("password");
           console.log(password.value);
         })
+
         //Prevents User From Exiting Success Message When Pressing "ESC" Key
         document.addEventListener("keydown", () => { 
         if(event.code == "Escape")
@@ -325,9 +323,8 @@
           event.preventDefault();
         }
         })
-        return false;
+        return true;
       } 
-
       
     }
 
