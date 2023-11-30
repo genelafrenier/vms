@@ -104,10 +104,8 @@
             <!-- Success Modal  -->
             <dialog data-popupContent class="successPopUp" id="accountSuccess">
             <h1>Account Successfully Created!</h1>
-              <!-- EVENTS PAGE Button - Directs User To Events Page  -->
-              <a href="login.html">
-              <button data-closeSuccessMessage type="button" id="submits" class="popupBtn" onclick="SubmitForm()">EVENTS PAGE</button>
-              </a>
+              <!-- success close Button - Directs User To Login Page  -->
+              <button data-closeSuccessMessage type="button" id="submits" class="popupBtn" onclick="SubmitForm()">Close</button>
             </dialog>
         </div>
 
@@ -153,7 +151,7 @@
         .then(response => {
           if (!response.ok){
             alert("Account already exists");
-            window.location.href = "register.html";
+            window.location.reload;//refresh page
             //throw new Error(response.status);
           }
           else{
@@ -174,6 +172,7 @@
       contentOfPopup.close();
       console.log("Form Submitted");
       //register();
+      window.location.href = "login.html";
     }
 
     function ValidationTesting()
