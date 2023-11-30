@@ -3,6 +3,7 @@
 * {
     padding: 0px;
     margin: 0px;
+    font-family: "Inter";
 }
 
 .grid {
@@ -154,13 +155,13 @@ div.header{
     height: 40px;
     margin-left: 80%;
     border-radius: 50px;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
 /* This controls the save changes button info */
 #form button {
-    color: white;
+    color: black;
     background-color: #008453;
     border-radius: 50px;
     display: flex;
