@@ -23,7 +23,6 @@ header p {
     font-size: 15px; /* Adjust the size as needed */
     text-align: center;
     margin-top: 5px;
-    margin-bottom: 55px;
     font-weight: normal;
 
 }
@@ -39,6 +38,7 @@ header p {
     top: 20vh;
     left: 5%;
     display: flex;
+
 } 
 
 .profile_container {
