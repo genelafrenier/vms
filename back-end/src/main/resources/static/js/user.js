@@ -1,7 +1,4 @@
-function callFunctions(){
-    getCurrent();
-    getUser();
-}
+
 async function getUser() {
     fetch('/current', {
       method: 'GET',
@@ -64,7 +61,7 @@ async function loadProfile(data) {
         </div>
         <div id="textbox">
             <label for="userSkills">Skills:</label>
-            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" value="${data.skills}"disabled></textarea>
+            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" "disabled> ${data.skills}</textarea>
             <p class="adjustResult" id="result"></p>
 
         </div>
@@ -74,7 +71,7 @@ async function loadProfile(data) {
         <div id="textbox">
 
             <label for="userAboutMe">About Me:</label>
-            <textarea class="textarea" id="userAboutMe"   placeholder="What would you like the organizers to know about you?" id="personal_info" value="${data.about}"disabled></textarea>
+            <textarea class="textarea" id="userAboutMe"   placeholder="What would you like the organizers to know about you?" id="personal_info"disabled> ${data.about}</textarea>
             <p id="result2"></p>
 
         </div>
@@ -111,15 +108,7 @@ async function saveChanges() {
         .then(data => {
         
           
-    // fetch('http://localhost:8080/current-user', {
-    //     method: 'GET',
-    //     headers: {
-    //     'Content-Type': 'application/json',
-    //             },
-    //     })
-    // .then(response => response.json())
-    // .then(data =>{
-      console.log(data);
+
       console.log(data);
       student_id = data;
         
@@ -150,11 +139,6 @@ async function saveChanges() {
     });
 
 
-
-    console.log("2hello");
-    console.log('22can');
-    console.log('222you see this');
-
     if(submitValidation()) {
 
 
@@ -163,10 +147,6 @@ async function saveChanges() {
         const email = document.getElementById('email');
         const phoneNum = document.getElementById('phoneNum');
 
-
-        // console.log("hello");
-        // console.log('can');
-        // console.log('you see this');
         
 
         // Disable the text boxes after saving changes
@@ -277,23 +257,6 @@ function enableEdit() {
     countText2();
 
 }
-
-// function saveChanges() {
-
-//     // Disable the text boxes after saving changes
-//     document.getElementById('fname').disabled = false;
-//     document.getElementById('lname').disabled = false;
-//     document.getElementById('email').disabled = false;
-//     document.getElementById('phoneNum').disabled = false;
-
-//     // Disable the Save changes button
-//     document.querySelector('.saveChangesBtn').disabled = true;
-// }
-
-
-
-
-
 var count = document.getElementById("userSkills");
 var result = document.getElementById("result");
 var finalTextLength;
@@ -570,4 +533,7 @@ function validateInputs() {
         return true;
     }
 
-} 
+} function callFunctions(){
+    getCurrent();
+    getUser();
+}
