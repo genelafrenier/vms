@@ -670,10 +670,10 @@ function populate_pending(data){
         `
         <div class="pending_container" id="${r.eventId}" >
         <!--            placeholder  vvv -->
-        <div class="volunteer_name">${r.eventId} ${r.firstName} ${r.lastName}</div>
+        <div class="volunteer_name">${r.firstName} ${r.lastName}</div>
         <div class="avg_rating"> /5</div>
         <div class="view_profile">
-            <button id="btn_profile" onclick="view_profile()">View Profile</button>
+            <button id="btn_profile" onclick="view_profile(${r.id})">View Profile</button>
         </div>
         <div class="approve_deny">
             <button id="btn_approve${r.id}" onclick="approve(${r.id},${r.studentId}, ${r.eventId})">Approve</button>
@@ -681,21 +681,19 @@ function populate_pending(data){
         </div>
     </div>
     <!-- view profile popup -->
-    <div class="profile_popup" id="profile_popup">
+    <div class="profile_popup" id="profile_popup${r.id}">
         <div class="row">
             <div class="column">
                 <div class="profile_container">
                     <div class="header">Profile</div>
-                    <div class="volunteer_name">Volunteer Name</div>
+                    <div class="volunteer_name">${r.firstName} ${r.lastName}</div>
                     <div class="volunteer_avg_rating"></div>
                 </div>
                 <div class="column">
                     <div class="skills_container">
                         <div class="header">Skills</div>
                         <!-- placeholder           vvvvvvvvvvv -->
-                        <div class="profile_skills">+ chasier
-                            + supply management
-                            + tech savvy</div>
+                        <div class="profile_skills">    ${r.skills}    </div>
                         
                     </div>  
                 </div>
@@ -703,7 +701,7 @@ function populate_pending(data){
             <div class="row">
                 <div class="event_history_container">
                     <div class="header">Event History</div>
-                    <button type="button" class="close_btn" onclick="close_profile()">&times;</button>
+                    <button type="button" class="close_btn" onclick="close_profile(${r.id})">&times;</button>
                     <div class="previous_events_container">
                         <!-- where list of previous events go -->
                     </div>
