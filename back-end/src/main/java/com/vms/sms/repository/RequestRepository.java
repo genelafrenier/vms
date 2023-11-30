@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.vms.sms.model.Event;
 import com.vms.sms.model.RequestDetails;
-import com.vms.sms.model.User;
 
 public interface RequestRepository extends CrudRepository<Requests, Integer> {
 

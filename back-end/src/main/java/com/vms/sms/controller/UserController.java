@@ -12,8 +12,6 @@ import com.vms.sms.repository.UserRepository;
 import java.util.Optional;
 
 import jakarta.servlet.http.HttpSession;
-import lombok.Getter;
-import lombok.Setter;
 
 @RestController
 public class UserController {
