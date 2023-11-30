@@ -1,4 +1,7 @@
-
+function callFunctions(){
+    getCurrent();
+    getUser();
+}
 async function getUser() {
     fetch('/current', {
       method: 'GET',
@@ -61,7 +64,7 @@ async function loadProfile(data) {
         </div>
         <div id="textbox">
             <label for="userSkills">Skills:</label>
-            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" "disabled> ${data.skills}</textarea>
+            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled> ${data.skills}</textarea>
             <p class="adjustResult" id="result"></p>
 
         </div>
@@ -84,19 +87,14 @@ async function loadProfile(data) {
 async function saveChanges() {
     
     
-    // var first = document.getElementById('fname').value;
-    // var last = document.getElementById('lname').value;
-    // var newemail = document.getElementById('email').value;
-    // var newphone = document.getElementById('phoneNum').value;
-    // var newskills = document.getElementById('userSkills').value;
-    // var newabout = document.getElementById('userAboutMe').value;
+    var first = document.getElementById('fname').value;
+    var last = document.getElementById('lname').value;
+    var newemail = document.getElementById('email').value;
+    var newphone = document.getElementById('phoneNum').value;
+    var newskills = document.getElementById('userSkills').value;
+    var newabout = document.getElementById('userAboutMe').value;
 
-    var first = document.getElementById('fname');
-    var last = document.getElementById('lname');
-    var newemail = document.getElementById('email');
-    var newphone = document.getElementById('phoneNum');
-    var newskills = document.getElementById('userSkills');
-    var newabout = document.getElementById('userAboutMe');
+  
 
     fetch('/current-user', {
         method: 'GET',
@@ -533,7 +531,4 @@ function validateInputs() {
         return true;
     }
 
-} function callFunctions(){
-    getCurrent();
-    getUser();
-}
+} 
