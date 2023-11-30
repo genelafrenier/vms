@@ -61,7 +61,7 @@ async function loadProfile(data) {
         </div>
         <div id="textbox">
             <label for="userSkills">Skills:</label>
-            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" "disabled> ${data.skills}</textarea>
+            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled>${data.skills}</textarea>
             <p class="adjustResult" id="result"></p>
 
         </div>
@@ -71,10 +71,11 @@ async function loadProfile(data) {
         <div id="textbox">
 
             <label for="userAboutMe">About Me:</label>
-            <textarea class="textarea" id="userAboutMe"   placeholder="What would you like the organizers to know about you?" id="personal_info"disabled> ${data.about}</textarea>
+            <textarea class="textarea" id="userAboutMe"  placeholder="What would you like the organizers to know about you?" id="personal_info" disabled>${data.about}</textarea>
             <p id="result2"></p>
 
         </div>
+
                 
         <button type="submit" onclick="saveChanges()" class="saveChangesBtn" disabled>Save Changes</button>
 
