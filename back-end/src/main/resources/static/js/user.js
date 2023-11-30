@@ -20,8 +20,6 @@ async function getUser() {
   }
 async function loadProfile(data) {
     console.log(JSON.stringify(data));
-    console.log(JSON.stringify(data));
-    console.log(JSON.stringify(data));
     let html = `
     <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
 
@@ -64,7 +62,7 @@ async function loadProfile(data) {
         </div>
         <div id="textbox">
             <label for="userSkills">Skills:</label>
-            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" value="${data.skills}"disabled></textarea>
+            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled>  ${data.skills}  </textarea>
             <p class="adjustResult" id="result"></p>
 
         </div>
@@ -74,18 +72,17 @@ async function loadProfile(data) {
         <div id="textbox">
 
             <label for="userAboutMe">About Me:</label>
-            <textarea class="textarea" id="userAboutMe"   placeholder="What would you like the organizers to know about you?" id="personal_info" value="${data.about}"disabled></textarea>
+            <textarea class="textarea" id="userAboutMe"   placeholder="What would you like the organizers to know about you?" id="personal_info" disabled>  ${data.about}  </textarea>
             <p id="result2"></p>
 
         </div>
                 
-        <button type="button" onclick="saveChanges()" class="saveChangesBtn" disabled>Save Changes</button>
+        <button type="button" onclick="changes()" class="saveChangesBtn" disabled>Save Changes</button>
 
     </form>`;
     document.getElementById("aboutme").innerHTML = html;
 }
-async function saveChanges() {
-    
+function changes() {
     
     var first = document.getElementById('fname').value;
     var last = document.getElementById('lname').value;
@@ -101,19 +98,9 @@ async function saveChanges() {
         })
         .then(response => response.json())
         .then(data => {
-        
-          
-    // fetch('http://localhost:8080/current-user', {
-    //     method: 'GET',
-    //     headers: {
-    //     'Content-Type': 'application/json',
-    //             },
-    //     })
-    // .then(response => response.json())
-    // .then(data =>{
-      console.log(data);
-      console.log(data);
-      student_id = data;
+                    console.log(data);
+                    console.log(data);
+                    student_id = data;
         
     var data = {
         username: student_id,
@@ -126,7 +113,6 @@ async function saveChanges() {
         about: newabout
     };
     console.log(JSON.stringify(data));
-
     fetch('http://localhost:8080/update?username='+ student_id, {
         method: 'PUT',
         credentials: 'include',
@@ -140,41 +126,37 @@ async function saveChanges() {
     .catch((error) => {
       console.error('Error:', error);
     });
+    window.location.href = "user.html"
+    // if(submitValidation()) {
+    //     // Disable the text boxes after saving changes
+    //     document.getElementById('fname').disabled = true;
+    //     document.getElementById('lname').disabled = true;
+    //     document.getElementById('email').disabled = true;
+    //     document.getElementById('phoneNum').disabled = true;
+    //     document.getElementById('userSkills').disabled = true;
+    //     document.getElementById('userAboutMe').disabled = true;
 
-    if(submitValidation()) {
-
-
+    //     // Disable the Save changes button
+    //     document.querySelector('.saveChangesBtn').disabled = true;
         
+    //     setDefault(fname);
+    //     setDefault(lname);
+    //     setDefault(email);
+    //     setDefault(phoneNum);
 
-        // Disable the text boxes after saving changes
-        document.getElementById('fname').disabled = true;
-        document.getElementById('lname').disabled = true;
-        document.getElementById('email').disabled = true;
-        document.getElementById('phoneNum').disabled = true;
-        document.getElementById('userSkills').disabled = true;
-        document.getElementById('userAboutMe').disabled = true;
+    // } else {
 
-        // Disable the Save changes button
-        document.querySelector('.saveChangesBtn').disabled = true;
-        
-        setDefault(fname);
-        setDefault(lname);
-        setDefault(email);
-        setDefault(phoneNum);
+    //     // Continues to enable the text boxes until the user passes all input validation
+    //     document.getElementById('fname').disabled = false;
+    //     document.getElementById('lname').disabled = false;
+    //     document.getElementById('email').disabled = false;
+    //     document.getElementById('phoneNum').disabled = false;
+    //     document.getElementById('userSkills').disabled = false;
+    //     document.getElementById('userAboutMe').disabled = false;
 
-    } else {
-
-        // Continues to enable the text boxes until the user passes all input validation
-        document.getElementById('fname').disabled = false;
-        document.getElementById('lname').disabled = false;
-        document.getElementById('email').disabled = false;
-        document.getElementById('phoneNum').disabled = false;
-        document.getElementById('userSkills').disabled = false;
-        document.getElementById('userAboutMe').disabled = false;
-
-        // Enable the Save changes button
-        document.querySelector('.saveChangesBtn').disabled = false;
-    }
+    //     // Enable the Save changes button
+    //     document.querySelector('.saveChangesBtn').disabled = false;
+    // }
 }
 function getCurrent() {
     fetch('http://localhost:8080/current-user', {

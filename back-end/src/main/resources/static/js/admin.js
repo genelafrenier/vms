@@ -16,6 +16,7 @@ async function getUser() {
       });
   }
   async function checklogin(data) {
+    console.log(JSON.stringify(data));
     const userRole = await getRole();
     let html = `<form id="form">
                     <div class="row">
@@ -76,9 +77,9 @@ async function getUser() {
                                         
                                         </div>
                                         <div>
-                                        <div class="other_head">Other:</div>
+                                        <div class="other_head">About:</div>
                                     
-                                    <input type="text" class="input" id="other" name="other" value="${data.username}" placeholder="(optional)" disabled>
+                                    <input type="text" class="input" id="other" name="other" value="${data.about}" placeholder="(optional)" disabled>
                                     <hr>
                                     </div>
                                     </div>
@@ -88,7 +89,7 @@ async function getUser() {
                     </div>
                     <div class="btns_container">
                         <button type="button" class="edit_btn" onclick="enable_edit()">Edit</button>
-                    <button type="submit" onclick="save_changes()" class="save_changes_btn" disabled>Save Changes</button>
+                        <button type="submit" onclick="save_changes()" class="save_changes_btn" disabled>Save Changes</button>
                     </div>
                     
                 </form>
@@ -96,7 +97,50 @@ async function getUser() {
                     
     document.getElementById("profileData").innerHTML = html;
 }
+function pushChanges(){
+    
+    var first = document.getElementById('fname').value;
+    var last = document.getElementById('lname').value;
+    var newemail = document.getElementById('email').value;
+    var newphone = document.getElementById('phone').value;
+    var newabout = document.getElementById('other').value;
+    var newdept = document.getElementById('dep').value;
+    fetch('/current-user', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+        .then(response => response.json())
+        .then(data => {
+    console.log(JSON.stringify(data));
+    organizer_id = data;
+        
+    var data = {
+        username: organizer_id,
+        firstName: first,
+        dept: newdept,
+        lastName: last,
+        email: newemail,
+        phone: newphone,
+        about: newabout
+    };
+    console.log(JSON.stringify(data));
+    fetch('http://localhost:8080/update?username='+ organizer_id, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+                    },
+        body: JSON.stringify(data)
+    })
 
+    })//.then
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    //window.location.href = "admin.html";
+}
 // *** editing profile info *** //
 function enable_edit(){
     //enable text boxes
@@ -161,6 +205,7 @@ function save_changes(){
         set_default(lname);
         set_default(email);
         set_default(phone);
+        pushChanges();//push edits into database
 
     } else {
 
@@ -551,6 +596,7 @@ async function get_pending(id) {
     .catch((error) => {
       console.error('Error:', error);
     });
+    getUser();
 }
 
 //populate a pending row for EACH volunteer for each event
