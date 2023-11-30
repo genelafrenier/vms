@@ -141,6 +141,9 @@ async function saveChanges() {
 
     if(submitValidation()) {
 
+
+        
+
         // Disable the text boxes after saving changes
         document.getElementById('fname').disabled = true;
         document.getElementById('lname').disabled = true;
@@ -152,10 +155,10 @@ async function saveChanges() {
         // Disable the Save changes button
         document.querySelector('.saveChangesBtn').disabled = true;
         
-        // setDefault(fname);
-        // setDefault(lname);
-        // setDefault(email);
-        // setDefault(phoneNum);
+        setDefault(fname);
+        setDefault(lname);
+        setDefault(email);
+        setDefault(phoneNum);
 
     } else {
 
