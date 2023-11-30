@@ -20,28 +20,14 @@
       });
   </script>
 
-  <div class="row">
+  <div class="row" id ="outer-frame">
     <div class="col-75">
       <div class="container" id="event-frame">
         <!-- Populate event data here-->
       </div>
       
     </div> <!---End col75-->
-    <div class="col-25"> 
-      <div class="apply">
-        <button class="button" onclick="getUser()"><b>Apply</b></button>
-  
-        <h6 style="font-size: 27px">Have a question?</h6>
-        <p style="font-size: 12px">Ask any questions during application</p>
-  
-        <img src="images/career center logo transparent.png" alt="default picture" style="width: 150px; height: auto;">
-  
-        <h6 style="font-size: 27px">Organizer Name</h6>
-        <p style="font-size: 12px">Department/Group</p>
-        <p style="font-size: 12px">Organizer@csus.edu</p>
-  
-      </div>
-    </div>
+
     <!--Apply Form-->
     <div class="form-container" id="applyForm">
       <!-- Display form if logged in//details at checklogin() in eventDetail.js-->
@@ -64,6 +50,7 @@
         .then(response => response.json())
         .then(data =>{
         console.log(data);
+        getOrganizer(data.organizerId);
         populateEvent(data);
         })
         .catch((error) => {
@@ -72,6 +59,47 @@
     }
 
     getEvent(getUrl);
+
+    function getOrganizer(organizerId){
+      const url = 'http://localhost:8080/user-details?username=' + organizerId;
+      fetch(url, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json',
+                },
+        })
+        .then(response => response.json())
+        .then(data =>{
+        console.log(data);
+        populateOrganizer(data);
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+    }
+
+    function populateOrganizer(data){
+      let organizerData = "";
+      organizerData += 
+      `
+      <div class="col-25"> 
+      <div class="apply">
+        <button class="button" onclick="getUser()"><b>Apply</b></button>
+  
+        <h6 style="font-size: 27px">Have a question?</h6>
+        <p style="font-size: 12px">Ask any questions during application</p>
+  
+        <img src="images/career center logo transparent.png" alt="default picture" style="width: 150px; height: auto;">
+  
+        <h6 style="font-size: 27px">${data.firstName} ${data.lastName}</h6>
+        <p style="font-size: 12px">${data.dept}</p>
+        <p style="font-size: 12px">${data.email}</p>
+  
+      </div>
+    </div>
+      `
+      document.getElementById("outer-frame").innerHTML += organizerData;
+    }
     
     function populateEvent(data){
         let tab = "";

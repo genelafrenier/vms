@@ -73,6 +73,28 @@ public class UserController {
 }
  // end code here
 
+ //endpoint to return user details with given username
+    @GetMapping("/user-details")
+    public @ResponseBody UserDetails userDetails(@RequestParam("username") int username) {
+        Optional<User> optionalUser = userRepository.findByUsername(username);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            UserDetails userDetails = new UserDetails();
+            userDetails.setFirstName(user.getFirstName());
+            userDetails.setLastName(user.getLastName());
+            userDetails.setUsername(user.getUsername());
+            userDetails.setAbout(user.getAbout());
+            userDetails.setDept(user.getDept());
+            userDetails.setEmail(user.getEmail());
+            userDetails.setPhone(user.getPhone());
+            userDetails.setRole(user.getRole());
+            userDetails.setSkills(user.getSkills());
+            return userDetails;
+        } else {
+            return null;
+        }
+    }
+
     //endpoint for user creation functionality on registration page
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody User user) {
