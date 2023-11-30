@@ -25,21 +25,26 @@
     height: 100%;
     width: 33%;
     margin-top: 0px;
-}
-
-.rating_container .ratings {
-    justify-content: center;
-    display: flex;
-}
-
-.rating_container span{
+    text-align: center;
     font-size: 28px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+}
+
+.rating_container .rate_volunteer input {
+    font-size: 28px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 400;
+    text-align: right;
+    background-color: transparent;
+    border: none;
 }
 
 .rating_container .comments {
     height: 100%;
     width: 25%;
     margin-top: 10px;
+    background-color: transparent;
 }
 
 .rating_container textarea {
