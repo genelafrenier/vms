@@ -1,4 +1,7 @@
-
+function callFunctions(){
+    getCurrent();
+    getUser();
+}
 async function getUser() {
     fetch('/current', {
       method: 'GET',
@@ -16,6 +19,8 @@ async function getUser() {
       });
   }
 async function loadProfile(data) {
+    console.log(JSON.stringify(data));
+    console.log(JSON.stringify(data));
     console.log(JSON.stringify(data));
     let html = `
     <button type="button" class="editBtn" onclick="enableEdit()">Edit</button>
@@ -59,7 +64,7 @@ async function loadProfile(data) {
         </div>
         <div id="textbox">
             <label for="userSkills">Skills:</label>
-            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" disabled>  ${data.skills}  </textarea>
+            <textarea class="textarea" id="userSkills"  placeholder="Examples: Problem solving, teamwork, communication, leadership..." id="skills" value="${data.skills}"disabled></textarea>
             <p class="adjustResult" id="result"></p>
 
         </div>
@@ -69,7 +74,7 @@ async function loadProfile(data) {
         <div id="textbox">
 
             <label for="userAboutMe">About Me:</label>
-            <textarea class="textarea" id="userAboutMe"   placeholder="What would you like the organizers to know about you?" id="personal_info" disabled>  ${data.about}  </textarea>
+            <textarea class="textarea" id="userAboutMe"   placeholder="What would you like the organizers to know about you?" id="personal_info" value="${data.about}"disabled></textarea>
             <p id="result2"></p>
 
         </div>
@@ -104,9 +109,19 @@ async function saveChanges() {
         })
         .then(response => response.json())
         .then(data => {
-                    console.log(data);
-                    console.log(data);
-                    student_id = data;
+        
+          
+    // fetch('http://localhost:8080/current-user', {
+    //     method: 'GET',
+    //     headers: {
+    //     'Content-Type': 'application/json',
+    //             },
+    //     })
+    // .then(response => response.json())
+    // .then(data =>{
+      console.log(data);
+      console.log(data);
+      student_id = data;
         
     var data = {
         username: student_id,
@@ -119,6 +134,7 @@ async function saveChanges() {
         about: newabout
     };
     console.log(JSON.stringify(data));
+
     fetch('http://localhost:8080/update?username='+ student_id, {
         method: 'PUT',
         credentials: 'include',
@@ -132,6 +148,12 @@ async function saveChanges() {
     .catch((error) => {
       console.error('Error:', error);
     });
+
+
+
+    console.log("2hello");
+    console.log('22can');
+    console.log('222you see this');
 
     if(submitValidation()) {
 
@@ -155,27 +177,27 @@ async function saveChanges() {
         document.getElementById('userSkills').disabled = true;
         document.getElementById('userAboutMe').disabled = true;
 
-    //     // Disable the Save changes button
-    //     document.querySelector('.saveChangesBtn').disabled = true;
+        // Disable the Save changes button
+        document.querySelector('.saveChangesBtn').disabled = true;
         
-    //     setDefault(fname);
-    //     setDefault(lname);
-    //     setDefault(email);
-    //     setDefault(phoneNum);
+        setDefault(fname);
+        setDefault(lname);
+        setDefault(email);
+        setDefault(phoneNum);
 
-    // } else {
+    } else {
 
-    //     // Continues to enable the text boxes until the user passes all input validation
-    //     document.getElementById('fname').disabled = false;
-    //     document.getElementById('lname').disabled = false;
-    //     document.getElementById('email').disabled = false;
-    //     document.getElementById('phoneNum').disabled = false;
-    //     document.getElementById('userSkills').disabled = false;
-    //     document.getElementById('userAboutMe').disabled = false;
+        // Continues to enable the text boxes until the user passes all input validation
+        document.getElementById('fname').disabled = false;
+        document.getElementById('lname').disabled = false;
+        document.getElementById('email').disabled = false;
+        document.getElementById('phoneNum').disabled = false;
+        document.getElementById('userSkills').disabled = false;
+        document.getElementById('userAboutMe').disabled = false;
 
-    //     // Enable the Save changes button
-    //     document.querySelector('.saveChangesBtn').disabled = false;
-    // }
+        // Enable the Save changes button
+        document.querySelector('.saveChangesBtn').disabled = false;
+    }
 }
 
 function getCurrent() {
@@ -549,8 +571,3 @@ function validateInputs() {
     }
 
 } 
-}
-function callFunctions(){
-    getCurrent();
-    getUser();
-}
