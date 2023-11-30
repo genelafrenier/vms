@@ -1,7 +1,4 @@
-function callFunctions(){
-    getCurrent();
-    getUser();
-}
+
 async function getUser() {
     fetch('/current', {
       method: 'GET',
@@ -77,19 +74,28 @@ async function loadProfile(data) {
 
         </div>
                 
-        <button type="button" onclick="changes()" class="saveChangesBtn" disabled>Save Changes</button>
+        <button type="submit" onclick="saveChanges()" class="saveChangesBtn" disabled>Save Changes</button>
 
     </form>`;
     document.getElementById("aboutme").innerHTML = html;
 }
-function changes() {
+async function saveChanges() {
     
-    var first = document.getElementById('fname').value;
-    var last = document.getElementById('lname').value;
-    var newemail = document.getElementById('email').value;
-    var newphone = document.getElementById('phoneNum').value;
-    var newskills = document.getElementById('userSkills').value;
-    var newabout = document.getElementById('userAboutMe').value;
+    
+    // var first = document.getElementById('fname').value;
+    // var last = document.getElementById('lname').value;
+    // var newemail = document.getElementById('email').value;
+    // var newphone = document.getElementById('phoneNum').value;
+    // var newskills = document.getElementById('userSkills').value;
+    // var newabout = document.getElementById('userAboutMe').value;
+
+    var first = document.getElementById('fname');
+    var last = document.getElementById('lname');
+    var newemail = document.getElementById('email');
+    var newphone = document.getElementById('phoneNum');
+    var newskills = document.getElementById('userSkills');
+    var newabout = document.getElementById('userAboutMe');
+
     fetch('/current-user', {
         method: 'GET',
         headers: {
@@ -126,15 +132,28 @@ function changes() {
     .catch((error) => {
       console.error('Error:', error);
     });
-    window.location.href = "user.html"
-    // if(submitValidation()) {
-    //     // Disable the text boxes after saving changes
-    //     document.getElementById('fname').disabled = true;
-    //     document.getElementById('lname').disabled = true;
-    //     document.getElementById('email').disabled = true;
-    //     document.getElementById('phoneNum').disabled = true;
-    //     document.getElementById('userSkills').disabled = true;
-    //     document.getElementById('userAboutMe').disabled = true;
+
+    if(submitValidation()) {
+
+
+        const fname = document.getElementById('fname');
+        const lname = document.getElementById('lname');
+        const email = document.getElementById('email');
+        const phoneNum = document.getElementById('phoneNum');
+
+
+        // console.log("hello");
+        // console.log('can');
+        // console.log('you see this');
+        
+
+        // Disable the text boxes after saving changes
+        document.getElementById('fname').disabled = true;
+        document.getElementById('lname').disabled = true;
+        document.getElementById('email').disabled = true;
+        document.getElementById('phoneNum').disabled = true;
+        document.getElementById('userSkills').disabled = true;
+        document.getElementById('userAboutMe').disabled = true;
 
     //     // Disable the Save changes button
     //     document.querySelector('.saveChangesBtn').disabled = true;
@@ -158,6 +177,7 @@ function changes() {
     //     document.querySelector('.saveChangesBtn').disabled = false;
     // }
 }
+
 function getCurrent() {
     fetch('http://localhost:8080/current-user', {
         method: 'GET',
@@ -261,7 +281,8 @@ result.textContent = 0 + "/" + limit;
 function countText() {
     var flip5;
 
-    count.addEventListener("input", function(){
+    // count.addEventListener("input", function(){
+    document.addEventListener("input", function(){
         var textLength = count.value.length;
         
 
@@ -309,7 +330,8 @@ result2.textContent = 0 + "/" + limit;
 function countText2() {
     var flip6;
 
-    count2.addEventListener("input", function(){
+    // count2.addEventListener("input", function(){
+    document.addEventListener("input", function(){
         var textLength2 = count2.value.length;
 
         // Uncomment to see console on chrome to verify it works
@@ -361,10 +383,15 @@ function submitValidation() {
     var isTrue;
 
     // Makes it so that the user does not make changes by hitting enter key, so they have to click save changes button
-    form.addEventListener('submit', e => {
-        e.preventDefault();
+    // form.addEventListener('', e => {
+    //     e.preventDefault();
         
-        // isTrue = validateInputs();
+    //     // isTrue = validateInputs();
+    // })
+
+    //makes it so the user does not make changes by hitting the enter key
+    document.getElementById("form").addEventListener("submit", e => {
+        e.preventDefault();
     })
 
     isTrue = validateInputs();
@@ -379,7 +406,8 @@ function submitValidation() {
 
 
 // If a input validation fails it gives the input a red border and an error message
-const setError = (element, message) => {
+// const setError = (element, message) => {
+function setError(element, message) {
     console.log(message);
 
     const inputControl = element.parentElement;
@@ -391,7 +419,8 @@ const setError = (element, message) => {
 }
 
 // If a input validation passes it gives the input box a green border to let a user know that what they put in is good
-const setSuccess = element => {
+// const setSuccess = element => {
+function setSuccess(element) {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
@@ -401,7 +430,8 @@ const setSuccess = element => {
 }
 
 // After user passes all input validation, this sets the green borders back to no border color
-const setDefault = element => {
+// const setDefault = element => {
+function setDefault(element) {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
@@ -411,18 +441,29 @@ const setDefault = element => {
 }
 
 // User's email has to match this given format
-const validEmail = email => {
+// const validEmail = email => {
+function validEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
 
 // Phone number has to match this given format 123-456-7890 or 1234567890
-const validPhoneNum = phoneNum => {
+// const validPhoneNum = phoneNum => {
+function validPhoneNum(phoneNum) {
     const checkPhoneNum = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/;
     return checkPhoneNum.test(String(phoneNum).toLowerCase());
 }
 
-const validateInputs = () => {
+// const validateInputs = () => {
+function validateInputs() {
+
+
+    const form = document.getElementById('form');
+    const fname = document.getElementById('fname');
+    const lname = document.getElementById('lname');
+    const email = document.getElementById('email');
+    const phoneNum = document.getElementById('phoneNum');
+
     
     // Gets user data and gets rid of the white spaces if any
     const fnameValue = fname.value.trim();
@@ -508,3 +549,8 @@ const validateInputs = () => {
     }
 
 } 
+}
+function callFunctions(){
+    getCurrent();
+    getUser();
+}
