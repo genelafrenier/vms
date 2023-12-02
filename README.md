@@ -16,7 +16,7 @@ To Setup Spring Server:
     a. Ensure that credentials in these fields match the login info for MySQL Server
         spring.datasource.username=root
         spring.datasource.password=password
-5. Run project from Spring Boot Dashboard extension, or SmsApplication.java
+5. Run project from Spring Boot Dashboard extension, or SmsApplication.java **ENSURE JDK 21 is installed on system**
 6. Server will run on http://localhost:8080
 7. Test everything is working by downloading Postman
     a. Send POST request to http://localhost:8080/event in JSON
